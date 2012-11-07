@@ -1,0 +1,29 @@
+Es soll ein Benutzer-Objekt implementiert werden, dass den Benutzer einer
+Website repräsentiert. Jeder Benutzer hat eine (eindeutige) unveränderliche ID,
+die bereits vor dem Instantiieren der Objektinstanz vorliegen muss. Ein Benutzer
+hat darüber hinaus drei Eigenschaften, und zwar einen Realnamen, eine
+E-Mail-Adresse und einen Screen-Namen. 
+
+Die folgenden Anforderungen müssen erfüllt werden:
+
+- Realname und E-Mail-Adresse müssen immer vorhanden sein
+- Der Screen-Name ist optional
+- Die E-Mail-Adresse und der Screen-Name müssen änderbar sein
+- Der Realname darf nicht veränderbar sein
+- Falls kein Screen-Name gesetzt ist, wird der Realname als Screen-Name verwendet
+
+a) Implementieren Sie eine Klasse User gemäß der obigen
+Spezifikation und unter Einhaltung der bisher vereinbarten Regeln
+so, dass die ID, der Realname, die E-Mail-Adresse und der
+Screen-Name abgefragt werden können. Ignorieren Sie dabei für diese
+gesamte Aufgabe jegliche Validierungen
+
+b) Implementieren Sie ein Steuerprogramm, das zwei Benutzerobjekte mit den
+IDs 1 und 2 erzeugt. Demonstrieren Sie mit diesem Programm, dass für den
+Benutzer 1 der Realname und für den Benutzer 2 ein zuvor gesetzter Wert
+als Screen-Name verwendet werden
+
+c) Bisher war unklar, ob und wie ein einmal gesetzter Screen-Name gelöscht
+werden kann, so dass wieder der Realname als Screen-Name verwendet wird.
+Erläutern Sie, weshalb diese Unklarheit besteht und machen Sie einen 
+Lösungsvorschlag, wie man dafür möglichst einfach Abhilfe schaffen könnte

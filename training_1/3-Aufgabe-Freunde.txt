@@ -1,0 +1,37 @@
+Für ein soziales Netzwerk sollen Freundschaftsbeziehungen zwischen Benutzern 
+abgebildet werden. Implementieren Sie dazu die Klassen User und FriendRequest
+mit den nachfolgenden öffentlichen Schnittstellen:
+
+class User
+{
+    public function addFriendRequest(FriendRequest $friendRequest)
+    public function confirm(FriendRequest $friendRequest)
+    public function decline(FriendRequest $friendRequest)
+    public function removeFriend(User $friend)
+}
+
+class FriendRequest
+{
+    public function __construct(User $from, User $to)
+    public function getFrom()
+    public function getTo()
+}
+
+Beachten Sie das Single Responsibility-Prinzip und machen Sie die öffentliche
+Schnittstelle nicht größer als nötig. Insbesondere soll es nicht möglich sein,
+Freund eines Benutzers zu werden, ohne dass zuvor ein FriendRequest gesendet
+und dieser bestätigt wird.
+
+a) Schreiben Sie Steuerprogramme, die demonstrieren, dass die Klasse User
+für die beiden normalen Abläufe "Anfrage mit nachfolgender Bestätigung" und
+"Anfrage mit nachfolgender Ablehnung" korrekt funktioniert
+
+b) Listen Sie alle weiteren möglichen Abläufe inklusive aller Sonderfälle auf,
+beispielsweise "Bestätigung ohne vorherige Anfrage" oder "Entfernen eines nicht
+vorhandenen Freundes" auf. Schreiben Sie jeweils ein Steuerprogramm für jeden
+Ablauf und ergänzen Sie nach Bedarf den Code, um alle Sonderfälle richtig zu
+behandeln
+
+c) Sind Freundschaftsbeziehungen einseitig (ich bin dein Freund, du musst
+deshalb aber nicht mein Freund sein) oder zweiseitig (wenn ich dein Freund bin,
+dann wirst du automatisch auch mein Freund)? Implementieren Sie beide Varianten

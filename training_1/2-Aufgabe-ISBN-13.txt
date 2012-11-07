@@ -1,0 +1,21 @@
+Es soll ein Value Object (https://en.wikipedia.org/wiki/Value_object) erstellt 
+werden, das eine ISBN-13 repräsentiert. Eine Spezifikation dafür finden Sie auf
+https://de.wikipedia.org/wiki/ISBN. Es müssen dabei sowohl die
+Darstellungsformen mit trennendem Bindestrich als auch mit trennendem
+Leerzeichen verarbeitet werden.
+
+Achten Sie bei der Implementierung besonders darauf, dass die öffentliche
+Schnittstelle des Objekts minimal ist und dass alle Methoden kurz sind und 
+jeweils genau eine Aufgabe haben.
+
+a) Implementieren Sie eine Validierung der Gruppennummer gegen die auf Wikipedia
+hinterlegten Liste von gültigen Gruppennummern
+
+b) Implementieren Sie die Berechnung und Validierung der Prüfnummer. Schreiben
+Sie ein Steuerprogramm, das demonstriert, dass eine ISBN mit einer verfälschten
+Ziffer nicht akzeptiert wird, während die gültige ISBN 978-3-86680-192-9
+akzeptiert wird
+
+c) Wie können zwei ISBN-Objekte vergleichen werden? Schreiben Sie ein
+Steuerprogramm, dass zuerst zwei verschiedene ISBNs und dann zwei gleiche ISBNs
+vergleicht
