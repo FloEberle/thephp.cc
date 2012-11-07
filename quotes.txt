@@ -1,0 +1,23 @@
+Quotes by Stefan Priebsch
+--------------------------
+
+- PHP gibt Freiheit. Auf Freiheit folgt Verantwortung.
+- Programmieren ist, ein Problem zu lösen.
+- PHP ist die Borg. (hybrid)
+- Separation of Concerns: Bier trinken kann ich, herstellen nicht.
+- Wir machen hier Textverarbeitung (http)
+- Eine Brutstätte für Terror, Chaos und Tod. [Martin Fowler]
+- Objekte die klein und dumm sind führen zu Wiederverwendbarkeit.
+- Prozedurale Programmierung: Da bist du wartungsmässig am Arsch!
+- Sehr viele Fehler in der Softwarewelt basieren auf Annahmen.
+- Man fängt als guter Informatiker ja mit 0 zu zählen an.
+- Exception Handling ist "goto".
+- Das Schlimmste was man tun kann, ist eine Methode öffentlich zu machen.
+- Abhängigkeiten sind Scheisse, aber es geht nicht ohne sie.
+- Wir haben den schwarzen Peter einfach rausgeschoben. (DI)
+- Replace Conditions by Polymorphism.
+- Code lügt nicht.
+- Jetzt wirds ein bisschen esotherisch.
+- Code smells: If it smells, change it. [Martin Fowler]
+- Code ist ein Spiegel der Unternehmenskultur.
+- Dependency Injection ist das Wichtigste überhaupt.
