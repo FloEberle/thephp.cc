@@ -25,9 +25,9 @@ class User
     private $email;
     
     /**
-     * @var int $id
-     * @var string $realName
-     * @var string $email
+     * @param int $id
+     * @param string $realName
+     * @param string $email
      */
     public function __construct($id, $realName, $email)
     {
@@ -35,17 +35,17 @@ class User
         $this->realName = $realName;
         $this->email = $email;
     }
-    
+
     /**
-     * @var string $screenName
+     * @param string $screenName
      */
     public function setScreenName($screenName)
     {
         $this->screenName = $screenName;
     }
-    
+
     /**
-     * @return int;
+     * @return int
      */
     public function getId()
     {
