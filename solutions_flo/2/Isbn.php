@@ -22,22 +22,25 @@ final class Isbn
 
     /**
      * @param $isbn
-     * @throws InvalidIsbnException
+     * @throws ValidateException
      */
     private function setIsbn($isbn)
     {
-        //Validation
         /**
          * @todo Auslagern / Refactoren, z.B. Validator Obj, setter ist ziemlich ueberladen imho.
          */
+        if(!$this->isValidGroupNr($isbn)){
+            throw new ValidateException('Ungueltige ISBN Gruppennummer ISBN='.$isbn);
+        }
+
         $isbn = str_replace('-', '', $isbn);
         $isbn = str_replace(' ', '', $isbn);
         if(strlen($isbn) !== 13){
-            throw new InvalidIsbnException('Laenge der ISBN ist nicht 13. ISBN='.$isbn);
+            throw new ValidateException('Laenge der ISBN ist nicht 13. ISBN='.$isbn);
             
         }
         if(!ctype_digit($isbn)){
-            throw new InvalidIsbnException('Nicht alle Zeichen der ISBN sind Zahlen. ISBN='.$isbn);
+            throw new ValidateException('Nicht alle Zeichen der ISBN sind Zahlen. ISBN='.$isbn);
         }
         $sum = 0;
         for ($i = 0; $i < 12; $i++){
@@ -55,11 +58,55 @@ final class Isbn
         $expected = (int) substr($isbn, -1);
                 
         if($checksum != $expected){
-            throw new InvalidIsbnException('Ungueltige Checksumme der ISBN. checksum='.$checksum.', expected='.$expected.' ISBN='.$isbn);
+            throw new ValidateException('Ungueltige Checksumme der ISBN. checksum='.$checksum.', expected='.$expected.' ISBN='.$isbn);
         }
-        //Set
+
+
         $this->isbn = (int) $isbn;
     }
-    
-    // http://php.net/manual/en/language.oop5.object-comparison.php
+
+
+    private function isValidGroupNr($isbn)
+    {
+        $length = 0;
+        $length = strpos($isbn,'-');
+        if($length === 0){
+            $length = strpos($isbn,' ');
+        }
+
+        if($length === 0 || $length > 5){
+            return false;
+        }
+
+        $group = (int) substr($isbn,0,$length);
+
+        switch($length){
+            case 1:
+                if(($group >= 0 && $group <=5) || $group == 7){
+                    return true;
+                }
+            case 2:
+                if($group >=80 && $group <=94){
+                    return true;
+                }
+            case 3:
+                if(($group >= 600 && $group <=649) || ($group >=950 && $group <= 989)){
+                    return true;
+                }
+            case 4:
+                if($group >= 9900 && $group <= 9989){
+                    return true;
+                }
+            case 5:
+                if($group >= 99900 && $group <= 99999){
+                    return true;
+                }
+        }
+
+        return false;
+    }
+
+    private function foo($isbn){
+        return false;
+    }
 }
