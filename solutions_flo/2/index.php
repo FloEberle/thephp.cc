@@ -2,8 +2,8 @@
 include 'Isbn.php';
 include 'ValidateException.php';
 
-$valid_isbns = array('978-3-86680-192-9', '978-3-49806-056-5');
-$invalid_isbns = array('5-garbage', 'sdf-23423-sdfsd', '635-5-51568-300-1', '111 1 11111 111 1');
+$valid_isbns = array('978 3 86680 192 9', '978-3-49806-056-5');
+$invalid_isbns = array('5-garbage', 'sdf-23423-sdfsd', '635-5-51568-300-15', '111 1 11111 111 1',);
 
 foreach (array_merge($valid_isbns, $invalid_isbns) as $isbn) {
 	try {

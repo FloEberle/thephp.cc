@@ -27,9 +27,18 @@ final class Isbn
     private function setIsbn($isbn)
     {
         /**
-         * @todo Auslagern / Refactoren, z.B. Validator Obj, setter ist ziemlich ueberladen imho.
+         * @todo Auslagern / Refactoren, z.B. Validator Obj, setter ist immernoch ziemlich ueberladen imho.
          */
-        if(!$this->isValidGroupNr($isbn)){
+        $groups = explode('-', $isbn, -1);
+        if(empty($groups)){
+            $groups = explode(' ', $isbn);
+        }
+
+        if(!isset($groups[1]) || !ctype_digit($groups[1])){
+            throw new ValidateException('Ungueltiges ISBN Format. ISBN='.$isbn);
+        }
+
+        if(!$this->isValidGroupNr((int) $groups[1])){
             throw new ValidateException('Ungueltige ISBN Gruppennummer ISBN='.$isbn);
         }
 
@@ -42,47 +51,47 @@ final class Isbn
         if(!ctype_digit($isbn)){
             throw new ValidateException('Nicht alle Zeichen der ISBN sind Zahlen. ISBN='.$isbn);
         }
-        $sum = 0;
-        for ($i = 0; $i < 12; $i++){
-            if($i%2 == 0){
-                $sum += (int) $isbn{$i};
-            } else {
-                $sum += 3 * (int) $isbn{$i};
-            }
-        }
-        
-        $checksum = 10 - ($sum %10);
-        if($checksum === 10){
-            $checksum = 0;
-        }
-        $expected = (int) substr($isbn, -1);
-                
-        if($checksum != $expected){
-            throw new ValidateException('Ungueltige Checksumme der ISBN. checksum='.$checksum.', expected='.$expected.' ISBN='.$isbn);
-        }
 
+        if (! $this->isValidChecksum($isbn))
+        {
+            throw new ValidateException('Ungueltige Checksumme der ISBN. ISBN=' . $isbn);
+        }
 
         $this->isbn = (int) $isbn;
     }
-
 
     /**
      * @param string $isbn
      * @return bool
      */
-    private function isValidGroupNr($isbn)
+    private function isValidChecksum($isbn)
     {
-        $length = 0;
-        $length = strpos($isbn,'-');
-        if($length === 0){
-            $length = strpos($isbn,' ');
+        $sum = 0;
+        for ($i = 0; $i < 12; $i++) {
+            if ($i % 2 == 0) {
+                $sum += (int)$isbn{$i};
+            } else {
+                $sum += 3 * (int)$isbn{$i};
+            }
         }
 
-        if($length === 0 || $length > 5){
-            return false;
+        $checksum = 10 - ($sum % 10);
+        if ($checksum === 10) {
+            $checksum = 0;
         }
+        $expected = (int)substr($isbn, -1);
 
-        $group = (int) substr($isbn,0,$length);
+        return $checksum === $expected;
+    }
+
+
+    /**
+     * @param int $group
+     * @return bool
+     */
+    private function isValidGroupNr($group)
+    {
+        $length = strlen((string) $group);
 
         switch($length){
             case 1:
