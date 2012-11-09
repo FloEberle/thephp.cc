@@ -6,7 +6,8 @@ Quotes by Stefan Priebsch
 - PHP ist die Borg. (hybrid)
 - Separation of Concerns: Bier trinken kann ich, herstellen nicht.
 - Wir machen hier Textverarbeitung (http)
-- Eine Brutstätte für Terror, Chaos und Tod. [Martin Fowler]
+- Eine Klasse, die versucht, zu viel zu tun, und keine klare Verantwortlichkeit hat,
+  ist eine hervorragende Brutst¨atte f ¨ur duplizierten Code, Chaos und Tod [Martin Fowler]
 - Objekte die klein und dumm sind führen zu Wiederverwendbarkeit.
 - Prozedurale Programmierung: Da bist du wartungsmässig am Arsch!
 - Sehr viele Fehler in der Softwarewelt basieren auf Annahmen.

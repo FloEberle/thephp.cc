@@ -21,7 +21,7 @@ final class Isbn
     }
 
     /**
-     * @param $isbn
+     * @param string $isbn
      * @throws ValidateException
      */
     private function setIsbn($isbn)
@@ -66,6 +66,10 @@ final class Isbn
     }
 
 
+    /**
+     * @param string $isbn
+     * @return bool
+     */
     private function isValidGroupNr($isbn)
     {
         $length = 0;
@@ -103,10 +107,6 @@ final class Isbn
                 }
         }
 
-        return false;
-    }
-
-    private function foo($isbn){
         return false;
     }
 }
