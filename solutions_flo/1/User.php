@@ -8,22 +8,22 @@ class User
      * @var int
      */
     private $id;
-    
+
     /**
      * @var string
      */
     private $realName;
-    
+
     /**
      * @var string
      */
     private $screenName;
-    
+
     /**
      * @var string
      */
     private $email;
-    
+
     /**
      * @param int $id
      * @param string $realName
@@ -51,26 +51,24 @@ class User
     {
         return $this->id;
     }
-    
+
     /**
-     * @return string;
+     * @return string
      */
     public function getRealName()
     {
         return $this->realName;
     }
-    
+
     /**
-     * 
-     * @return string;
+     * @return string
      */
     public function getScreenName()
     {
-        if($this->screenName == null)
+        if ($this->screenName == null)
         {
             return $this->realName;
         }
         return $this->screenName;
-    }    
+    }
 }
-

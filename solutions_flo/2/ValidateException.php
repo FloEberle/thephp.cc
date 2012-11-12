@@ -1,3 +1,10 @@
 <?php
-class ValidateException extends Exception {
+
+class ValidationException extends Exception {
+}
+
+class IsbnValidationException extends ValidationException {
+}
+
+class InvalidGroupException extends IsbnValidationException {
 }

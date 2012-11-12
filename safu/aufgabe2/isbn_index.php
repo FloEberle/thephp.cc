@@ -1,7 +1,10 @@
 <?php
 
-require_once 'isbn.php';
+require_once __DIR__ . '/isbn.php';
 
-$isbn = "006-3-86680-192-9";
-$isbn1 = new ValidationIsbn($isbn);  
-?>
+$isbnNumber = '978-3-86680-192-9';
+$isbnNumber = '978 3 86680 192 9';
+
+$isbn = new ISBN($isbnNumber);
+
+print (string) $isbn . PHP_EOL;

@@ -23,9 +23,14 @@ class ISBNValidator
     {
         $isbn = $this->normalize($isbn);
 
-        $this->validateGroup($isbn);
-
-        $this->validateDigit($isbn);
+        try {
+            $this->validateGroup($isbn);
+            $this->validateDigit($isbn);
+            return true;
+        }
+        catch (Exception $e) {
+            return false;
+        }
     }
 
     private function normalize($isbn)
@@ -41,20 +46,23 @@ class ISBNValidator
         $isbnGroup = explode("-",$isbn);
 
         try {
-            if (in_array($isbnGroup[1],$groups)==false) {
+            if (!in_array($isbnGroup[1],$groups)) {
                 throw new InvalidArgumentException('Group not valid for ISBN ' . $isbn);
             }
         }
         catch (Exception $x) {
             echo 'Exception: ' . $x->getMessage() . ' on Line ' . $x->getLine() . ' in File  ' . $x->getFile() . "\n";
-
         }
     }
 
-    // Teilaufage b
-    private function validateDigit($isbn)
+    private getDigit($isbn, $position)
     {
+        return (int) substr($isbn, $position, $position + 1);
+    }
 
+    // Teilaufage b
+    private function isChecksumValid($isbn)
+    {
         $isbn = str_replace('-', '', $isbn);
 
         $z1  = substr($isbn, 0, 1);
@@ -71,17 +79,11 @@ class ISBNValidator
         $z12 = substr($isbn, 11, 1);
         $z13 = substr($isbn, 12, 1);
 
-        $digit = (10-(($z1+$z3+$z5+$z7+$z9+$z11+3*($z2+$z4+$z6+$z8+$z10+$z12))%10))%10;
+        $checksum = ... $this->getDigit($isbn, 1) + $this->getDigit($isbn, 3) ...
 
-        try {
-            if ($digit != $z13) {
-                throw new InvalidArgumentException('Digit not valid for ISBN ' . $isbn);
-            }
-        }
-        catch (Exception $x) {
-            echo 'Exception: ' . $x->getMessage() . ' on Line ' . $x->getLine() . ' in File  ' . $x->getFile() . "\n";
+        $digit = (10-(($z1 + $z3 + $z5 + $z7 + $z9 + $z11 + 3*($z2 + $z4 + $z6 + $z8 + $z10 + $z12))%10))%10;
 
-        }
+        return ($checksum == $z13);
     }
 
     // Teilaufgabe c

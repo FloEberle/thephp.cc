@@ -1,16 +1,11 @@
 <?php
+
 final class Isbn
 {
     /**
      * @var int
      */
     private $isbn;
-    
-    /**
-     * @var string
-     */
-    private $errorDescription;
-
 
     /**
      * @param string $isbn
@@ -18,6 +13,11 @@ final class Isbn
     public function __construct($isbn)
     {
         $this->setIsbn($isbn);
+    }
+
+    private function containsOnlyNumbers($isbn)
+    {
+        return is_int(str_replace(array('-', ' '), '', $isbn));
     }
 
     /**
@@ -30,25 +30,25 @@ final class Isbn
          * @todo Auslagern / Refactoren, z.B. Validator Obj, setter ist immernoch ziemlich ueberladen imho.
          */
         $groups = explode('-', $isbn, -1);
-        if(empty($groups)){
+        if (count($groups) == 1){
             $groups = explode(' ', $isbn);
         }
 
-        if(!isset($groups[1]) || !ctype_digit($groups[1])){
+        if (!isset($groups[1]) || !ctype_digit($groups[1])) {
             throw new ValidateException('Ungueltiges ISBN Format. ISBN='.$isbn);
         }
 
-        if(!$this->isValidGroupNr((int) $groups[1])){
+        if (!$this->isValidGroupNr(($groups[1]))) {
             throw new ValidateException('Ungueltige ISBN Gruppennummer ISBN='.$isbn);
         }
 
         $isbn = str_replace('-', '', $isbn);
         $isbn = str_replace(' ', '', $isbn);
-        if(strlen($isbn) !== 13){
+        if (strlen($isbn) !== 13){
             throw new ValidateException('Laenge der ISBN ist nicht 13. ISBN='.$isbn);
-            
         }
-        if(!ctype_digit($isbn)){
+
+        if (!$this->containsOnlyNumbers($isbn)){
             throw new ValidateException('Nicht alle Zeichen der ISBN sind Zahlen. ISBN='.$isbn);
         }
 
@@ -91,9 +91,7 @@ final class Isbn
      */
     private function isValidGroupNr($group)
     {
-        $length = strlen((string) $group);
-
-        switch($length){
+        switch (strlen($group)) {
             case 1:
                 if(($group >= 0 && $group <=5) || $group == 7){
                     return true;
