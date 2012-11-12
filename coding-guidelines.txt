@@ -1,2 +1,6 @@
 - Namenskonventionen für Dateien
   (Groß- und Kleinschreibung, CamelCase, Underscores, Spaces, Bindestriche, Extensions (.php, .txt, ...))
+
+- Sortierung von Attributen (alphabetisch?)
+
+- Sortierung von Methoden (nach Sichtbarkeit, semantisch/logisch gruppiert?)
