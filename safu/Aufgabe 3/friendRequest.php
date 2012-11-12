@@ -42,8 +42,8 @@ class User
     */
     public function confirm(FriendRequest $friendRequest)
     {
-        $friendRequest['status'] = true;
-        array_push($this->friends, 'from', $friendRequest['from']);         
+        array_push($this->friends, 'from', $friendRequest['from']);     
+        return true;           
     }
     
     /**
@@ -51,7 +51,8 @@ class User
     */
     public function decline(FriendRequest $friendRequest)
     {
-        $friendRequest['status'] = false;
+	    unset($friendRequest);
+        return true;       
     }    
     
     /**
@@ -59,7 +60,15 @@ class User
     */
     public function removeFriend(User $friendRequest)
     {
-        unset(in_array($this->friends, $friendRequest));
+        $arrayElement = in_array($this->friends, $friendRequest);
+        if(empty($arrayElement)){
+        	unset($arrayElement);
+        	return true;
+        }else{
+        	throw new Exception('Der zu entfernende Freund konnte nicht gefunden werden!');
+	        return false;
+        }
+        
         
     }
 }
