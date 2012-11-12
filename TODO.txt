@@ -1,0 +1,10 @@
+- In den nächsten Wochen nach und nach das Git-Buch auf progit.org lesen
+
+- Handwerkszeug für git:
+  * Repository vom Server klonen
+  * Code zum Server pushen
+  * Änderungshistorie anzeigen
+  * Branch anlegen
+  * Branch mergen / rebasen
+  * Branch löschen
+  * Dateien mergen, manuell Konflikt auflösen

@@ -1,0 +1,2 @@
+- Namenskonventionen für Dateien
+  (Groß- und Kleinschreibung, CamelCase, Underscores, Spaces, Bindestriche, Extensions (.php, .txt, ...))
