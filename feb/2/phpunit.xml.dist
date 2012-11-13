@@ -6,7 +6,7 @@
          strict="true"
          verbose="true">
   <testsuites>
-    <testsuite name="aufgabe-1">
+    <testsuite name="Isbn">
       <directory suffix="Test.php">tests</directory>
     </testsuite>
   </testsuites>
