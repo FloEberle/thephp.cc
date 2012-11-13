@@ -1,4 +1,5 @@
 <?php
+require __DIR__ . 'validationException.php';
 
 class ISBN
 {
@@ -15,7 +16,7 @@ class ISBN
 	private function setIsbn($isbn)
 	{
         if (strlen($isbn) != 17) {
-            throw new RuntimeException('Ungültige ISBN "' . $isbn . '"');
+            throw new IsbnValidationException('Ungültige ISBN "' . $isbn . '"');
         }
 
         if (strstr($isbn, '-') !== false) {
@@ -25,15 +26,15 @@ class ISBN
         }
 
         if (count($parts) != 5) {
-            throw new RuntimeException('Ungültige ISBN "' . $isbn . '"');
+            throw new IsbnValidationException('Ungültige ISBN "' . $isbn . '"');
         }
 
         if (!$this->groupValidation($parts[1])) {
-            throw new RuntimeException('Ungültige ISBN "' . $isbn . '"');
+            throw new GroupValidationException('Ungültige ISBN "' . $isbn . '"');
         }
 
         if (!$this->checksumValidation(implode('', $parts))) {
-            throw new RuntimeException('Ungültige ISBN "' . $isbn . '"');
+            throw new ChecksumValidationException('Ungültige ISBN "' . $isbn . '"');
         }
 
         $this->isbn = $isbn;
