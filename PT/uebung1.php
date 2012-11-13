@@ -15,18 +15,18 @@ class User
 
 		$this->setUserScreenName($userScreenName);
 
-        if (trim($this->userId) == '') {
+        if ($this->userId == null) {
             throw new InvalidArgumentException('no userId found');
         }
 
-		if (trim($this->userMailAddress) == ''){
+		if ($this->userMailAddress == null){
 			throw new InvalidArgumentException('userMailAddress string is empty');
 		}
 	}
 
     private function setRealName($realName)
     {
-        if (trim($realName) == ''){
+        if ($realName == null){
             throw new InvalidArgumentException('RealName is empty');
         }
 
@@ -55,7 +55,7 @@ class User
 
     public function setUserScreenName($userScreenName)
     {
-        if ($userScreenName == '') {
+        if ($userScreenName == null) {
             $this->userScreenName = $this->userRealName;
         }
     }

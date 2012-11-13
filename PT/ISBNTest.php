@@ -1,44 +1,44 @@
 <?php
 
-require 'uebung2_meins.php';
+require 'ISBN.php';
 
-Class uebung2_test
+Class ISBNTest extends PHPUnit_Framework_TestCase
 {
-    private $ISBNNr;
-    private $validGroupidentifier;
-    private $invalidGroupIdentifier;
-    private $validChecksum;
-
-    public function setUp()
+    public function testValidIsbnWorks()
     {
-        $this->ISBNNr = new isbnValidator('978 3 86680 192 9');
-        $this->validGroupidentifier = 3;
-        $this->invalidGroupIdentifier = 6;
-        $this->validChecksum = 9;
+        $this->assertInstanceOf('ISBN', new ISBN('978 3 86680 192 9'));
     }
-
-    public function testValidateISBNWorks() {
-        $this->assertTrue($this->ISBNNr);
-
-    }
-
 
     /**
-    public function testIsGroupIdentifierValid () {
-        $this->assertTrue($this->ISBN->isValidGroupIdentifier($this->validGroupidentifier));
-   }
-
-    public function testIsInvalidGroupIdentifier () {
-        $this->assertFalse($this->ISBN->isValidGroupIdentifier($this->invalidGroupidentifier));
+     * @expectedException InvalidIsbnException
+     */
+    public function testInvalidLengthThrowsException()
+    {
+        $isbn = new ISBN('978 3 86680 192 9 123');
     }
 
-    public function testIsChecksumValid () {
-        $this->assertTrue($this->ISBN->isChecksumValid($this->validChecksum));
+    /**
+     * @expectedException InvalidIsbnException
+     */
+    public function testInvalidCharacterThrowsException()
+    {
+        $isbn = new ISBN('978 3 86A80 192 9');
     }
 
-    public function mergeIsbnForChecksumCalculationWorks () {
-        $this->assertEqual('978 3 86680 192 9', $this->ISBN->mergeIsbnForChecksumCalculation($this->ISBN));
+    /**
+     * @expectedException InvalidIsbnException
+     */
+    public function testInvalidGroupIdentifierThrowsExceptions()
+    {
+        $isbn = new ISBN('978 6 86680 192 9');
     }
-    */
+
+    /**
+     * @expectedException InvalidIsbnException
+     */
+    public function testInvalidChecksumThrowsException()
+    {
+        $isbn = new ISBN('978 3 86680 192 1');
+    }
 
 }

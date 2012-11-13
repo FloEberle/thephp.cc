@@ -1,10 +1,13 @@
 <?php
 
+/*
 $isbn = '978 3 86680 192 9';
 
-$isbnValidator = new isbnValidator();
-$isIsbnValid = $isbnValidator->validateIsbn($isbn);
+$isbnValidator = new ISBN('978 3 86680 192 9');
+$isIsbnValid = $isbnValidator->validate($isbn);
 var_dump($isIsbnValid);
+*/
+
 
 class ISBN
 {
@@ -12,11 +15,25 @@ class ISBN
     private $isbnPublisherCode;
     private $isbnItemNumber;
     private $isbnChecksum;
+    private $isbn;
 
+    public function __construct($isbn) {
+        $this->validate($isbn);
+        $this->isbn = $isbn;
+    }
+
+    /**
+     * @param $isbn
+     * @return bool
+     */
     private function replaceSpacesWithHyphen($isbn) {
         return (str_replace(' ', '-', $isbn));
     }
 
+    /**
+     * @param $isbn
+     * @return array
+     */
     private function splitIsbn($isbn)
     {
         $isbn = $this->replaceSpacesWithHyphen($isbn);;
@@ -24,103 +41,86 @@ class ISBN
         return $splittedIsbn;
     }
 
-    public function validateIsbn($isbn)
+    /**
+     * @param $isbn
+     * @return bool
+     */
+    private function hasExpectedLength($isbn)
     {
-        $splittedIsbn = $this->splitIsbn($isbn);
+        return strlen($isbn) == 17;
+    }
 
-        if (!$this->isValidGroupIdentifier($splittedIsbn[1])) {
-            return false;
-            throw new RuntimeException('...');
+    /**
+     * @param $isbn
+     * @throws InvalidIsbnException
+     */
+    public function validate($isbn)
+    {
+        if (!$this->hasExpectedLength($isbn)) {
+            throw new InvalidIsbnException('ISBN must be 17 characters');
+        }
+
+        if (!$this->isGroupIdentifierValid($isbn)) {
+            throw new InvalidIsbnException('groupIdentifier is not valid');
         }
 
         if (!$this->isChecksumValid($isbn)) {
-            return false;
-            throw new RuntimeException('...');
+            throw new InvalidIsbnException('checksum is not valid');
         }
-
-        return true;
     }
 
-    private function isValidGroupIdentifier($groupIdentifier)
+    /**
+     * @param $isbn
+     * @return bool
+     */
+    private function isGroupIdentifierValid($isbn)
     {
-        if (strlen($groupIdentifier == 1))
-        {
-            if(($groupIdentifier >= 0 && $groupIdentifier <= 5) || ($groupIdentifier = 7)) {
-                return true;
-            }
-        }
+        $isbn  = $this->replaceSpacesWithHyphen($isbn);
+        $splittedIsbn = $this->splitIsbn($isbn);
+        $groupIdentifier = $splittedIsbn[1];
 
-        if (strlen($groupIdentifier == 2))
-        {
-            if(($groupIdentifier >= 80 && $groupIdentifier <= 94)) {
-                return true;
-            }
-        }
-
-        if (strlen($groupIdentifier == 3))
-        {
-            if(($groupIdentifier >= 600 && $groupIdentifier <= 649) || !($groupIdentifier >= 950 && $groupIdentifier <= 989)) {
-                return true;
-            }
-        }
-
-        if (strlen($groupIdentifier == 4))
-        {
-            if(($groupIdentifier >= 9900 && $groupIdentifier <= 9989)) {
-                return true;
-            }
-        }
-
-        if (strlen($groupIdentifier == 5))
-        {
-            if(($groupIdentifier >= 99900 && $groupIdentifier <= 99999)) {
-                return true;
-            }
+        if(($groupIdentifier >= 0 && $groupIdentifier <= 5) || ($groupIdentifier = 7)
+            || ($groupIdentifier >= 80 && $groupIdentifier <= 94)
+            || ($groupIdentifier >= 600 && $groupIdentifier <= 649) || !($groupIdentifier >= 950 && $groupIdentifier <= 989)
+            || ($groupIdentifier >= 9900 && $groupIdentifier <= 9989)
+            || ($groupIdentifier >= 99900 && $groupIdentifier <= 99999)) {
+            return true;
         }
         return false;
     }
 
+    /**
+     * @param $isbn
+     * @return string
+     */
     private function mergeIsbnForChecksumCalculation($isbn) {
         $mergedIsbn = str_replace('-', '', $isbn);
         return $mergedIsbn;
     }
 
+
     /**
-     * @param $compactIsbn
+     * @param $isbn
      * @return bool
      */
     private function isChecksumValid($isbn)
     {
-        $compactIsbn = str_replace('-', '', $isbn);
-        $compactIsbnUnevenPosition = 0;
-        $compactIsbnEvenPosition = 0;
+        $isbn = $this->replaceSpacesWithHyphen($isbn);
+        $compactIsbn = $this->mergeIsbnForChecksumCalculation($isbn);
+        $sumIsbnUnevenPosition = 0;
+        $sumIsbnEvenPosition = 0;
 
         for ($i = 0; $i < 12; $i +=2) {
-            $compactIsbnUnevenPosition  += (int) substr($compactIsbn, $i, 1);
+            $sumIsbnUnevenPosition  += (int) substr($compactIsbn, $i, 1);
         }
 
         for ($i = 1; $i < 12; $i +=2) {
-            $compactIsbnEvenPosition+= (int) substr($compactIsbn, $i, 1);
+            $sumIsbnEvenPosition += (int) substr($compactIsbn, $i, 1);
         }
 
-        $checksum = $compactIsbnUnevenPosition + 3 * $compactIsbnEvenPosition;
-
-        $checksumCalculationSum =
-              (int) substr($compactIsbn, 0, 1)
-            + (int) substr($compactIsbn, 1, 1) * 3
-            + (int) substr($compactIsbn, 2, 1)
-            + (int) substr($compactIsbn, 3, 1) * 3
-            + (int) substr($compactIsbn, 4, 1)
-            + (int) substr($compactIsbn, 5, 1) * 3
-            + (int) substr($compactIsbn, 6, 1)
-            + (int) substr($compactIsbn, 7, 1) * 3
-            + (int) substr($compactIsbn, 8, 1)
-            + (int) substr($compactIsbn, 9, 1) * 3
-            + (int) substr($compactIsbn, 10, 1)
-            + (int) substr($compactIsbn, 11, 1) * 3;
-
+        $checksum = $sumIsbnUnevenPosition + 3 * $sumIsbnEvenPosition;
         $isbnChecksum = substr($compactIsbn, -1, 1);
-        $calculatedChecksum = 10 - substr($checksumCalculationSum, -1, 1);
+        $calculatedChecksum = 10 - substr($checksum, -1, 1);
 
         if ($calculatedChecksum == 10)
         {
@@ -134,4 +134,9 @@ class ISBN
 
         return true;
     }
+}
+
+class InvalidIsbnException extends Exception
+{
+
 }
