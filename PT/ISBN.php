@@ -6,7 +6,7 @@ $isbnValidator = new isbnValidator();
 $isIsbnValid = $isbnValidator->validateIsbn($isbn);
 var_dump($isIsbnValid);
 
-class isbnValidator
+class ISBN
 {
     private $isbnGroupIdentifier;
     private $isbnPublisherCode;
@@ -17,11 +17,10 @@ class isbnValidator
         return (str_replace(' ', '-', $isbn));
     }
 
-    private function splitIsbn($unsplittedIsbn)
+    private function splitIsbn($isbn)
     {
-        $this->replaceSpacesWithHyphen($isbn);
-
-        $splittedIsbn = explode ("-", $unsplittedIsbn);
+        $isbn = $this->replaceSpacesWithHyphen($isbn);;
+        $splittedIsbn = explode ("-", $isbn);
         return $splittedIsbn;
     }
 
@@ -93,33 +92,34 @@ class isbnValidator
     private function isChecksumValid($isbn)
     {
         $compactIsbn = str_replace('-', '', $isbn);
+        $compactIsbnUnevenPosition = 0;
+        $compactIsbnEvenPosition = 0;
 
-        for ($i = 0; $i < 12; i +=2) {
-            $part1 = ...
+        for ($i = 0; $i < 12; $i +=2) {
+            $compactIsbnUnevenPosition  += (int) substr($compactIsbn, $i, 1);
         }
 
-        for ($i = 1; $i < 12; i +=2) {
-            $part2 = ...
+        for ($i = 1; $i < 12; $i +=2) {
+            $compactIsbnEvenPosition+= (int) substr($compactIsbn, $i, 1);
         }
 
-        $checksum = $part1 + 3 * $part2;
+        $checksum = $compactIsbnUnevenPosition + 3 * $compactIsbnEvenPosition;
 
-        // var_dump($mergedIsbn);
         $checksumCalculationSum =
-              substr($compactIsbn, 0, 1)
-            + substr($compactIsbn, 1, 1) * 3
-            + substr($mergedIsbn, 2, 1)
-            + substr($mergedIsbn, 3, 1) * 3
-            + substr($mergedIsbn, 4, 1)
-            + substr($mergedIsbn, 5, 1) * 3
-            + substr($mergedIsbn, 6, 1)
-            + substr($mergedIsbn, 7, 1) * 3
-            + substr($mergedIsbn, 8, 1)
-            + substr($mergedIsbn, 9, 1) * 3
-            + substr($mergedIsbn, 10, 1)
-            + substr($mergedIsbn, 11, 1) * 3;
+              (int) substr($compactIsbn, 0, 1)
+            + (int) substr($compactIsbn, 1, 1) * 3
+            + (int) substr($compactIsbn, 2, 1)
+            + (int) substr($compactIsbn, 3, 1) * 3
+            + (int) substr($compactIsbn, 4, 1)
+            + (int) substr($compactIsbn, 5, 1) * 3
+            + (int) substr($compactIsbn, 6, 1)
+            + (int) substr($compactIsbn, 7, 1) * 3
+            + (int) substr($compactIsbn, 8, 1)
+            + (int) substr($compactIsbn, 9, 1) * 3
+            + (int) substr($compactIsbn, 10, 1)
+            + (int) substr($compactIsbn, 11, 1) * 3;
 
-        $isbnChecksum = substr($mergedIsbn, -1, 1);
+        $isbnChecksum = substr($compactIsbn, -1, 1);
         $calculatedChecksum = 10 - substr($checksumCalculationSum, -1, 1);
 
         if ($calculatedChecksum == 10)
