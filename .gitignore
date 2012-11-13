@@ -3,4 +3,5 @@
 .settings
 .idea
 /nbproject
-
+autoload.php
+build/
