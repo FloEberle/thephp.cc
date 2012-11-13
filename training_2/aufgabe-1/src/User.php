@@ -31,6 +31,10 @@ class User
      */
 	public function setEmail($email)
 	{
+        if (strpos($email, '@') === false) {
+            throw new InvalidArgumentException('Invalid email');
+        }
+
 		$this->email = $email;
 	}
 

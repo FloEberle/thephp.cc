@@ -6,19 +6,19 @@ class UserTest extends PHPUnit_Framework_TestCase
 
     protected function setUp()
     {
-        $this->user = new User(1, 'the-email', 'the-realname');
+        $this->user = new User(1, 'the@email', 'the-realname');
     }
 
     public function testGetEmailWorks()
     {
-        $this->assertEquals('the-email', $this->user->getEmail());
+        $this->assertEquals('the@email', $this->user->getEmail());
     }
 
     public function testSetEmailWorks()
     {
-        $this->user->setEmail('another-email');
+        $this->user->setEmail('another@email');
 
-        $this->assertEquals('another-email', $this->user->getEmail());
+        $this->assertEquals('another@email', $this->user->getEmail());
     }
 
     public function testGetRealNameWorks()
@@ -46,10 +46,18 @@ class UserTest extends PHPUnit_Framework_TestCase
         $this->assertEquals('the-realname', $this->user->getScreenName());
     }
 
-    public function testConstructorSetsScreennameWhenGiven()
+    public function testConstructorSetsScreenNameWhenGiven()
     {
-        $user = new User(1, 'the-email', 'the-realname', 'the-screenname');
+        $user = new User(1, 'the@email', 'the-realname', 'the-screenname');
 
         $this->assertEquals('the-screenname', $user->getScreenName());
+    }
+
+    /**
+     * @expectedException InvalidArgumentException
+     */
+    public function testThrowsExceptionWhenEmailIsInvalid()
+    {
+        $user = new User(1, 'invalid-email', 'the-realname');
     }
 }
