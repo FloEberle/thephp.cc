@@ -15,46 +15,33 @@ final class Isbn
         $this->setIsbn($isbn);
     }
 
-    private function containsOnlyNumbers($isbn)
-    {
-        return is_int(str_replace(array('-', ' '), '', $isbn));
-    }
-
     /**
      * @param string $isbn
      * @throws ValidateException
      */
     private function setIsbn($isbn)
     {
-        /**
-         * @todo Auslagern / Refactoren, z.B. Validator Obj, setter ist immernoch ziemlich ueberladen imho.
-         */
-        $groups = explode('-', $isbn, -1);
+        $groups = explode('-', $isbn);
         if (count($groups) == 1){
             $groups = explode(' ', $isbn);
         }
 
         if (!isset($groups[1]) || !ctype_digit($groups[1])) {
-            throw new ValidateException('Ungueltiges ISBN Format. ISBN='.$isbn);
+            throw new ValidateException('Ungueltiges ISBN Format. ISBN='.$isbn, ValidateException::INVALID_FORMAT);
         }
 
         if (!$this->isValidGroupNr(($groups[1]))) {
-            throw new ValidateException('Ungueltige ISBN Gruppennummer ISBN='.$isbn);
+            throw new ValidateException('Ungueltige ISBN Gruppennummer ISBN='.$isbn, ValidateException::INVALID_GROUPNR);
         }
 
         $isbn = str_replace('-', '', $isbn);
         $isbn = str_replace(' ', '', $isbn);
         if (strlen($isbn) !== 13){
-            throw new ValidateException('Laenge der ISBN ist nicht 13. ISBN='.$isbn);
+            throw new ValidateException('Laenge der ISBN ist nicht 13. ISBN='.$isbn, ValidateException::INVALID_LENGTH);
         }
 
-        if (!$this->containsOnlyNumbers($isbn)){
-            throw new ValidateException('Nicht alle Zeichen der ISBN sind Zahlen. ISBN='.$isbn);
-        }
-
-        if (! $this->isValidChecksum($isbn))
-        {
-            throw new ValidateException('Ungueltige Checksumme der ISBN. ISBN=' . $isbn);
+        if (! $this->isValidChecksum($isbn)) {
+            throw new ValidateException('Ungueltige Checksumme der ISBN. ISBN=' . $isbn, ValidateException::INVALID_CHECKSUM);
         }
 
         $this->isbn = (int) $isbn;
@@ -69,9 +56,9 @@ final class Isbn
         $sum = 0;
         for ($i = 0; $i < 12; $i++) {
             if ($i % 2 == 0) {
-                $sum += (int)$isbn{$i};
+                $sum += (int)$isbn[$i];
             } else {
-                $sum += 3 * (int)$isbn{$i};
+                $sum += 3 * (int)$isbn[$i];
             }
         }
 
