@@ -51,7 +51,7 @@ class User
     */
     public function decline(FriendRequest $friendRequest)
     {
-	    unset($friendRequest);
+	unset($friendRequest);
         return true;       
     }    
     
