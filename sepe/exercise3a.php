@@ -1,13 +1,8 @@
 <?php
 /**
- * Uebungsaufgabe 3
+ * Uebungsaufgabe 3 a
  *
  */
-
-$user1 = new User();
-$user2 = new User();
-
-$request1 = new FriendRequest($user1,$user2);
 
 class User
 {
@@ -18,6 +13,7 @@ class User
     public function addFriendRequest(FriendRequest $friendRequest)
     {
         $this->requests = $friendRequest->getFrom();
+        var_dump('xxxxxxxx'.$requests);
     }
 
     public function confirm(FriendRequest $friendRequest)
@@ -49,8 +45,12 @@ class FriendRequest
 
     public function __construct(User $from, User $to)
     {
-        $this->$from = $from;
-        $this->$to = $to;
+        $from->addFriendRequest($this);
+        $to->addFriendRequest($this);
+        var_dump('------');
+        var_dump($from);
+        var_dump($to);
+        var_dump('------');
     }
 
     public function getFrom()

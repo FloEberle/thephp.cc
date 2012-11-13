@@ -1,6 +1,9 @@
 - PHP hat ein dynamisches Typkonzept
 - Die Datentypen werden in 99% der Fälle intuitiv richtig interpretiert
 - Es gibt interessante Edge Cases wie PHP_INT_MAX + 1 oder (bool) "false"
+- Man kann explizit typsichere Vergleiche machen
+- Nicht erfüllte Type Hints führen zu Laufzeitfehlern
+- Fließkommazahlen sind ungenau, da sie nur eine endliche Anzahl von Stellen haben
 
 - PHP arbeitet intern mit einer Copy on Write-Strategie. Daten werden, auch
   wenn sie by Value übergeben werden, nur dann kopiert, wenn auch tatsächlich
@@ -10,18 +13,17 @@
 - Funktionen haben genau einen Rückgabewert (implizit null). Falls eine Funktion
   mehr als einen Wert zurückgeben muss, Objekte verwenden
 
+- Eine Kopplung an eine API ist einer Kopplung an ein Datenformat vorzuziehen
+
 - Separation of Concerns: unterschiedliche Belange sollen getrennt werden
 
 - Single Responsibility: jede Klasse soll eine klar definierte Aufgabe haben
   Trick: Wenn die Prosa-Dokumentation ein "und" enthält ...
- 
-- Single Responsibility: jede Methode soll genau eine Aufgabe haben
-  Trick: Wenn die Prosa-Dokumentation der Methode ein "und" enthält ...
-  
+
 - Nouns and Verbs: ein guter erster Schritt für die OO-Modellierung ist es,
   aus der Beschreibung die Hauptworte zu Klassen und die Verben zu Methoden
   zu machen
-  
+
 - Es gibt immer Cross-cutting concerns wie Logging oder Security
 
 - Für Geschäftslogik ist es ist egal, woher Daten kommen
@@ -33,7 +35,7 @@
 - Der Konstruktor __construct() wird automatisch aufgerufen, wenn man mit
   new eine Objektinstanz erzeugt
 - Aufgabe des Konstruktors ist es, das Objekt in einen definierten
-  Initialzustand zu bringen 
+  Initialzustand zu bringen
 - Im Konstruktor wird nie echte Arbeit erledigt
 
 - Es gibt drei Stufen der Sichtbarkeit, public, protected und private
@@ -45,7 +47,7 @@
 - Zugriffsmethoden (Accessoren, Getter, Setter) ermöglichen den Zugriff auf
   Attribute und sind die richtige Stelle für Validierungen (Geschäftsregeln)
 - Auch nicht-öffentliche Zugriffsmethoden sind sinnvoll, wenn
-  Integritätsbedingungen erzwungen werden sollen 
+  Integritätsbedingungen erzwungen werden sollen
 - Für welche Attribute schreibender Zugriff per Accessoren möglich ist,
   ist eine reine Geschäftsentscheidung. Standardmäßig: keine
 - Standardmäßig wird für ein Attribut kein Getter geschrieben, sondern nur
@@ -61,13 +63,13 @@
 - Vererbung: eine von einer Elternlasse abgeleitete Klasse erbt deren
   Attribute und Methoden (soweit sie nicht private sind). Vererbung dient dazu,
   existierende Funktionalität zu erweitern, ohne bestehenden Code zu ändern
-  
+
 - Vererbung ist nicht der richtige Weg, um Funktionalität in eine Klasse zu
   bekommen. Dafür gibt es Aggregation
 
 - Objekt-Instanzen werden mit new erzeugt
 
-- parent:: ruft eine Methode in der Elternklasse auf (siehe Polymorphismus). 
+- parent:: ruft eine Methode in der Elternklasse auf (siehe Polymorphismus).
   Das ist ein guter Weg, um Funktionalität aus einer Elternklasse zu erweitern,
   ohne Code zu duplizieren
 
@@ -79,10 +81,10 @@
   auch ob ein Parameter eine Referenz ist). Dazu gehören auch die Rückgabewerte
   und alle Exceptions, die eine Methode möglichweise werfen kann
 
-- Polymorphismus bedeutet (unter anderem), dass zur Laufzeit entschieden wird, 
+- Polymorphismus bedeutet (unter anderem), dass zur Laufzeit entschieden wird,
   in welchem Objekt eine Methode aufgerufen wird
 
-- Exceptions sind Objekte, die nicht erwartete Fehler kommunizieren. Sie sind 
+- Exceptions sind Objekte, die nicht erwartete Fehler kommunizieren. Sie sind
   immer zweifelsfrei vom Wertebereich eines gültigen Rückgabewertes
   unterscheidbar
 - Exceptions werden geworfen und (woanders) gefangen und sind damit zur Laufzeit
@@ -93,12 +95,14 @@
 - Type Hint: PHP erzwingt für nicht-skalare Typen (Arrays, Objekte) mit Type
   Hint, dass übergebene Parameter diesem Typ entsprechen. Ansonsten gibt es
   einen Laufzeitfehler. Type Hints sparen somit eine explizite Typ-Prüfung
-  
+
 - Code-Duplikation ist langfristig gesehen gefährlich, teuer, und damit tödlich.
   Man vermeidet Code-Duplikation aber nicht durch spekulative Generalisierung,
   sondern dann und erst dann, wenn sie tatsächlich entstanden ist
 
-- Nur kurze Codeblöcke sind sinnvoll wiederverwendbar  
+- Nur kurze Codeblöcke sind sinnvoll wiederverwendbar
 
 - Es ist essentiell, zwischen API und Implementierung zu unterscheiden.
   Das ermöglicht es, in Schnittstellen zu denken anstelle in Implementierung
+
+- Eine Factory erzeugt Objektinstanzen und versorgt diese mit ihren Abhängigkeiten
