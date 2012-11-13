@@ -10,9 +10,19 @@ class UserTest extends PHPUnit_Framework_TestCase
         $this->isbn = new ISBN();
     }
 
-    public function testValidateIsbnWorks()
+    //public function testValidateIsbnWorks()
+    //{
+    //    $this->assertEquals('978-3-86680-192-9',$this->isbn->validate('978-3-86680-192-9'));
+    //}
+
+    /**
+     * @expectedException Exception
+     */
+    public function testThrowsExceptionWhenISBNIsInvalid()
     {
-        $this->assertEquals('978-3-86680-192-9',$this->isbn->validate('978-3-86680-192-9'));
+        $isbn = new ISBN();
+        $isbn->validate('978-3-86680-192-9');
+
     }
 
 }

@@ -3,19 +3,6 @@
  * Uebungsaufgabe 2
  *
  */
-$value1 = "978 9 86680 192 9";
-$value2 = "978-3-86680-192-8";
-$value3 = "978 3 86680 192 9";
-$value4 = "978-3-86680-192-9";
-
-$isbn1 = new ISBN();
-$isbn2 = new ISBN();
-
-$isbn1->validate($value1);
-//$isbn2->validate($value2);
-
-$isbn1->compare($value1,$value2);
-$isbn2->compare($value3,$value4);
 
 class ISBN
 {
