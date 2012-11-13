@@ -6,16 +6,16 @@ class User
 	/**
 	* @var string 
 	*/
-	private $userName;
+	public $userName;
 	
 	/**
 	* @var array		
 	*/
-	private $friends;
+       private $friends;
 
 
     /**
-	* @param string $userName    
+     *  @param string $userName    
     */
     public function __construct($userName){
         $this->userName = $userName;
@@ -42,7 +42,7 @@ class User
     */
     public function confirm(FriendRequest $friendRequest)
     {
-        array_push($this->friends, 'from', $friendRequest['from']);     
+        $this->friends[$friendRequest->from] = true;     
         return true;           
     }
     
@@ -78,12 +78,7 @@ class FriendRequest
     /**
      * @var string
      */
-    private $from; 
-    
-    /**
-     * @var int
-     */
-    private $status;
+    public $from; 
     
     /**
 	* @var string    
@@ -96,11 +91,10 @@ class FriendRequest
      * @param string $to
      * @param boolean $status
      */
-    public function __construct(User $from, User $to)
+    public function __construct($from, $to)
     {
         $this->from = $from;
         $this->to = $to;
-        $this->status = null; 
     }
     
     /**
