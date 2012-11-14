@@ -1,6 +1,4 @@
 <?php
-require_once __DIR__ . '/../src/User.php';
-require_once __DIR__ . '/../src/FriendRequest.php';
 class FriendRequestTest extends PHPUnit_Framework_TestCase
 {
     public function setUp()
@@ -17,6 +15,7 @@ class FriendRequestTest extends PHPUnit_Framework_TestCase
 
     /**
      * @expectedException FriendRequestException
+     * @expectedExceptionCode FriendRequestException::FRIENDREQUEST_REQUIRES_DIFFERENT_USERS
      */
     public function testGetInvalidInstance()
     {
