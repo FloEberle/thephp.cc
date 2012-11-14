@@ -1,5 +1,7 @@
 <?php
 
+require __DIR__ . '/FriendRequestException.php';
+
 class User
 {
 	
@@ -27,13 +29,13 @@ class User
      * @param object $friendRequest
      */  
     public function addFriendRequest(FriendRequest $friendRequest)
-    {       
-        if($friendRequest['from'] == $this->userName){
-            throw new Exception('Sie können sich selbst nicht als Freund hinzufügen.');
+    {  
+        if($friendRequest->from == $this->userName){
+            throw new itselfRequestException('Sie können sich selbst nicht als Freund hinzufügen.');
         }
         
-        if(in_array($friendRequest['from'], $this->friends)){
-            throw new Exception('Sie sind bereits schon ein Freund von: '. $this->userName);
+        if(isset($this->friends[$friendRequest->getFrom()])){
+            throw new alreadyRequestException('Sie sind bereits schon ein Freund von: '. $this->userName);
         }
     }
     
@@ -49,24 +51,20 @@ class User
     /**
     * @param object $friendRequest
     */
-    public function decline(FriendRequest $friendRequest)
+    public function decline(FriendRequest &$friendRequest)
     {
-	unset($friendRequest);
-        return true;       
+        return $friendRequest = null;      
     }    
     
     /**
     * @param object $friendRequest
     */
-    public function removeFriend(User $friendRequest)
+    public function removeFriend($friend, User $friendRequest)
     {
-        $arrayElement = in_array($this->friends, $friendRequest);
-        if(empty($arrayElement)){
-        	unset($arrayElement);
-        	return true;
+        if(array_key_exists($friend, $friendRequest->friends)){
+        	unset($friendRequest->friends[$friend]);
         }else{
-        	throw new Exception('Der zu entfernende Freund konnte nicht gefunden werden!');
-	        return false;
+        	throw new notFoundRequestException('Der zu entfernende Freund konnte nicht gefunden werden!');
         }
         
         
@@ -89,7 +87,6 @@ class FriendRequest
     /**
      * @param string $from 
      * @param string $to
-     * @param boolean $status
      */
     public function __construct($from, $to)
     {
