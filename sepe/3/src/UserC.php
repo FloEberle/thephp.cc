@@ -1,6 +1,6 @@
 <?php
 
-class User
+class UserC
 {
     private $friends = array();
     private $requests = array();
