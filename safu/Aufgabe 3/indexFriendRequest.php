@@ -1,5 +1,9 @@
 <?php
-require 'friendRequest.php';
+require __DIR__ . '/friendRequest.php';
+require __DIR__ . '/user.php';
+require __DIR__ . '/FriendRequestException.php';
+
+
 try{
     $setUser1 = new User("Samuel");
     $setUser2 = new User("Hugo");
