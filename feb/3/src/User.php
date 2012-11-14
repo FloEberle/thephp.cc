@@ -16,29 +16,29 @@ class User
      */
     private $friendRequests = array();
 
-    /**
-     * @param FriendRequest $friendRequest
-     *
-     * @throws FriendRequestException
-     */
 
     /**
      * No business rule. Debugging purpose!
      *
      * @var String
      */
-    private $_username;
+    private $username;
 
+    /**
+     * @param FriendRequest $friendRequest
+     *
+     * @throws FriendRequestException
+     */
     public function addFriendRequest(FriendRequest $friendRequest)
     {
         /**
          * Not a business rule but makes sense
          */
         if ($friendRequest->getFrom() === $this) {
-            throw new FriendRequestException('You can not add yourself as a Friend! Forever alone?');
+            throw new FriendRequestException('You can not add yourself as a Friend! Forever alone?', FriendRequestException::ADD_YOURSELF_AS_FRIEND);
         }
         if(in_array($friendRequest->getFrom(), $this->friends, true)) {
-            throw new FriendRequestException('You already have this Friend!');
+            throw new FriendRequestException('You already have this Friend!', FriendRequestException::FRIEND_ALREADY_EXISTS);
         }
         $this->friendRequests[] = $friendRequest;
     }
@@ -78,12 +78,24 @@ class User
     {
         $key = array_search($friend, $this->friends, true);
         if ($key === false) {
-            throw new FriendRequestException('Friend not found.');
+            throw new FriendRequestException('Friend not found.', FriendRequestException::FRIEND_NOT_FOUND);
         }
         $remoteFriend = $this->friends[$key]; // exercise pt c)
         $remoteKey = array_search($remoteFriend, $remoteFriend->friends, true); // exercise pt c)
         unset($remoteFriend->friends[$remoteKey]); // exercise pt c)
         unset($this->friends[$key]);
+    }
+
+    /**
+     * Not an official API method. Improves testability!
+     *
+     * @param User $friend
+     *
+     * @return bool
+     */
+    public function isFriendOf(User $friend)
+    {
+        return in_array($friend, $this->friends, true);
     }
 
     /**
@@ -93,7 +105,7 @@ class User
      */
     public function _setUsername($username)
     {
-        $this->_username = (string)$username;
+        $this->username = (string)$username;
     }
 
     /**
@@ -105,7 +117,7 @@ class User
     private function getFriendRequestKey(FriendRequest $friendRequest){
         $key = array_search($friendRequest, $this->friendRequests);
         if ($key === false) {
-            throw new FriendRequestException('Friendrequest not found.');
+            throw new FriendRequestException('Friendrequest not found.', FriendRequestException::FRIENDREQUEST_NOT_FOUND);
         }
         return $key;
     }
