@@ -12,6 +12,7 @@ var_dump($john);
 var_dump($kasperle);
 echo ('###############################'.PHP_EOL);
 
+/*
 echo ('confirmFriendRequest' . PHP_EOL . '###############################' . PHP_EOL);
 $kasperle->confirm($johnRequestsKasperle);
 var_dump($john);
@@ -24,13 +25,13 @@ $kasperle->removeFriend($john);
 var_dump($john);
 var_dump($kasperle);
 echo ('###############################'.PHP_EOL);
+*/
 
-/*
 echo ('declineFriendRequest' . PHP_EOL . '###############################' . PHP_EOL);
 $kasperle->decline($johnRequestsKasperle);
 var_dump($john);
 var_dump($kasperle);
-*/
+
 
 
 class User
@@ -71,10 +72,10 @@ class User
      */
     public function decline(FriendRequest $friendRequest)
     {
-        if(!in_array($friendRequest->getFrom()->id, $this->friendRequests)) {
-            throw new InvalidArgumentException('kein friendRequest zum bestätigen');
+        if(!in_array($friendRequest->getFrom(), $this->friendRequests)) {
+            throw new InvalidArgumentException('kein friendRequest zum ablehnen');
         }
-        unset ($this->friendRequests->getFrom()->id);
+        unset ($this->friendRequests[$friendRequest->getFrom()->id]);
     }
 
     /**
