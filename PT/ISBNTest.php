@@ -34,11 +34,10 @@ Class ISBNTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException InvalidIsbnException
+     * @expectedException InvalidChecksumException
      */
-    public function testInvalidChecksumThrowsException()
+    public function InvalidIsbnException()
     {
         $isbn = new ISBN('978 3 86680 192 1');
     }
-
 }

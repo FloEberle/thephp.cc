@@ -2,38 +2,6 @@
 
 require 'FriendRequest.php';
 
-$john = new User('1', 'john');
-$kasperle = new User('2', 'kasperle');
-
-$johnRequestsKasperle = new FriendRequest($john, $kasperle);
-echo ('addFriendRequest' . PHP_EOL . '###############################' . PHP_EOL);
-$kasperle->addFriendRequest($johnRequestsKasperle);
-var_dump($john);
-var_dump($kasperle);
-echo ('###############################'.PHP_EOL);
-
-/*
-echo ('confirmFriendRequest' . PHP_EOL . '###############################' . PHP_EOL);
-$kasperle->confirm($johnRequestsKasperle);
-var_dump($john);
-var_dump($kasperle);
-echo ('###############################'.PHP_EOL);
-
-
-echo ('removeFriend' . PHP_EOL . '###############################' . PHP_EOL);
-$kasperle->removeFriend($john);
-var_dump($john);
-var_dump($kasperle);
-echo ('###############################'.PHP_EOL);
-*/
-
-echo ('declineFriendRequest' . PHP_EOL . '###############################' . PHP_EOL);
-$kasperle->decline($johnRequestsKasperle);
-var_dump($john);
-var_dump($kasperle);
-
-
-
 class User
 {
     private $friendRequests = array();
@@ -43,6 +11,16 @@ class User
     {
         $this->id = $id;
         $this->name = $name;
+    }
+
+    /**
+     * @param User $friend
+     * @return bool
+     * Erweiterung der API um sicherzustellen, dass FriendRequest + confirmFR funktioniert
+     */
+    public function hasFriend(User $friend)
+    {
+        return (array_key_exists($friend->id, $this->friends));
     }
 
     /**
@@ -62,11 +40,15 @@ class User
         if(!in_array($friendRequest->getFrom(), $this->friendRequests)) {
             throw new InvalidArgumentException('kein friendRequest zum bestätigen');
         }
-        $this->friends[$friendRequest->getFrom()->id] = $friendRequest->getFrom();
-        $friendRequest->getFrom()->friends[$this->id] = $friendRequest->getTo();
-        unset ($this->friendRequests[$friendRequest->getFrom()->id]);
+        $this->addFriendShip($friendRequest);
+        $this->removeFriendRequest($friendRequest);
     }
 
+    private function addFriendShip (FriendRequest $friendRequest)
+    {
+        $this->friends[$friendRequest->getFrom()->id] = $friendRequest->getFrom();
+        $friendRequest->getFrom()->friends[$this->id] = $friendRequest->getTo();
+    }
     /**
      * @param FriendRequest $friendRequest
      */
@@ -75,6 +57,14 @@ class User
         if(!in_array($friendRequest->getFrom(), $this->friendRequests)) {
             throw new InvalidArgumentException('kein friendRequest zum ablehnen');
         }
+        $this->removeFriendRequest($friendRequest);
+    }
+
+    /**
+     * @param FriendRequest $friendRequest
+     */
+    private function removeFriendRequest(FriendRequest $friendRequest)
+    {
         unset ($this->friendRequests[$friendRequest->getFrom()->id]);
     }
 

@@ -52,7 +52,7 @@ class ISBN
 
     /**
      * @param $isbn
-     * @throws InvalidIsbnException
+     * @throws InvalidIsbnException InvalidChecksumException
      */
     public function validate($isbn)
     {
