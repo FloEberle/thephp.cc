@@ -2,38 +2,6 @@
 
 require 'FriendRequest.php';
 
-$john = new User('1', 'john');
-$kasperle = new User('2', 'kasperle');
-
-$johnRequestsKasperle = new FriendRequest($john, $kasperle);
-echo ('addFriendRequest' . PHP_EOL . '###############################' . PHP_EOL);
-$kasperle->addFriendRequest($johnRequestsKasperle);
-var_dump($john);
-var_dump($kasperle);
-echo ('###############################'.PHP_EOL);
-
-/*
-echo ('confirmFriendRequest' . PHP_EOL . '###############################' . PHP_EOL);
-$kasperle->confirm($johnRequestsKasperle);
-var_dump($john);
-var_dump($kasperle);
-echo ('###############################'.PHP_EOL);
-
-
-echo ('removeFriend' . PHP_EOL . '###############################' . PHP_EOL);
-$kasperle->removeFriend($john);
-var_dump($john);
-var_dump($kasperle);
-echo ('###############################'.PHP_EOL);
-*/
-
-echo ('declineFriendRequest' . PHP_EOL . '###############################' . PHP_EOL);
-$kasperle->decline($johnRequestsKasperle);
-var_dump($john);
-var_dump($kasperle);
-
-
-
 class User
 {
     private $friendRequests = array();
@@ -43,6 +11,16 @@ class User
     {
         $this->id = $id;
         $this->name = $name;
+    }
+
+    /**
+     * @param User $friend
+     * @return bool
+     * Erweiterung der API um sicherzustellen, dass FriendRequest + confirmFR funktioniert
+     */
+    public function hasFriend(User $friend)
+    {
+        return (array_key_exists($friend->id, $this->friends));
     }
 
     /**

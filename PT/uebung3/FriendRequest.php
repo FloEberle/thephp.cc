@@ -7,11 +7,6 @@ class FriendRequest
 
     public function __construct(User $from, User $to)
     {
-
-        if ($from == null || $to == null) {
-            throw new InvalidArgumentException('FriendRequest muss from und to enthalten');
-        }
-
         $this->from = $from;
         $this->to = $to;
     }
