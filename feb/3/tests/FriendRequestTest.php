@@ -15,6 +15,7 @@ class FriendRequestTest extends PHPUnit_Framework_TestCase
 
     /**
      * @expectedException FriendRequestException
+     * @expectedExceptionCode FriendRequestException::FRIENDREQUEST_REQUIRES_DIFFERENT_USERS
      */
     public function testGetInvalidInstance()
     {

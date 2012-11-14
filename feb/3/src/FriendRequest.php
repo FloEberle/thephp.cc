@@ -18,7 +18,7 @@ class FriendRequest
     public function __construct(User $from, User $to)
     {
         if($from === $to){
-            throw new FriendRequestException('Friendrequest requires two different Users');
+            throw new FriendRequestException('Friendrequest requires two different Users', FriendRequestException::FRIENDREQUEST_REQUIRES_DIFFERENT_USERS);
         }
         $this->from = $from;
         $this->to = $to;
