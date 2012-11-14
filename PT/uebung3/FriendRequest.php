@@ -9,7 +9,7 @@ class FriendRequest
     {
 
         if ($from == null || $to == null) {
-            throw new InvalidArgumentException();
+            throw new InvalidArgumentException('FriendRequest muss from und to enthalten');
         }
 
         $this->from = $from;
@@ -26,4 +26,3 @@ class FriendRequest
         return $this->to;
     }
 }
-

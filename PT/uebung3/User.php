@@ -25,6 +25,12 @@ var_dump($john);
 var_dump($kasperle);
 echo ('###############################'.PHP_EOL);
 
+/*
+echo ('declineFriendRequest' . PHP_EOL . '###############################' . PHP_EOL);
+$kasperle->decline($johnRequestsKasperle);
+var_dump($john);
+var_dump($kasperle);
+*/
 
 
 class User
@@ -38,26 +44,43 @@ class User
         $this->name = $name;
     }
 
+    /**
+     * @param FriendRequest $friendRequest
+     */
     public function addFriendRequest(FriendRequest $friendRequest)
     {
         $this->friendRequests[$friendRequest->getFrom()->id] = $friendRequest->getFrom();
     }
 
+    /**
+     * @param FriendRequest $friendRequest
+     * @throws InvalidArgumentException
+     */
     public function confirm(FriendRequest $friendRequest)
     {
         if(!in_array($friendRequest->getFrom(), $this->friendRequests)) {
-            throw new InvalidArgumentException('kein friendRequest vorhanden');
+            throw new InvalidArgumentException('kein friendRequest zum bestätigen');
         }
         $this->friends[$friendRequest->getFrom()->id] = $friendRequest->getFrom();
         $friendRequest->getFrom()->friends[$this->id] = $friendRequest->getTo();
         unset ($this->friendRequests[$friendRequest->getFrom()->id]);
     }
 
+    /**
+     * @param FriendRequest $friendRequest
+     */
     public function decline(FriendRequest $friendRequest)
     {
-        unset ($this->friendRequests[$friendRequest->getFrom()]);
+        if(!in_array($friendRequest->getFrom()->id, $this->friendRequests)) {
+            throw new InvalidArgumentException('kein friendRequest zum bestätigen');
+        }
+        unset ($this->friendRequests->getFrom()->id);
     }
 
+    /**
+     * @param User $friend
+     * @throws InvalidArgumentException
+     */
     public function removeFriend(User $friend)
     {
         if(!in_array($friend, $this->friends)) {
@@ -67,4 +90,3 @@ class User
         unset ($friend->friends[$this->id]);
     }
 }
-
