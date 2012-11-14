@@ -40,11 +40,15 @@ class User
         if(!in_array($friendRequest->getFrom(), $this->friendRequests)) {
             throw new InvalidArgumentException('kein friendRequest zum bestätigen');
         }
-        $this->friends[$friendRequest->getFrom()->id] = $friendRequest->getFrom();
-        $friendRequest->getFrom()->friends[$this->id] = $friendRequest->getTo();
-        unset ($this->friendRequests[$friendRequest->getFrom()->id]);
+        $this->addFriendShip($friendRequest);
+        $this->removeFriendRequest($friendRequest);
     }
 
+    private function addFriendShip (FriendRequest $friendRequest)
+    {
+        $this->friends[$friendRequest->getFrom()->id] = $friendRequest->getFrom();
+        $friendRequest->getFrom()->friends[$this->id] = $friendRequest->getTo();
+    }
     /**
      * @param FriendRequest $friendRequest
      */
@@ -53,6 +57,14 @@ class User
         if(!in_array($friendRequest->getFrom(), $this->friendRequests)) {
             throw new InvalidArgumentException('kein friendRequest zum ablehnen');
         }
+        $this->removeFriendRequest($friendRequest);
+    }
+
+    /**
+     * @param FriendRequest $friendRequest
+     */
+    private function removeFriendRequest(FriendRequest $friendRequest)
+    {
         unset ($this->friendRequests[$friendRequest->getFrom()->id]);
     }
 

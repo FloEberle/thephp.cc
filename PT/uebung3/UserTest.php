@@ -30,7 +30,6 @@ Class UserTest extends PHPUnit_Framework_TestCase
         $john = new User('1', 'john');
         $kasperle = new User('2', 'kasperle');
         $friendRequest = new FriendRequest($john, $kasperle);
-
         $kasperle->confirm($friendRequest);
     }
     /**
@@ -55,5 +54,4 @@ Class UserTest extends PHPUnit_Framework_TestCase
         $kasperle->decline($friendRequest);
 
     }
-
 }
