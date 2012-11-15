@@ -66,6 +66,7 @@ class User
     {
         if(array_key_exists($friend, $friendRequest->friends)){
         	unset($friendRequest->friends[$friend]);
+                return true;
         }else{
         	throw new notFoundRequestException('Der zu entfernende Freund konnte nicht gefunden werden!');
         }
