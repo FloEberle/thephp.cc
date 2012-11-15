@@ -1,7 +1,4 @@
 <?php
-
-require __DIR__ . '/FriendRequestException.php';
-
 class User
 {
 	
@@ -30,7 +27,7 @@ class User
      */  
     public function addFriendRequest(FriendRequest $friendRequest)
     {  
-        if($friendRequest->from == $this->userName){
+        if($friendRequest->getFrom() == $friendRequest->getTo()){
             throw new itselfRequestException('Sie können sich selbst nicht als Freund hinzufügen.');
         }
         
@@ -44,7 +41,7 @@ class User
     */
     public function confirm(FriendRequest $friendRequest)
     {
-        $this->friends[$friendRequest->from] = true;     
+        $this->friends[$friendRequest->getFrom()] = true;     
         return true;           
     }
     
@@ -68,45 +65,5 @@ class User
         }
         
         
-    }
-}
-
-class FriendRequest
-{  
-    /**
-     * @var string
-     */
-    public $from; 
-    
-    /**
-	* @var string    
-    */
-    private $to;
-    
-    
-    /**
-     * @param string $from 
-     * @param string $to
-     */
-    public function __construct($from, $to)
-    {
-        $this->from = $from;
-        $this->to = $to;
-    }
-    
-    /**
-	* @returns string $from
-    */
-    public function getFrom()
-    {
-        return $this->from;
-    }
-    
-    /**
-	* @returns string $to     
-    */
-    public function getTo()
-    {
-        return $this->to;
     }
 }

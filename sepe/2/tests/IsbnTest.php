@@ -1,6 +1,6 @@
 <?php
 
-class UserTest extends PHPUnit_Framework_TestCase
+class IsbnTest extends PHPUnit_Framework_TestCase
 {
 
     private $isbn;

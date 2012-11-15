@@ -1,6 +1,6 @@
 <?php
 
-class User
+class UserC
 {
     private $friends = array();
     private $requests = array();
@@ -22,7 +22,6 @@ class User
         }
         $this->friends[$friendRequest->getId()] = $friendRequest->getFrom()->getUserName();
         unset($this->requests[$friendRequest->getId()]);
-        $friendRequest->getFrom()->friends[$friendRequest->getId()] = $friendRequest->getTo()->getUserName();
     }
     public function decline(FriendRequest $friendRequest)
     {
@@ -39,8 +38,6 @@ class User
         }
         $pos = array_search($friend->getUserName(),$this->friends);
         unset($this->friends[$pos]);
-        $pos = array_search($this->getUserName(),$friend->friends);
-        unset($friend->friends[$pos]);
     }
     public function setUserName($userName)
     {
