@@ -41,8 +41,14 @@ class User
     */
     public function confirm(FriendRequest $friendRequest)
     {
-        $this->friends[$friendRequest->getFrom()] = true;     
-        return true;           
+        if($friendRequest->getFrom() != $this->userName){
+            return $this->friends[$friendRequest->getFrom()] = true;  
+        }else{
+            return $this->friends[$friendRequest->getTo()] = true;  
+        }
+        
+        return false;
+                   
     }
     
     /**
