@@ -11,7 +11,7 @@ Class UserTest extends PHPUnit_Framework_TestCase
     }
     */
 
-    public function testGetFriendsWorks()
+    public function testFriendship()
     {
         $john = new User('1', 'john');
         $kasperle = new User('2', 'kasperle');
@@ -20,6 +20,15 @@ Class UserTest extends PHPUnit_Framework_TestCase
         $kasperle->confirm($friendRequest);
         $this->assertTrue($john->hasFriend($kasperle));
         $this->assertTrue($kasperle->hasFriend($john));
+    }
+
+    public function testSubscription ()
+    {
+        $john = new User('1', 'john');
+        $kasperle = new User('2', 'kasperle');
+        $subscriptionRequest = new SubscriptionRequest($john, $kasperle);
+        $kasperle->addSubscription($subscriptionRequest);
+        $this->assertTrue($john->hasSubscription($kasperle));
     }
 
     /**
@@ -52,6 +61,19 @@ Class UserTest extends PHPUnit_Framework_TestCase
         $kasperle = new User('2', 'kasperle');
         $friendRequest = new FriendRequest($john, $kasperle);
         $kasperle->decline($friendRequest);
+    }
+
+        /**
+         * @expectedException InvalidArgumentException
+         */
+        public function testRemoveFriend()
+    {
+        $john = new User('1', 'john');
+        $kasperle = new User('2', 'kasperle');
+        $friendRequest = new FriendRequest($john, $kasperle);
+        $kasperle->decline($friendRequest);
 
     }
+
+
 }

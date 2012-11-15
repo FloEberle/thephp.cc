@@ -1,11 +1,12 @@
 <?php
 
-require 'FriendRequest.php';
+require 'Requests.php';
 
 class User
 {
     private $friendRequests = array();
     private $friends = array();
+    private $subscriptions = array();
 
     public function __construct($id, $name)
     {
@@ -22,6 +23,16 @@ class User
     {
         return (array_key_exists($friend->id, $this->friends));
     }
+
+    /**
+     * @param User $friend
+     * @return bool
+     */
+    public function hasSubscription(User $friend)
+    {
+        return (array_key_exists($friend->id, $this->subscriptions));
+    }
+
 
     /**
      * @param FriendRequest $friendRequest
@@ -44,6 +55,17 @@ class User
         $this->removeFriendRequest($friendRequest);
     }
 
+    /**
+     * @param SubscriptionRequest $subscriptionRequest
+     */
+    public function addSubscription (SubscriptionRequest $subscriptionRequest)
+    {
+        $subscriptionRequest->getFrom()->subscriptions[$this->id] = $subscriptionRequest->getTo();
+    }
+
+    /**
+     * @param FriendRequest $friendRequest
+     */
     private function addFriendShip (FriendRequest $friendRequest)
     {
         $this->friends[$friendRequest->getFrom()->id] = $friendRequest->getFrom();
@@ -74,7 +96,7 @@ class User
      */
     public function removeFriend(User $friend)
     {
-        if(!in_array($friend, $this->friends)) {
+        if(!$this->hasFriend($friend)) {
             throw new InvalidArgumentException('übergebener User nicht in friends');
         }
         unset ($this->friends[$friend->id]);
