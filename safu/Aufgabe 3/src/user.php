@@ -41,8 +41,14 @@ class User
     */
     public function confirm(FriendRequest $friendRequest)
     {
-        $this->friends[$friendRequest->getFrom()] = true;     
-        return true;           
+        if($friendRequest->getFrom() != $this->userName){
+            return $this->friends[$friendRequest->getFrom()] = true;  
+        }else{
+            return $this->friends[$friendRequest->getTo()] = true;  
+        }
+        
+        return false;
+                   
     }
     
     /**
@@ -60,6 +66,7 @@ class User
     {
         if(array_key_exists($friend, $friendRequest->friends)){
         	unset($friendRequest->friends[$friend]);
+                return true;
         }else{
         	throw new notFoundRequestException('Der zu entfernende Freund konnte nicht gefunden werden!');
         }
