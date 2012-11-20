@@ -42,13 +42,25 @@ class User
         $this->friendRequests[$friendRequest->getFrom()->id] = $friendRequest->getFrom();
     }
 
+
+    /**
+     * @param FriendRequest $friendRequest
+     * @return bool
+     */
+    private function hasFriendRequest(FriendRequest $friendRequest)
+    {
+        return in_array($friendRequest->getFrom(), $this->friendRequests);
+
+    }
+
+
     /**
      * @param FriendRequest $friendRequest
      * @throws InvalidArgumentException
      */
     public function confirm(FriendRequest $friendRequest)
     {
-        if(!in_array($friendRequest->getFrom(), $this->friendRequests)) {
+        if(!$this->hasFriendRequest($friendRequest)) {
             throw new InvalidArgumentException('kein friendRequest zum bestätigen');
         }
         $this->addFriendShip($friendRequest);
@@ -60,7 +72,7 @@ class User
      */
     public function addSubscription (SubscriptionRequest $subscriptionRequest)
     {
-        $subscriptionRequest->getFrom()->subscriptions[$this->id] = $subscriptionRequest->getTo();
+        $this->subscriptions[$subscriptionRequest->getTo()->id] = $subscriptionRequest->getTo();
     }
 
     /**
@@ -76,7 +88,7 @@ class User
      */
     public function decline(FriendRequest $friendRequest)
     {
-        if(!in_array($friendRequest->getFrom(), $this->friendRequests)) {
+        if(!$this->hasFriendRequest($friendRequest)) {
             throw new InvalidArgumentException('kein friendRequest zum ablehnen');
         }
         $this->removeFriendRequest($friendRequest);
