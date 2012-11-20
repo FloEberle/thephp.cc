@@ -48,8 +48,8 @@
     {
         $this->setUser2->addFriendRequest($this->friendRequest);
         $this->setUser2->confirm($this->friendRequest);
-        $this->setUser2->removeFriend($this->friendRequest);
-	$this->assertTrue($this->setUser2->hasFriend($this->setUser1));
+        $this->setUser2->removeFriend($this->setUser1);
+	$this->assertFalse($this->setUser2->hasFriend($this->setUser1));
     }
     
     /**
@@ -99,6 +99,11 @@
         $this->setUser1->removeFriendRequest($this->friendRequest);
     }
     
-   
-     
+   /**
+    * @expectedException notFoundRequestException
+    */
+     public function testRemoveFriendCantFindFriendExceptionWorks()
+     {
+         $this->setUser2->removeFriend($this->setUser1);
+     }
 }
