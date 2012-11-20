@@ -75,5 +75,14 @@ Class UserTest extends PHPUnit_Framework_TestCase
 
     }
 
+        /**
+        * @expectedException InvalidArgumentException
+         */
+        public function testAddYourselfAsFriendThrowsException()
+        {
+            $john = new User('1', 'john');
+            $friendRequest = new FriendRequest($john, $john);
+            $john->addFriendRequest($friendRequest);
+        }
 
 }

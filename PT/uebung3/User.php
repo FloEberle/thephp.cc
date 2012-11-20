@@ -39,6 +39,10 @@ class User
      */
     public function addFriendRequest(FriendRequest $friendRequest)
     {
+        if($friendRequest->getFrom()->id === $this->id) {
+            throw new InvalidArgumentException('Freundschaft mit sich selbst ist nicht erlaubt');
+        }
+
         $this->friendRequests[$friendRequest->getFrom()->id] = $friendRequest->getFrom();
     }
 
