@@ -27,7 +27,7 @@ Class UserTest extends PHPUnit_Framework_TestCase
         $john = new User('1', 'john');
         $kasperle = new User('2', 'kasperle');
         $subscriptionRequest = new SubscriptionRequest($john, $kasperle);
-        $kasperle->addSubscription($subscriptionRequest);
+        $john->addSubscription($subscriptionRequest);
         $this->assertTrue($john->hasSubscription($kasperle));
     }
 
