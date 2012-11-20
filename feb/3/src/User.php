@@ -104,16 +104,27 @@ class User
         return $key;
     }
 
+    /**
+     * @param FriendRequest $friendRequest
+     * @return bool
+     */
     private function hasFriendRequest(FriendRequest $friendRequest)
     {
         return in_array($friendRequest, $this->friendRequests, true);
     }
 
+    /**
+     * @param FriendRequest $friendRequest
+     * @throws FriendRequestException
+     */
     private function removeFriendRequest(FriendRequest $friendRequest)
     {
         unset($this->friendRequests[$this->getFriendRequestKey($friendRequest)]);
     }
 
+    /**
+     * @param FriendRequest $friendRequest
+     */
     private function addFriendFromFriendRequest(FriendRequest $friendRequest)
     {
         $this->friends[] = $friendRequest->getFrom();
