@@ -3,10 +3,8 @@
 require __DIR__ . '/User.php';
 require __DIR__ . '/FriendRequest.php';
 
-$user1 = new User();
-$user1->setUserName('John');
-$user2 = new User();
-$user2->setUserName('Jane');
+$user1 = new User('John');
+$user2 = new User('Jane');
 
 $request1 = new FriendRequest($user1, $user2);
 $user2->addFriendRequest($request1);

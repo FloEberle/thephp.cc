@@ -22,16 +22,22 @@ class User
     */
     private $userName;
 
+    public function __construct($userName)
+    {
+        $this->setUserName($userName);
+    }
+
     /**
      * @param FriendRequest $friendRequest
      * @throws InvalidArgumentException
      */
     public function addFriendRequest(FriendRequest $friendRequest)
     {
-        if (array_search($friendRequest->getFrom(),$this->friends)==true) {
-            throw new InvalidArgumentException('Friend still in Friendslist ..');
+        if ($this->hasFriend($friendRequest->getFrom())) {
+            throw new InvalidArgumentException('"' . $friendRequest->getFrom()->getUserName() . '" is already a friend');
         }
-        $this->requests[$friendRequest->getId()] = $friendRequest->getFrom();
+
+        $this->requests[] = $friendRequest;
     }
 
     /**
@@ -43,9 +49,9 @@ class User
         if ($friendRequest->getTo() !== $this) {
             throw new InvalidArgumentException('FriendRequest is not for this User..');
         }
-        $this->friends[$friendRequest->getId()] = $friendRequest->getFrom()->getUserName();
-        unset($this->requests[$friendRequest->getId()]);
-        $friendRequest->getFrom()->friends[$friendRequest->getId()] = $friendRequest->getTo()->getUserName();
+
+        $this->addFriend($friendRequest->getFrom());
+        $this->removeFriendRequest($friendRequest);
     }
 
     /**
@@ -83,6 +89,7 @@ class User
     {
         $this->userName = $userName;
     }
+
     public function getUserName()
     {
         return $this->userName;

@@ -1,4 +1,5 @@
 <?php
+
 class FriendRequestException extends Exception
 {
     const ADD_YOURSELF_AS_FRIEND = 1;

@@ -1,25 +1,28 @@
 <?php
+
 class UserTest extends PHPUnit_Framework_TestCase
 {
     /**
      * @var User
      */
-    private $user1;
+    private $user1; // from
+
     /**
      * @var User
      */
-    private $user2;
+    private $user2; // to
+
     /**
      * @var FriendRequest
      */
     private $friendRequest;
+
     public function setUp()
     {
         $this->user1 = new User();
         $this->user2 = new User();
         $this->friendRequest = new FriendRequest($this->user1, $this->user2);
     }
-
 
     /**
      * Legal Friend Request with confirmation
@@ -45,10 +48,15 @@ class UserTest extends PHPUnit_Framework_TestCase
         $this->assertFalse($this->user1->isFriendOf($this->user2));
     }
 
+    public function testUserInitiallyHasNoFriends()
+    {
+
+    }
+
     /**
      * Legal Remove Friend
      */
-    public function testRemoveFriendRequest()
+    public function testRemoveFriendUnfriendsTheUsers()
     {
         $this->user2->addFriendRequest($this->friendRequest);
         $this->user2->confirm($this->friendRequest);
@@ -56,27 +64,21 @@ class UserTest extends PHPUnit_Framework_TestCase
 
         $this->assertFalse($this->user2->isFriendOf($this->user1));
         $this->assertFalse($this->user1->isFriendOf($this->user2));
+
+        return $this->user2;
     }
 
     /**
      * Legal Add Friend, Remove Friend and add Again Friend (Tests recursive adding/removing)
+     * @depends testRemoveFriendUnfriendsTheUsers
      */
-    public function testAddAndRemoveFriendAndAddAgain()
+    public function testAddAndRemoveFriendAndAddAgain(User $user)
     {
-        $this->user2->addFriendRequest($this->friendRequest);
-        $this->user2->confirm($this->friendRequest);
-        $this->user2->removeFriend($this->user1);
-
-        $this->assertFalse($this->user2->isFriendOf($this->user1));
-        $this->assertFalse($this->user1->isFriendOf($this->user2));
-
         //Now it should be legal to add the friend again
-        $this->user2->addFriendRequest($this->friendRequest);
-        $this->user2->confirm($this->friendRequest);
+        $user->addFriendRequest($this->friendRequest);
+        $user->confirm($this->friendRequest);
 
-        $this->assertTrue($this->user2->isFriendOf($this->user1));
-        $this->assertTrue($this->user1->isFriendOf($this->user2));
-
+        $this->assertTrue($user->isFriendOf($this->user1));
     }
 
     /**
@@ -143,4 +145,3 @@ class UserTest extends PHPUnit_Framework_TestCase
         $this->user2->confirm($this->friendRequest);
     }
 }
-

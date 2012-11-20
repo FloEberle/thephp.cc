@@ -36,6 +36,14 @@ class UserTest extends PHPUnit_Framework_TestCase
         $this->assertEquals('Horst', $this->user1->getUserName());
     }
 
+    public function testBecomingFriendWorks()
+    {
+    }
+
+    public function testDecliningFriendRequestWorks()
+    {
+    }
+
     /**
      * @expectedException InvalidArgumentException
      */
@@ -67,7 +75,7 @@ class UserTest extends PHPUnit_Framework_TestCase
     /**
      * @expectedException InvalidArgumentException
      */
-    public function testThrowsExceptionWhenFriendStillInFriendslist()
+    public function testThrowsExceptionWhenRequestingUserIsAlreadyInFriendslist()
     {
         $request = new FriendRequest($this->user1, $this->user2);
         $this->user1->addFriendRequest($request);

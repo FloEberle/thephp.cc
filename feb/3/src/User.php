@@ -1,5 +1,5 @@
 <?php
-require_once 'FriendRequestException.php';
+
 /**
  * Frage meinerseits: Wie loest man die zyklische Rekursion des confirm() und removeFriend() ohne
  * auf die private Attribute der fremden Userinstanz zuzugreifen (imho haesslich!) sondern ueber
@@ -24,6 +24,11 @@ class User
      */
     private $username;
 
+    public function __construct($username)
+    {
+        $this->username = $username;
+    }
+
     /**
      * @param FriendRequest $friendRequest
      *
@@ -37,6 +42,9 @@ class User
         if ($friendRequest->getFrom() === $this) {
             throw new FriendRequestException('You can not add yourself as a Friend! Forever alone?', FriendRequestException::ADD_YOURSELF_AS_FRIEND);
         }
+
+        // if ($this->hasFriend) ...
+
         if(in_array($friendRequest->getFrom(), $this->friends, true)) {
             throw new FriendRequestException('You already have this Friend!', FriendRequestException::FRIEND_ALREADY_EXISTS);
         }
@@ -50,6 +58,10 @@ class User
      */
     public function confirm(FriendRequest $friendRequest)
     {
+        // ... hasFriendRequest ...
+        // ... removeFriendRequest ...
+        // ... addFriend ...
+
         $friendRequestsKey = $this->getFriendRequestKey($friendRequest);
         if (!in_array($friendRequest->getFrom(), $this->friends, true)) {
             $this->friends[] = $friendRequest->getFrom();
@@ -93,19 +105,9 @@ class User
      *
      * @return bool
      */
-    public function isFriendOf(User $friend)
+    public function isFriendOf(User $friend) // hasFriend?
     {
         return in_array($friend, $this->friends, true);
-    }
-
-    /**
-     * No Business Rule. Debugging purpose
-     *
-     * @param String $username
-     */
-    public function _setUsername($username)
-    {
-        $this->username = (string)$username;
     }
 
     /**

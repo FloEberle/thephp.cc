@@ -1,7 +1,5 @@
 <?php
 
-require 'Requests.php';
-
 class User
 {
     private $friendRequests = array();
@@ -39,11 +37,13 @@ class User
      */
     public function addFriendRequest(FriendRequest $friendRequest)
     {
-        if($friendRequest->getFrom()->id === $this->id) {
+        // $this muss in from oder to vorkommen
+
+        if ($friendRequest->getFrom() === $this) {
             throw new InvalidArgumentException('Freundschaft mit sich selbst ist nicht erlaubt');
         }
 
-        $this->friendRequests[$friendRequest->getFrom()->id] = $friendRequest->getFrom();
+        $this->friendRequests[] = $friendRequest;
     }
 
 
@@ -64,10 +64,10 @@ class User
      */
     public function confirm(FriendRequest $friendRequest)
     {
-        if(!$this->hasFriendRequest($friendRequest)) {
+        if (!$this->hasFriendRequest($friendRequest)) {
             throw new InvalidArgumentException('kein friendRequest zum bestätigen');
         }
-        $this->addFriendShip($friendRequest);
+        $this->addFriendShip($friendRequest->getFrom());
         $this->removeFriendRequest($friendRequest);
     }
 
@@ -84,7 +84,8 @@ class User
      */
     private function addFriendShip (FriendRequest $friendRequest)
     {
-        $this->friends[$friendRequest->getFrom()->id] = $friendRequest->getFrom();
+        $this->friends[] = $friendRequest->getFrom();
+
         $friendRequest->getFrom()->friends[$this->id] = $friendRequest->getTo();
     }
     /**

@@ -5,7 +5,7 @@ class FriendRequest
     /**
      * @var User
      */
-    private $from;
+    public $from;
 
     /**
      * @var User
@@ -13,16 +13,21 @@ class FriendRequest
     private $to;
 
     /**
-     * @var String
+     * @param string $from
+     * @param string $to
      */
     public function __construct(User $from, User $to)
     {
+        if ($from === $to){
+            throw new InvalidArgumentException('Freund mit sich selbst geht nicht');
+        }
+
         $this->from = $from;
         $this->to = $to;
     }
 
     /**
-     * @return User
+     * @returns User $from
      */
     public function getFrom()
     {
@@ -30,7 +35,7 @@ class FriendRequest
     }
 
     /**
-     * @return User
+     * @returns User $to
      */
     public function getTo()
     {

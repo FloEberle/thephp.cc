@@ -1,24 +1,28 @@
 <?php
 class FriendRequestTest extends PHPUnit_Framework_TestCase
 {
+    private $user1;
+    private $user2;
+
     public function setUp()
     {
-        $this->_user1 = new User();
-        $this->_user2 = new User();
-        $this->_friendRequest = new FriendRequest($this->_user1, $this->_user2);
+        $this->user1 = new User();
+        $this->user2 = new User();
+        $this->friendRequest = new FriendRequest($this->user1, $this->user2);
     }
+
     public function testGetters()
     {
-        $this->assertSame($this->_user1, $this->_friendRequest->getFrom());
-        $this->assertSame($this->_user2, $this->_friendRequest->getTo());
+        $this->assertSame($this->user1, $this->friendRequest->getFrom());
+        $this->assertSame($this->user2, $this->friendRequest->getTo());
     }
 
     /**
      * @expectedException FriendRequestException
      * @expectedExceptionCode FriendRequestException::FRIENDREQUEST_REQUIRES_DIFFERENT_USERS
      */
-    public function testGetInvalidInstance()
+    public function testFriendRequestWithIdenticalFromAndToUserThrowsException()
     {
-        new FriendRequest($this->_user1, $this->_user1);
+        new FriendRequest($this->user1, $this->user1);
     }
 }
