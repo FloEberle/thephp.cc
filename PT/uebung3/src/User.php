@@ -6,10 +6,14 @@ class User
     private $friends = array();
     private $subscriptions = array();
 
-    public function __construct($id, $name)
+    public function __construct($name)
     {
-        $this->id = $id;
         $this->name = $name;
+    }
+
+    public function getName()
+    {
+        return $this->name;
     }
 
     /**
@@ -19,7 +23,7 @@ class User
      */
     public function hasFriend(User $friend)
     {
-        return (array_key_exists($friend->id, $this->friends));
+        return in_array($friend, $this->friends, true);
     }
 
     /**
@@ -28,24 +32,21 @@ class User
      */
     public function hasSubscription(User $friend)
     {
-        return (array_key_exists($friend->id, $this->subscriptions));
+        return in_array($friend, $this->subscriptions, true);
     }
-
 
     /**
      * @param FriendRequest $friendRequest
+     * @throws ForeignFriendRequestException SelfReferencingFriendRequestException
      */
     public function addFriendRequest(FriendRequest $friendRequest)
     {
-        // $this muss in from oder to vorkommen
-
-        if ($friendRequest->getFrom() === $this) {
-            throw new InvalidArgumentException('Freundschaft mit sich selbst ist nicht erlaubt');
+        if ($friendRequest->getTo() !== $this) {
+            throw new ForeignFriendRequestException('kann keinen fremden FriendRequest entgegen nehmen');
         }
 
         $this->friendRequests[] = $friendRequest;
     }
-
 
     /**
      * @param FriendRequest $friendRequest
@@ -53,21 +54,19 @@ class User
      */
     private function hasFriendRequest(FriendRequest $friendRequest)
     {
-        return in_array($friendRequest->getFrom(), $this->friendRequests);
-
+        return in_array($friendRequest, $this->friendRequests, true);
     }
-
 
     /**
      * @param FriendRequest $friendRequest
-     * @throws InvalidArgumentException
+     * @throws MissingFriendRequestException
      */
     public function confirm(FriendRequest $friendRequest)
     {
         if (!$this->hasFriendRequest($friendRequest)) {
-            throw new InvalidArgumentException('kein friendRequest zum bestätigen');
+            throw new MissingFriendRequestException('kein friendRequest zum bestätigen');
         }
-        $this->addFriendShip($friendRequest->getFrom());
+        $this->addFriendShip($friendRequest);
         $this->removeFriendRequest($friendRequest);
     }
 
@@ -76,27 +75,29 @@ class User
      */
     public function addSubscription (SubscriptionRequest $subscriptionRequest)
     {
-        $this->subscriptions[$subscriptionRequest->getTo()->id] = $subscriptionRequest->getTo();
+        $this->subscriptions[] = $subscriptionRequest->getTo();
     }
 
     /**
      * @param FriendRequest $friendRequest
      */
-    private function addFriendShip (FriendRequest $friendRequest)
+    private function addFriendShip(FriendRequest $friendRequest)
     {
         $this->friends[] = $friendRequest->getFrom();
-
-        $friendRequest->getFrom()->friends[$this->id] = $friendRequest->getTo();
+        $friendRequest->getFrom()->friends[] = $this;
     }
+
     /**
      * @param FriendRequest $friendRequest
+     * @throws MissingFriendRequestException
      */
     public function decline(FriendRequest $friendRequest)
     {
         if(!$this->hasFriendRequest($friendRequest)) {
-            throw new InvalidArgumentException('kein friendRequest zum ablehnen');
+            throw new MissingFriendRequestException('kein friendRequest zum ablehnen');
         }
         $this->removeFriendRequest($friendRequest);
+        return true;
     }
 
     /**
@@ -104,7 +105,12 @@ class User
      */
     private function removeFriendRequest(FriendRequest $friendRequest)
     {
-        unset ($this->friendRequests[$friendRequest->getFrom()->id]);
+        foreach ($this->friendRequests as $index => $f) {
+            if ($friendRequest === $f) {
+                unset($this->friendRequests[$index]);
+                return;
+            }
+        }
     }
 
     /**
@@ -113,10 +119,18 @@ class User
      */
     public function removeFriend(User $friend)
     {
-        if(!$this->hasFriend($friend)) {
-            throw new InvalidArgumentException('übergebener User nicht in friends');
+        if (!$this->hasFriend($friend)) {
+            throw new InvalidFriendRemovalException('User "' . $friend->getName() . '" ist kein Freund');
         }
-        unset ($this->friends[$friend->id]);
-        unset ($friend->friends[$this->id]);
+
+        foreach ($this->friends as $index => $f) {
+            if ($friend === $f) {
+                unset($this->friends[$index]);
+                if ($friend->hasFriend($this)) {
+                    $friend->removeFriend($this);
+                }
+                return;
+            }
+        }
     }
 }
