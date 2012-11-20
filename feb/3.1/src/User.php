@@ -8,19 +8,26 @@
 class User
 {
     /**
-     * @var array
+     * @var SplObjectStorage
      */
-    private $friends = array();
+    private $friends;
     /**
      * @var array
      */
-    private $friendRequests = array();
+    private $friendRequests;
 
     /**
      * @param FriendRequest $friendRequest
      *
      * @throws FriendRequestException
      */
+
+    public function __construct()
+    {
+        $this->friends = new SplObjectStorage();
+        $this->friendRequests = new SplObjectStorage();
+    }
+
     public function addFriendRequest(FriendRequest $friendRequest)
     {
         if ($friendRequest->getFrom() === $this) {
@@ -30,7 +37,7 @@ class User
         if($this->isFriendOf($friendRequest->getFrom())) {
             throw new FriendRequestException('You already have this Friend!', FriendRequestException::FRIEND_ALREADY_EXISTS);
         }
-        $this->friendRequests[] = $friendRequest;
+        $this->friendRequests->attach($friendRequest);
     }
 
     /**
@@ -46,7 +53,7 @@ class User
         }
 
         $this->addFriendFromFriendRequest($friendRequest);
-        $friendRequest->getFrom()->friends[] = $this; // exercise pt c)
+        $friendRequest->getFrom()->friends->attach($this); // exercise pt c)
         $this->removeFriendRequest($friendRequest);
     }
 
@@ -57,6 +64,9 @@ class User
      */
     public function decline(FriendRequest $friendRequest)
     {
+        if(!$this->hasFriendRequest($friendRequest)) {
+            throw new FriendRequestException('Friendrequest not found.', FriendRequestException::FRIENDREQUEST_NOT_FOUND);
+        }
         $this->removeFriendRequest($friendRequest);
     }
 
@@ -67,14 +77,12 @@ class User
      */
     public function removeFriend(User $friend)
     {
-        $key = array_search($friend, $this->friends, true);
-        if ($key === false) {
+        if(!$this->friends->contains($friend))
+        {
             throw new FriendRequestException('Friend not found.', FriendRequestException::FRIEND_NOT_FOUND);
         }
-        $remoteFriend = $this->friends[$key]; // exercise pt c)
-        $remoteKey = array_search($remoteFriend, $remoteFriend->friends, true); // exercise pt c)
-        unset($remoteFriend->friends[$remoteKey]); // exercise pt c)
-        unset($this->friends[$key]);
+
+        $this->friends->detach($friend);
     }
 
     /**
@@ -86,47 +94,21 @@ class User
      */
     public function isFriendOf(User $friend) // hasFriend?
     {
-        return in_array($friend, $this->friends, true);
+        return $this->friends->contains($friend);
     }
 
-    /**
-     * @param FriendRequest $friendRequest
-     *
-     * @return int
-     * @throws FriendRequestException
-     */
-    private function getFriendRequestKey(FriendRequest $friendRequest)
-    {
-        $key = array_search($friendRequest, $this->friendRequests);
-        if ($key === false) {
-            throw new FriendRequestException('Friendrequest not found.', FriendRequestException::FRIENDREQUEST_NOT_FOUND);
-        }
-        return $key;
-    }
-
-    /**
-     * @param FriendRequest $friendRequest
-     * @return bool
-     */
     private function hasFriendRequest(FriendRequest $friendRequest)
     {
-        return in_array($friendRequest, $this->friendRequests, true);
+        return $this->friendRequests->contains($friendRequest);
     }
 
-    /**
-     * @param FriendRequest $friendRequest
-     * @throws FriendRequestException
-     */
     private function removeFriendRequest(FriendRequest $friendRequest)
     {
-        unset($this->friendRequests[$this->getFriendRequestKey($friendRequest)]);
+        $this->friendRequests->detach($friendRequest);
     }
 
-    /**
-     * @param FriendRequest $friendRequest
-     */
     private function addFriendFromFriendRequest(FriendRequest $friendRequest)
     {
-        $this->friends[] = $friendRequest->getFrom();
+        $this->friends->attach($friendRequest->getFrom());
     }
 }
