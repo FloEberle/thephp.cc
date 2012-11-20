@@ -109,9 +109,11 @@ class User
             if ($friendRequest === $f) {
                 unset($this->friendRequests[$index]);
                 return;
+                // @codeCoverageIgnoreStart
             }
         }
     }
+    // @codeCoverageIgnoreEnd
 
     /**
      * @param User $friend
@@ -131,6 +133,8 @@ class User
                 }
                 return;
             }
+            // @codeCoverageIgnoreStart
         }
     }
+    // @codeCoverageIgnoreEnd
 }
