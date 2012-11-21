@@ -1,4 +1,8 @@
 <?php
+
+/**
+ * @covers FriendRequest
+ */
 class FriendRequestTest extends PHPUnit_Framework_TestCase
 {
     private $user1;
