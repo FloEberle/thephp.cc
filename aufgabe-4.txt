@@ -1,0 +1,20 @@
+Es soll ein einfaches Spiel implementiert werden, das den folgenden Regeln
+folgt:
+
+Jeder Spieler erhält fünf Karten, die er verdeckt vor sich auslegt. Jede Karte
+hat dabei eine andere von sechs Farben. Der Würfel zeigt keine Zahlen, sondern
+jeweils eine der sechs Farben. Es wird reihum gewürfelt. Würfelt ein Spieler
+eine Farbe, zu der er eine Karte besitzt, die noch verdeckt ist, dann dreht er
+diese Karte um. Hat ein Spieler alle Karten umgedreht, hat er gewonnen.
+
+Am Spiel sollen die drei Spieler Alice, Bob und Carol teilnehmen.
+
+Achten Sie generell auf minimale Schnittstellen und auf die Einhaltung des
+Single-Responsibility-Prinzips. Schreiben Sie Unit-Tests für alle erstellten
+Klassen, so dass jeweils 100% Code Coverage erzielt wird.
+
+Gehen Sie in kleinen Schritten vor. Denken Sie zunächst an "Nouns and Verbs" 
+und überlegen Sie sich, welche Klassen Sie implementieren möchten und welche
+öffentlichen Schnittstellen diese brauchen. Arbeiten Sie dann in kleinen
+Schritten und schreiben Sie jeweils eine Funktionalität und dann dafür die
+Tests.
