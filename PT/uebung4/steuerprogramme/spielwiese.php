@@ -3,7 +3,12 @@
 require_once '../src/Cube.php';
 require_once '../src/Player.php';
 
+$cards = array();
 $cube = new Cube();
 
-$alice = new Player($cube);
-var_dump($alice);
+for ($i = 1; $i <= 5; $i++){
+    echo $cube->roll();
+}
+
+
+

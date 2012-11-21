@@ -12,11 +12,26 @@ class Cube
     public function roll()
     {
         $colorId = array_rand($this->colors, 1);
-        return $this->colors[$colorId];
+        return  $this->colors[$colorId];
     }
 
     public function getAllColors()
     {
         return $this->colors;
     }
+
+    public function createPlayerCards($numberOfCards)
+    {
+        $cards = array();
+
+        for ($i = 1; $i <= $numberOfCards; $i++){
+            $currentColor = $this->roll();
+            if (in_array($currentColor, $cards)) {
+                $currentColor = $this->roll();
+            }
+            $cards[] = $currentColor;
+        }
+        return $cards;
+    }
+
 }
