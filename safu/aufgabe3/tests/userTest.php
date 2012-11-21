@@ -15,7 +15,7 @@
     * @var $setUser2 Object
     */
    private $setUser2;
-   
+      
     protected function setUp()
     {
         $this->setUser1 = new User("Samuel");
@@ -25,21 +25,85 @@
 
     public function testAddingAnFriendRequestWorks()
     {
-        $this->assertEquals('', $this->setUser2->addFriendRequest($this->friendRequest));
+        $this->setUser2->addFriendRequest($this->friendRequest);
+        $this->assertTrue($this->setUser2->hasFriendRequest($this->friendRequest));
     }
 
     public function testConfirmAnFriendWorks()
     {
-	$this->assertEquals('true', $this->setUser2->confirm($this->friendRequest));
+        $this->setUser2->addFriendRequest($this->friendRequest);
+        $this->setUser2->confirm($this->friendRequest);
+	$this->assertTrue($this->setUser2->hasFriend($this->setUser1));
     }
 
     public function testDeclineAnFriendWorks()
     {
-	$this->assertEquals('$this->friendRequest == null', $this->setUser1->decline($this->friendRequest));
+        $this->setUser2->addFriendRequest($this->friendRequest);
+	$this->setUser2->decline($this->friendRequest);
+        $this->assertFalse($this->setUser2->hasFriendRequest($this->friendRequest));
+                
     }
 
     public function testRemoveAnFriendWorks()
     {
-	$this->assertEquals('true', $this->setUser1->removeFriend('Hugo', $this->setUser1));
+        $this->setUser2->addFriendRequest($this->friendRequest);
+        $this->setUser2->confirm($this->friendRequest);
+        $this->setUser2->removeFriend($this->setUser1);
+	$this->assertFalse($this->setUser2->hasFriend($this->setUser1));
     }
+    
+    /**
+     * @expectedException InvalidArgumentException 
+     */
+    public function testConstructFriendRequestWithSameUser()
+    {
+        $this->friendRequest = new FriendRequest($this->setUser1, $this->setUser1);
+    }
+    
+    /**
+     * @expectedException InvalidArgumentException
+     */
+    public function testAddFriendrequestItsMeExceptionWorks()
+    {
+        $this->friendRequest = new FriendRequest($this->setUser1, $this->setUser1);
+        $this->setUser1->addFriendRequest($this->friendRequest);  
+    }
+    
+    /**
+     * @expectedException alreadyRequestException
+     */
+    public function testAddFreindrequestAllreadyFriendsExceptionWorks()
+    {
+        $this->setUser2->addFriendRequest($this->friendRequest);
+        $this->setUser2->confirm($this->friendRequest);
+        
+        $this->setUser2->addFriendRequest($this->friendRequest);
+        $this->setUser2->confirm($this->friendRequest);
+    }
+    
+    /**
+     * @expectedException itselfRequestException
+     */
+    public function testAddFriendrequestItIsNotForMeExceptionWorks()
+    {
+        $setUser3 = new User('Marlene');
+        $this->friendRequest = new FriendRequest($this->setUser1, $setUser3);
+        $this->setUser2->addFriendRequest($this->friendRequest);
+    }
+        
+    /**
+     * @expectedException notFoundRequestException
+     */
+    public function testRemoveFriendRequestCantFindFriendrequestExceptionWorks()
+    {
+        $this->setUser1->removeFriendRequest($this->friendRequest);
+    }
+    
+   /**
+    * @expectedException notFoundRequestException
+    */
+     public function testRemoveFriendCantFindFriendExceptionWorks()
+     {
+         $this->setUser2->removeFriend($this->setUser1);
+     }
 }
