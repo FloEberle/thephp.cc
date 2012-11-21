@@ -4,7 +4,7 @@ class User
 {
     private $friendRequests = array();
     private $friends = array();
-    private $subscriptions = array();
+    private $subscribers = array();
 
     public function __construct($name)
     {
@@ -14,6 +14,16 @@ class User
     public function getName()
     {
         return $this->name;
+    }
+
+    public function getNumberOfFriends()
+    {
+        return count($this->friends);
+    }
+
+    public function getNumberOfSubscribers()
+    {
+        return count($this->subscribers);
     }
 
     /**
@@ -27,32 +37,24 @@ class User
     }
 
     /**
-     * @param User $friend
-     * @return bool
-     */
-    public function hasSubscription(User $friend)
-    {
-        return in_array($friend, $this->subscriptions, true);
-    }
-
-    /**
      * @param FriendRequest $friendRequest
      * @throws ForeignFriendRequestException SelfReferencingFriendRequestException
      */
     public function addFriendRequest(FriendRequest $friendRequest)
     {
-        if ($friendRequest->getTo() !== $this) {
+        if ($friendRequest->getTo() !== $this && $friendRequest->getFrom() !== $this) {
             throw new ForeignFriendRequestException('kann keinen fremden FriendRequest entgegen nehmen');
         }
 
         $this->friendRequests[] = $friendRequest;
+        $friendRequest->getFrom()->addFriendRequest($friendRequest);
     }
 
     /**
      * @param FriendRequest $friendRequest
      * @return bool
      */
-    private function hasFriendRequest(FriendRequest $friendRequest)
+    public function hasFriendRequest(FriendRequest $friendRequest)
     {
         return in_array($friendRequest, $this->friendRequests, true);
     }
@@ -71,11 +73,21 @@ class User
     }
 
     /**
-     * @param SubscriptionRequest $subscriptionRequest
+     * @param User
      */
-    public function addSubscription (SubscriptionRequest $subscriptionRequest)
+    public function subscribe(User $user)
     {
-        $this->subscriptions[] = $subscriptionRequest->getTo();
+        $this->subscribers[] = $user;
+    }
+
+    public function isSubscriber(User $user)
+    {
+        return in_array($user, $this->subscribers, true);
+    }
+
+    public function addFriend(User $user)
+    {
+        $this->friends[] = $user;
     }
 
     /**
@@ -84,7 +96,7 @@ class User
     private function addFriendShip(FriendRequest $friendRequest)
     {
         $this->friends[] = $friendRequest->getFrom();
-        $friendRequest->getFrom()->friends[] = $this;
+        $friendRequest->getFrom()->addFriend($this);
     }
 
     /**
@@ -97,7 +109,6 @@ class User
             throw new MissingFriendRequestException('kein friendRequest zum ablehnen');
         }
         $this->removeFriendRequest($friendRequest);
-        return true;
     }
 
     /**
