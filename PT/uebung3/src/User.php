@@ -128,7 +128,7 @@ class User
 
     /**
      * @param User $friend
-     * @throws InvalidArgumentException
+     * @throws InvalidFriendRemovalException
      */
     public function removeFriend(User $friend)
     {
