@@ -34,26 +34,54 @@ class User
     public function addFriendRequest(FriendRequest $friendRequest)
     {
         if ($this->hasFriend($friendRequest->getFrom())) {
-            throw new InvalidArgumentException('"' . $friendRequest->getFrom()->getUserName() . '" is already a friend');
+            throw new UserException('"' . $friendRequest->getFrom()->getUserName() . '" is already a friend', UserException::USER_ALREADY_FRIEND);
         }
 
         $this->requests[] = $friendRequest;
     }
+	
+	public function hasFriend(User $user)
+	{
+		foreach ($this->friends as $index => $friend) {
+			if ($friend === $user) {
+				return true;
+			}
+		}
+		return false;
+	}
 
     /**
      * @param FriendRequest $friendRequest
      * @throws InvalidArgumentException
      */
-    public function confirm(FriendRequest $friendRequest)
+	public function confirm(FriendRequest $friendRequest)
     {
         if ($friendRequest->getTo() !== $this) {
-            throw new InvalidArgumentException('FriendRequest is not for this User..');
+            throw new UserException('FriendRequest is not for this User..', UserException::REQUEST_TO_CONFIRM_NOT_FOR_THIS_USER);
         }
 
         $this->addFriend($friendRequest->getFrom());
         $this->removeFriendRequest($friendRequest);
     }
-
+	
+	private function addFriend(User $user)
+	{
+		$this->friends[] = $user;
+	}
+	
+	private function removeFriendRequest(FriendRequest $friendRequest)
+	{
+		foreach ($this->requests as $index => $request) {
+            if ($request === $friendRequest) {
+                unset($this->requests[$index]);
+				return;
+            }
+	// Stelle in private Methode wird nie erreicht.
+	// @codeCoverageIgnoreStart		
+        }
+	}
+	// @codeCoverageIgnoreEnd
+	
     /**
      * @param FriendRequest $friendRequest
      * @throws InvalidArgumentException
@@ -61,11 +89,17 @@ class User
     public function decline(FriendRequest $friendRequest)
     {
         if ($friendRequest->getTo() !== $this) {
-            throw new InvalidArgumentException('FriendRequest is not for this User..');
+            throw new UserException('FriendRequest is not for this User..', UserException::REQUEST_TO_DECLINE_NOT_FOR_THIS_USER);
         }
-        $this->declined[$friendRequest->getId()] = $friendRequest->getFrom()->getUserName();
-        unset($this->requests[$friendRequest->getId()]);
-    }
+        $this->declined[] = $friendRequest;
+        
+		foreach ($this->requests as $index => $request) {
+            if ($request === $friendRequest) {
+                unset($this->requests[$index]);
+				return;
+            }
+    	}
+	}
 
     /**
      * @param User $friend
@@ -73,15 +107,21 @@ class User
      */
     public function removeFriend(User $friend)
     {
-        if (array_search($friend->getUserName(),$this->friends)==false) {
-            throw new InvalidArgumentException('Not a Friend for this User..');
+        if (!in_array($friend, $this->friends, true)) {
+            throw new UserException('Not a Friend for this User..', UserException::FRIEND_TO_REMOVE_NOT_A_FRIEND);
         }
-        $pos = array_search($friend->getUserName(),$this->friends);
-        unset($this->friends[$pos]);
-        $pos = array_search($this->getUserName(),$friend->friends);
-        unset($friend->friends[$pos]);
+		
+		foreach ($this->friends as $index => $request) {
+            if ($request === $friend) {
+                unset($this->friends[$index]);
+				return;
+            }
+		// Diese Stelle wird nie erreicht weil wir aus Performance-Gründen mit return aus der Schleife springen.	
+	    // @codeCoverageIgnoreStart
+    	}
     }
-
+	// @codeCoverageIgnoreEnd
+	
     /**
      * @param $userName
      */
@@ -89,7 +129,10 @@ class User
     {
         $this->userName = $userName;
     }
-
+	
+    /**
+     * @return String
+     */
     public function getUserName()
     {
         return $this->userName;
