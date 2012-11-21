@@ -24,4 +24,3 @@ class FriendRequest
         return $this->to;
     }
 }
-

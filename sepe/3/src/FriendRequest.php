@@ -17,6 +17,9 @@ class FriendRequest
      */
     public function __construct(User $from, User $to)
     {
+        if($from === $to){
+            throw new Exception('Both users are the same..');
+        }    	
         $this->from = $from;
         $this->to = $to;
     }
