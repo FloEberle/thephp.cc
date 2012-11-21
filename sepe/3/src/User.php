@@ -24,7 +24,7 @@ class User
 
     public function __construct($userName)
     {
-        $this->setUserName($userName . 'test');
+        $this->setUserName($userName);
     }
 
     /**
