@@ -5,5 +5,8 @@ require_once '../src/Player.php';
 
 $cube = new Cube();
 
-$alice = new Player($cube);
+$numberOfCards = 5;
+$alice = new Player($cube, $numberOfCards);
+
 var_dump($alice);
+

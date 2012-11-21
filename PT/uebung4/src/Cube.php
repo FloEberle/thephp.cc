@@ -6,7 +6,7 @@ class Cube
 
     public function __construct()
     {
-        array_push($this->colors, 'red', 'yellow', 'blue', 'green', 'lilablassblau', 'piggypink');
+        array_push($this->colors, 'red', 'yellow', 'blue', 'green', 'brown', 'violet');
     }
 
     public function roll()
@@ -22,15 +22,9 @@ class Cube
 
     public function createPlayerCards($numberOfCards)
     {
-        $cards = array();
-
-        for ($i = 1; $i <= $numberOfCards; $i++){
-            $currentColor = $this->roll();
-            if (in_array($currentColor, $cards)) {
-                $currentColor = $this->roll();
-            }
-            $cards[] = $currentColor;
-        }
+        $cards = $this->colors;
+        $random = rand(1, $numberOfCards);
+        unset($cards[$random]);
         return $cards;
     }
 
