@@ -10,12 +10,12 @@ class Player
     private $logger;
 
     /**
-     * @param Configuration   $configuration
-     * @param Game            $game
+     * @param ConfigurationInterface   $configuration
+     * @param GameInterface            $game
      * @param LoggerInterface $logger
      * @param DiceInterface   $dice
      */
-    public function __construct(Configuration $configuration, Game $game, LoggerInterface $logger, DiceInterface $dice)
+    public function __construct(ConfigurationInterface $configuration, GameInterface $game, LoggerInterface $logger, DiceInterface $dice)
     {
         $this->configuration = $configuration;
         $this->logger = $logger;

@@ -7,9 +7,9 @@ class Factory
     private $logger;
 
     /**
-     * @param Configuration $configuration
+     * @param ConfigurationInterface $configuration
      */
-    public function __construct(Configuration $configuration)
+    public function __construct(ConfigurationInterface $configuration)
     {
         $this->configuration = $configuration;
     }
@@ -17,7 +17,7 @@ class Factory
     /**
      * @param $type string
      *
-     * @return Configuration|Dice|Game|Player|StdoutLogger
+     * @return ConfigurationInterface|Dice|GameInterface|Player|LoggerInterface
      * @throws Exception
      */
     public function getInstanceFor($type)
@@ -29,7 +29,7 @@ class Factory
             case 'Game':
                 //We only want one instance of game
                 if ($this->game === null) {
-                    $this->game = new Game($this->configuration);
+                    $this->game = new Game($this->configuration, $this);
                 }
                 return $this->game;
                 break;

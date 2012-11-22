@@ -1,9 +1,9 @@
 <?php
 
-class Game
+class Game implements GameInterface
 {
     /**
-     * @var Configuration
+     * @var ConfigurationInterface
      */
     private $configuration;
 
@@ -33,19 +33,19 @@ class Game
     private $logger;
 
     /**
-     * @param Configuration $configuration
+     * @param ConfigurationInterface $configuration
      */
-    public function __construct(Configuration $configuration)
+    public function __construct(ConfigurationInterface $configuration, Factory $factory)
     {
         $this->configuration = $configuration;
+        $this->factory = $factory;
     }
 
     /**
      * @param Factory $factory
      */
-    public function initialize(Factory $factory)
+    public function initialize()
     {
-        $this->factory = $factory;
         $this->logger = $this->factory->getInstanceFor('StdoutLogger');
         $config = $this->factory->getInstanceFor('Config');
 
