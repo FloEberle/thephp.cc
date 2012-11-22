@@ -1,4 +1,8 @@
 <?php
+
+/**
+ * @covers Dice
+ */
 class DiceTest extends AbstractTest
 {
     private $color;
@@ -10,8 +14,8 @@ class DiceTest extends AbstractTest
 
     public function testGetRandomColorOutOfOnlyOne()
     {
-        $this->configurationStub->expects($this->once())->method('get')->will($this->returnValue(array($this->color)));
-        $this->dice = new Dice($this->configurationStub, $this->loggerStub);
+        $this->configurationMock->expects($this->once())->method('get')->will($this->returnValue(array($this->color)));
+        $this->dice = new Dice($this->configurationMock, $this->loggerMock);
         $this->assertSame($this->color, $this->dice->getRandomColor());
     }
 }

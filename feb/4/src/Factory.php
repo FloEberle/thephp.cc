@@ -17,7 +17,7 @@ class Factory
     /**
      * @param $type string
      *
-     * @return ConfigurationInterface|Dice|GameInterface|Player|LoggerInterface
+     * @return ConfigurationInterface|DiceInterface|GameInterface|Player|LoggerInterface|CroupierInterface
      * @throws Exception
      */
     public function getInstanceFor($type)
@@ -25,30 +25,29 @@ class Factory
         switch ($type) {
             case 'Config':
                 return $this->configuration;
-                break;
             case 'Game':
                 //We only want one instance of game
                 if ($this->game === null) {
-                    $this->game = new Game($this->configuration, $this);
+                    $this->game = new Game($this->configuration, $this, $this->getInstanceFor('Croupier'));
                 }
                 return $this->game;
-                break;
             case 'Player':
                 return new Player(
                     $this->configuration,
                     $this->getInstanceFor('Game'),
-                    $this->getInstanceFor('StdoutLogger'),
+                    $this->getInstanceFor('Logger'),
                     $this->getInstanceFor('Dice'));
-                break;
 
-            case 'StdoutLogger':
+            case 'Logger':
                 if ($this->logger === null) {
                     $this->logger = new StdoutLogger();
                 }
                 return $this->logger;
 
             case 'Dice':
-                return new Dice($this->configuration, $this->getInstanceFor('StdoutLogger'));
+                return new Dice($this->configuration, $this->getInstanceFor('Logger'));
+            case 'Croupier':
+                return new Croupier();
             default:
                 throw new Exception('Factory kennt Klasse "' . $type . '" nicht!');
         }

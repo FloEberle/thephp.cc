@@ -64,8 +64,20 @@ class Player
     }
 
     /**
+     * Not needed in business Logic, improves testabiltiy
+     *
+     * @return array
+     */
+    public function getCards()
+    {
+        return $this->cards;
+    }
+
+    /**
      * @return string
      */
+    // toString() needs no testing
+    // @codeCoverageIgnoreStart
     public function __toString()
     {
         $str = 'Player "' . $this->getName() . '" current Cards: ';
@@ -74,4 +86,5 @@ class Player
         }
         return $str;
     }
+    // @codeCoverageIgnoreEnd
 }

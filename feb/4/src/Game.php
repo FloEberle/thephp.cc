@@ -33,35 +33,45 @@ class Game implements GameInterface
     private $logger;
 
     /**
-     * @param ConfigurationInterface $configuration
+     * @var CroupierInterface
      */
-    public function __construct(ConfigurationInterface $configuration, Factory $factory)
+    private $croupier;
+
+    /**
+     * @var Player
+     */
+    private $winner;
+
+    /**
+     * @param ConfigurationInterface $configuration
+     * @param Factory                $factory
+     * @param CroupierInterface      $croupier
+     */
+    public function __construct(ConfigurationInterface $configuration, Factory $factory, CroupierInterface $croupier)
     {
         $this->configuration = $configuration;
         $this->factory = $factory;
+        $this->croupier = $croupier;
     }
 
-    /**
-     * @param Factory $factory
-     */
     public function initialize()
     {
-        $this->logger = $this->factory->getInstanceFor('StdoutLogger');
-        $config = $this->factory->getInstanceFor('Config');
+        $this->logger = $this->factory->getInstanceFor('Logger');
 
         //Initialize Cards
-        foreach ($config->get('colors') as $color) {
+        foreach ($this->configuration->get('colors') as $color) {
             $this->cards[] = new Card($color);
         }
 
         //Initialize Players
-        foreach ($config->get('players') as $playername) {
+        foreach ($this->configuration->get('players') as $playername) {
             $player = $this->factory->getInstanceFor('Player');
             $player->setName($playername);
 
-            //Give the player n - 1 cards
-            shuffle($this->cards);
+
+            //Give the player n - 1 random cards
             $numberOfCards = count($this->cards);
+            $this->cards = $this->croupier->shuffle($this->cards);
             for ($i = 0; $i < $numberOfCards; $i++) {
                 $player->addCard($this->cards[$i]);
             }
@@ -69,7 +79,7 @@ class Game implements GameInterface
             $this->players[] = $player;
         }
 
-        shuffle($this->players);
+        $this->players = $this->croupier->shuffle($this->players);
         $this->gameInProgress = true;
         $this->logger->log('Game initialized!');
 
@@ -91,6 +101,7 @@ class Game implements GameInterface
                 $player->makeMove();
                 if (!$this->gameInProgress) {
                     $this->logger->log('Player "' . $player->getName() . '" has won the game');
+                    $this->winner = $player;
                     break;
                 }
             }
@@ -103,5 +114,10 @@ class Game implements GameInterface
     public function stopGame()
     {
         $this->gameInProgress = false;
+    }
+
+    public function getWinner()
+    {
+        return $this->winner;
     }
 }

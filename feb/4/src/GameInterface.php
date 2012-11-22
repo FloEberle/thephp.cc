@@ -4,4 +4,5 @@ interface GameInterface
     public function initialize();
     public function play();
     public function stopGame();
+    public function getWinner();
 }

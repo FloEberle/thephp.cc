@@ -2,16 +2,16 @@
 
 abstract class AbstractTest extends PHPUnit_Framework_TestCase
 {
-    protected $loggerStub;
-    protected $diceStub;
-    protected $configurationStub;
-    protected $gameStub;
+    protected $loggerMock;
+    protected $diceMock;
+    protected $configurationMock;
+    protected $gameMock;
 
     protected function setUp()
     {
-        $this->loggerStub = $this->getMock('LoggerInterface');
-        $this->diceStub = $this->getMock('DiceInterface');
-        $this->configurationStub = $this->getMock('ConfigurationInterface');
-        $this->gameStub = $this->getMock('GameInterface');
+        $this->loggerMock = $this->getMock('LoggerInterface');
+        $this->diceMock = $this->getMock('DiceInterface');
+        $this->configurationMock = $this->getMock('ConfigurationInterface');
+        $this->gameMock = $this->getMock('GameInterface');
     }
 }

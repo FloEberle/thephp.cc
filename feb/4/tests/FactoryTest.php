@@ -1,4 +1,8 @@
 <?php
+
+/**
+ * @covers Factory
+ */
 class FactoryTest extends AbstractTest
 {
     private $factory;
@@ -28,7 +32,7 @@ class FactoryTest extends AbstractTest
 
     public function testGetInstanceOfLoggerWorks()
     {
-        $this->assertTrue($this->factory->getInstanceFor('StdoutLogger') instanceof LoggerInterface);
+        $this->assertTrue($this->factory->getInstanceFor('Logger') instanceof LoggerInterface);
     }
 
     public function testGetInstanceOfDiceWorks()

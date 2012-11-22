@@ -1,4 +1,8 @@
 <?php
+
+/**
+ * @covers Card
+ */
 class CardTest extends PHPUnit_Framework_TestCase
 {
     private $card;
