@@ -42,20 +42,31 @@ class Game
 
         //Shuffle Players
         shuffle($this->players);
-
         $this->gameInProgress = true;
+
+        $this->logger->log('Game initialized!');
+
+        foreach ($this->players as $player) {
+            $this->logger->log($player);
+        }
+
+
     }
 
     public function play()
     {
+        $this->logger->log("Let the hunger games begin\n=============================================");
         while ($this->gameInProgress) {
             foreach ($this->players as $player) {
                 $player->makeMove();
                 if (!$this->gameInProgress) {
-                    $this->logger->log('Player '.$player->getName().' has won the game');
+                    $this->logger->log('Player "'.$player->getName().'" has won the game');
                     break;
                 }
             }
+        }
+        foreach ($this->players as $player) {
+            $this->logger->log($player);
         }
 
     }

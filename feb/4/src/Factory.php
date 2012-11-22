@@ -4,6 +4,7 @@ class Factory
 {
     private $configuration;
     private $game;
+    private $logger;
 
     public function __construct(Configuration $configuration)
     {
@@ -24,13 +25,23 @@ class Factory
                 return $this->game;
                 break;
             case 'Player':
-                return new Player($this->configuration, $this->getInstanceFor('Game'), $this->getInstanceFor('StdoutLogger'));
-            break;
+                return new Player(
+                    $this->configuration,
+                    $this->getInstanceFor('Game'),
+                    $this->getInstanceFor('StdoutLogger'),
+                    $this->getInstanceFor('Dice'));
+                break;
 
             case 'StdoutLogger':
-                return new StdoutLogger();
+                if ($this->logger === null) {
+                    $this->logger = new StdoutLogger();
+                }
+                return $this->logger;
+
+            case 'Dice':
+                return new Dice($this->configuration, $this->getInstanceFor('StdoutLogger'));
             default:
-                throw new Exception('Factory kennt Klasse "'.$type.'" nicht!');
+                throw new Exception('Factory kennt Klasse "' . $type . '" nicht!');
         }
     }
 }
