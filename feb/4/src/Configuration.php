@@ -1,5 +1,5 @@
 <?php
-class Configuration
+class Configuration implements ConfigurationInterface
 {
     /**
      * @var String
@@ -16,11 +16,20 @@ class Configuration
      */
     private $isLoaded = false;
 
+    /**
+     * @param $file string
+     */
     public function __construct($file)
     {
         $this->file = $file;
     }
 
+    /**
+     * @param $key string
+     *
+     * @return string
+     * @throws Exception
+     */
     public function get($key)
     {
         $this->load();
