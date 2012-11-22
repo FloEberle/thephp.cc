@@ -2,18 +2,47 @@
 
 class Game
 {
+    /**
+     * @var Configuration
+     */
     private $configuration;
+
+    /**
+     * @var array
+     */
     private $players = array();
+
+    /**
+     * @var array
+     */
     private $cards = array();
+
+    /**
+     * @var Factory
+     */
     private $factory;
+
+    /**
+     * @var bool
+     */
     private $gameInProgress = false;
+
+    /**
+     * @var LoggerInterface
+     */
     private $logger;
 
+    /**
+     * @param Configuration $configuration
+     */
     public function __construct(Configuration $configuration)
     {
         $this->configuration = $configuration;
     }
 
+    /**
+     * @param Factory $factory
+     */
     public function initialize(Factory $factory)
     {
         $this->factory = $factory;
@@ -30,7 +59,7 @@ class Game
             $player = $this->factory->getInstanceFor('Player');
             $player->setName($playername);
 
-            //Give him n - 1 cards
+            //Give the player n - 1 cards
             shuffle($this->cards);
             $numberOfCards = count($this->cards);
             for ($i = 0; $i < $numberOfCards; $i++) {
@@ -40,10 +69,8 @@ class Game
             $this->players[] = $player;
         }
 
-        //Shuffle Players
         shuffle($this->players);
         $this->gameInProgress = true;
-
         $this->logger->log('Game initialized!');
 
         foreach ($this->players as $player) {
@@ -55,12 +82,15 @@ class Game
 
     public function play()
     {
+        if (!$this->gameInProgress) {
+            throw new LogicException('Game must be initialized before playing!');
+        }
         $this->logger->log("Let the hunger games begin\n=============================================");
         while ($this->gameInProgress) {
             foreach ($this->players as $player) {
                 $player->makeMove();
                 if (!$this->gameInProgress) {
-                    $this->logger->log('Player "'.$player->getName().'" has won the game');
+                    $this->logger->log('Player "' . $player->getName() . '" has won the game');
                     break;
                 }
             }
@@ -68,7 +98,6 @@ class Game
         foreach ($this->players as $player) {
             $this->logger->log($player);
         }
-
     }
 
     public function stopGame()

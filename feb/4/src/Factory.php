@@ -6,11 +6,20 @@ class Factory
     private $game;
     private $logger;
 
+    /**
+     * @param Configuration $configuration
+     */
     public function __construct(Configuration $configuration)
     {
         $this->configuration = $configuration;
     }
 
+    /**
+     * @param $type string
+     *
+     * @return Configuration|Dice|Game|Player|StdoutLogger
+     * @throws Exception
+     */
     public function getInstanceFor($type)
     {
         switch ($type) {

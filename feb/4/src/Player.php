@@ -9,6 +9,12 @@ class Player
     private $game;
     private $logger;
 
+    /**
+     * @param Configuration   $configuration
+     * @param Game            $game
+     * @param LoggerInterface $logger
+     * @param DiceInterface   $dice
+     */
     public function __construct(Configuration $configuration, Game $game, LoggerInterface $logger, DiceInterface $dice)
     {
         $this->configuration = $configuration;
@@ -33,27 +39,33 @@ class Player
         $this->logger->log('"'.$this->name . '" ended a move!');
     }
 
-
-    public function rollTheDice()
-    {
-
-    }
-
+    /**
+     * @return string
+     */
     public function getName()
     {
         return $this->name;
     }
 
+    /**
+     * @param $name string
+     */
     public function setName($name)
     {
         $this->name = $name;
     }
 
+    /**
+     * @param Card $card
+     */
     public function addCard(Card $card)
     {
         $this->cards[] = $card;
     }
 
+    /**
+     * @return string
+     */
     public function __toString()
     {
         $str = 'Player "' . $this->getName() . '" current Cards: ';
