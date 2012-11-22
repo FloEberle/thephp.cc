@@ -23,4 +23,9 @@ class player
     {
         return $this->name;
     }
+    
+    public function getCards()
+    {
+        return $this->cards;
+    }
 }
