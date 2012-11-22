@@ -36,7 +36,8 @@ class Factory
                     $this->configuration,
                     $this->getInstanceFor('Game'),
                     $this->getInstanceFor('Logger'),
-                    $this->getInstanceFor('Dice'));
+                    $this->getInstanceFor('Dice')
+                );
 
             case 'Logger':
                 if ($this->logger === null) {

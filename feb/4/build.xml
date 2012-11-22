@@ -26,7 +26,7 @@
   <delete dir="${basedir}/build/RPM"/>
  </target>
 
- <target name="prepare" depends="clean,phpab,compress-js" description="Prepare for build">
+ <target name="prepare" depends="clean,phpab" description="Prepare for build">
   <mkdir dir="${basedir}/build/api"/>
   <mkdir dir="${basedir}/build/code-browser"/>
   <mkdir dir="${basedir}/build/coverage"/>
@@ -68,23 +68,6 @@
   </apply>
  </target>
 
- <target name="compress-js">
-   <fileset id="javascript-files" dir="html/js">
-       <exclude name="store.js"/>
-       <exclude name="jquery.js"/>
-   </fileset>
-   <concat destfile="html/js/store.js">
-       <filelist files="html/js/jquery.js" />
-   </concat>
-   <pathconvert pathsep=" " property="javascript-files" refid="javascript-files" />
-   <exec executable="java" output="html/js/store.js" logError="true" append="true" failonerror="true">
-     <arg value="-jar" />
-     <arg path="build/closure-compiler/compiler.jar" />
-     <arg line="--js ${javascript-files}" />
-     <arg value="--compilation_level" />
-     <arg value="SIMPLE_OPTIMIZATIONS"/>
-   </exec>
- </target>
 
  <target name="phpunit" description="Run unit tests with PHPUnit">
   <if>
