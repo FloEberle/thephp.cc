@@ -43,11 +43,7 @@ class cards
     
     public function hasCard ($number)
     {
-        if (array_key_exists($number, $this->player->cards)){
-            return $this->player->cards[$number] = true;
-        }
-        
-        return false;
+        return array_key_exists($number, $this->player->cards);
     }
     
 }

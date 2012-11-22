@@ -12,4 +12,13 @@ class control
     {
         return !in_array(false, $cards);
     }
+    
+     public function setCardTrue ($number)
+    {
+        if (array_key_exists($number, $this->player->cards)){
+            return $this->player->cards[$number] = true;
+        }
+        
+        return false;
+    }
 }

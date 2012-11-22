@@ -15,5 +15,5 @@ class cube
     private function setCube()
     {
         $this->rand = rand(1, 6); 
-    }    
+    } 
 }
