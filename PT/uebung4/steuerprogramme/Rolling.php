@@ -2,11 +2,41 @@
 
 require_once '../src/Cube.php';
 require_once '../src/Player.php';
+require_once '../src/GameColors.php';
+require_once '../src/PlayerCards.php';
 
-$cube = new Cube();
+$gameColors = new GameColors();
+
+$cube = new Cube($gameColors);
+// var_dump($cube);
+
+$playerCards = new PlayerCards($gameColors);
 
 $numberOfCards = 5;
-$alice = new Player($cube, $numberOfCards);
+$alice = new Player($playerCards, $numberOfCards, 'Alice');
 
-var_dump($alice);
+
+
+$color = $cube->roll();
+if ($alice->hasCardColor($color)){
+    $alice->removeCard($color);
+}
+
+
+$color = $cube->roll();
+if ($alice->hasCardColor($color)){
+    $alice->removeCard($color);
+}
+
+
+$color = $cube->roll();
+if ($alice->hasCardColor($color)){
+    $alice->removeCard($color);
+}
+
+
+$color = $cube->roll();
+if ($alice->hasCardColor($color)){
+    $alice->removeCard($color);
+}
 
