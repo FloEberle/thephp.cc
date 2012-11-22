@@ -4,9 +4,9 @@ class GameColors
 {
     private $colors = array();
 
-    public function __contruct()
+    public function __construct(colorBackend $colorBackend)
     {
-        $this->colors = parse_ini_file(__DIR__ . '/colors.ini');
+        $this->colors = $colorBackend->readIniFile();
     }
 
     public function getAllColors()

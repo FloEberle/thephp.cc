@@ -3,9 +3,12 @@
 require_once '../src/Cube.php';
 require_once '../src/Player.php';
 require_once '../src/GameColors.php';
+require_once '../src/ColorBackend.php';
 require_once '../src/PlayerCards.php';
 
-$gameColors = new GameColors();
+$colorBackend = new ColorBackend();
+
+$gameColors = new GameColors($colorBackend);
 
 $cube = new Cube($gameColors);
 // var_dump($cube);
@@ -40,3 +43,4 @@ if ($alice->hasCardColor($color)){
     $alice->removeCard($color);
 }
 
+var_dump($alice);

@@ -4,9 +4,9 @@ class Cube
 {
     private $colors = array();
 
-    public function __construct()
+    public function __construct(GameColors $gameColors)
     {
-        array_push($this->colors, 'red', 'yellow', 'blue', 'green', 'brown', 'violet');
+        $this->colors = $gameColors->getAllColors();
     }
 
     public function roll()
@@ -19,13 +19,4 @@ class Cube
     {
         return $this->colors;
     }
-
-    public function createPlayerCards($numberOfCards)
-    {
-        $cards = $this->colors;
-        $random = rand(1, $numberOfCards);
-        unset($cards[$random]);
-        return $cards;
-    }
-
 }
