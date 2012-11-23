@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project name="StoreFront" default="build">
 
- <target name="build" depends="prepare,lint,phploc,pdepend,phpmd-ci,phpcpd,phpcs-ci,phpunit,phpcb"/>
+ <target name="build" depends="prepare,lint,phploc,pdepend,phpmd-ci,phpcpd,phpcs-ci,phpunit,phpcb,phpdox"/>
 
  <import file="/var/www/packages/deploy-include.xml" optional="true" />
 
@@ -152,5 +152,13 @@
    <arg path="${basedir}/build/code-browser" />
   </exec>
  </target>
+
+
+<target name="phpdox" description="Generate API documentation using PHPDocumentor">
+    <exec executable="phpdox">
+        <arg value="-f" />
+        <arg path="${basedir}/build/phpdox.xml" />
+    </exec>
+</target>
 
 </project>
