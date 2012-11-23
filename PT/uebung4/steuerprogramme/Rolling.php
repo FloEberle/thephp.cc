@@ -6,20 +6,12 @@ require_once '../src/GameColors.php';
 require_once '../src/ColorBackend.php';
 require_once '../src/PlayerCards.php';
 
-$colorBackend = new ColorBackend();
-$gameColors = new GameColors($colorBackend);
-$cube = new Cube($gameColors);
-$playerCards = new PlayerCards($gameColors);
-
-$alice = new Player($playerCards, 'Alice');
-$bob = new Player($playerCards, 'Bob');
-$carol = new Player($playerCards, 'Carol');
-
 // 50 mal jeder würfeln
 
 for($i = 0; $i <= 50; $i++){
 
     $color = $cube->roll();
+    echo 'Alice hat ' . $color . ' gewürfelt' . PHP_EOL;
     if ($alice->hasCardColor($color)){
         $alice->removeCard($color);
     }
@@ -29,6 +21,7 @@ for($i = 0; $i <= 50; $i++){
     }
 
     $color = $cube->roll();
+    echo 'Bob hat ' . $color . ' gewürfelt' . PHP_EOL;
     if ($bob->hasCardColor($color)){
         $bob->removeCard($color);
     }
@@ -38,6 +31,7 @@ for($i = 0; $i <= 50; $i++){
     }
 
     $color = $cube->roll();
+    echo 'Carol hat ' . $color . ' gewürfelt' . PHP_EOL;
     if ($carol->hasCardColor($color)){
         $carol->removeCard($color);
     }
@@ -45,4 +39,5 @@ for($i = 0; $i <= 50; $i++){
         echo $carol->getName() . ' hat gewonnen' . PHP_EOL;
         die;
     }
+    echo '------------' . PHP_EOL;
 }
