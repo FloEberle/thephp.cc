@@ -9,10 +9,10 @@ class PlayerCards
         $this->colors = $gameColors->getAllColors();
     }
 
-    public function createPlayerCards($numberOfCards)
+    public function createPlayerCards()
     {
         $cards = $this->colors;
-        $random = rand(1, $numberOfCards);
+        $random = rand(0, count($this->colors) - 1);
         unset($cards[$random]);
         return $cards;
     }
