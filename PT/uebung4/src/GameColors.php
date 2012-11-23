@@ -6,7 +6,9 @@ class GameColors
 
     public function __construct(colorBackend $colorBackend)
     {
-        $this->colors = $colorBackend->readIniFile();
+        $ini = $colorBackend->readIniFile();
+        $this->colors = $ini['colors'];
+
     }
 
     public function getAllColors()
