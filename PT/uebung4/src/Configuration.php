@@ -1,6 +1,6 @@
 <?php
 
-class ConfigurationBackend
+class Configuration
 {
     public function readIniFile()
     {

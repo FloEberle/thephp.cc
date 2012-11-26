@@ -4,7 +4,7 @@ class GameColors
 {
     private $colors = array();
 
-    public function __construct(ConfigurationBackend $configurationBackend)
+    public function __construct(Configuration $configurationBackend)
     {
         $ini = $configurationBackend->readIniFile();
         $this->colors = $ini['colors'];

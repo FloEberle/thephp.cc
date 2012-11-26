@@ -36,7 +36,7 @@ class Player
         return $this->cards;
     }
 
-    /**
+/**
      * @param $color
      */
     public function removeCard($color)

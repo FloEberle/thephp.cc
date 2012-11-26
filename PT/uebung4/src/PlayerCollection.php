@@ -2,15 +2,27 @@
 
 class PlayerCollection
 {
-    private $players = array();
+    private $playerlist = array();
 
-    public function push(Player $player)
+    public function __construct(Configuration $configurationBackend)
     {
-        $this->players[] = $player;
+        $ini = $configurationBackend->readIniFile();
+        $this->playerlist['names'] = $ini['players'];
     }
 
-    public function getAllPlayers()
+    public function add(Player $player)
     {
-        return $this->players;
+        $this->playerlist['players'][] = $player;
+    }
+
+    public function getPlayerNames()
+    {
+        return $this->playerlist['names'];
+    }
+
+    public function getPlayers()
+    {
+        return $this->playerlist['players'];
+
     }
 }
