@@ -42,9 +42,8 @@ class Player
     public function removeCard($color)
     {
         foreach ($this->cards as $index => $card) {
-            if($color == $card)
-            {
-                echo $this->name . ' legt ' . $color . ' weg' . PHP_EOL;
+            if($color == $card) {
+                // echo $this->name . ' legt ' . $color . ' weg' . PHP_EOL;
                 unset($this->cards[$index]);
             }
         }

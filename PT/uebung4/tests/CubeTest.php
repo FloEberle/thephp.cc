@@ -7,14 +7,19 @@ class CubeTest extends PHPUnit_Framework_TestCase
 {
     private $cube;
 
-    public function setUp()
+    public function setUp(ColorBackend $colorBackend, GameColors $gameColors, Cube $cube)
     {
-        $this->colorBackend = new ColorBackend();
-        $this->gameColors = new GameColors($this->colorBackend);
+        $colorBackend = new ColorBackend();
+        $gameColors = new GameColors($colorBackend);
         $this->cube = new Cube($this->gameColors);
     }
 
-    public function testCubeRollReturnsColor()
+    public function testNewCubeIsInstanceOfCube()
+    {
+        $this->assertInstanceOf(new Cube(), $this->cube);
+    }
+
+    public function testCubeRollReturnsColorWorks()
     {
         $color = $this->cube->roll();
         $this->assertTrue(in_array($color, $this->cube->getAllColors));

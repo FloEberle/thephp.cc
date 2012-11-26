@@ -4,11 +4,10 @@ class GameColors
 {
     private $colors = array();
 
-    public function __construct(colorBackend $colorBackend)
+    public function __construct(ConfigurationBackend $configurationBackend)
     {
-        $ini = $colorBackend->readIniFile();
+        $ini = $configurationBackend->readIniFile();
         $this->colors = $ini['colors'];
-
     }
 
     public function getAllColors()
