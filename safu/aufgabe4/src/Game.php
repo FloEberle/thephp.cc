@@ -56,4 +56,18 @@ class Game
         $this->isRunning = false; 
     }
     
+    /**
+     * @return array
+     */
+    public function getPlayers()
+    {
+        return $this->players;
+    }
+
+    
+    public function getGameStatus()
+    {
+        return $this->isRunning;
+    }
+    
 }

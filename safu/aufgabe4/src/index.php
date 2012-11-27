@@ -6,3 +6,5 @@ $game = new Game();
 $game->setUp();
 
 $game->run();
+
+var_dump($game->getGameStatus());
