@@ -34,7 +34,7 @@ class Player
         $this->dice = $dice;
     }
 
-    private function setCards()
+    public function getCards()
     {
         $this->cards = $this->cardGenerator->getCards();
     }
@@ -53,9 +53,7 @@ class Player
      */
     public function hasColor($color)
     {
-        if (in_array($color, $this->cards)) {
-            return true;
-        }
+        return in_array($color, $this->cards);
     }
 
 }

@@ -2,18 +2,18 @@
 
 class Dice
 {
-
     /**
      * @var array
      */
-    private $colors = array (
-        1 => 'red',
-        2 => 'blue',
-        3 => 'yellow',
-        4 => 'green',
-        5 => 'black',
-        6 => 'white'
-    );
+    private $colors;
+
+    /**
+     * @param array $colors
+     */
+    public function __construct(array $colors)
+    {
+        $this->colors = $colors;
+    }
 
     /**
      * @return string

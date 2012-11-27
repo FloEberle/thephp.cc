@@ -1,18 +1,11 @@
 <?php
 
-class Game
+class PlayerCollection
 {
-
     /**
      * @var array
      */
-    private $players = array();
-
-
-    public function __construct()
-    {
-
-    }
+    private $players = [];
 
     /**
      * @param Player $player
@@ -22,4 +15,11 @@ class Game
         $this->players[] = $player;
     }
 
+    /**
+     * @return array
+     */
+    public function getPlayers()
+    {
+        return $this->players;
+    }
 }
