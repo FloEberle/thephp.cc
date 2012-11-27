@@ -1,6 +1,8 @@
 <?php
+include __DIR__.'/autoload.php';
 
-require 'player.php';
+$game = new Game();
 
-$Hugo = new player('Hugo');
-var_dump($Hugo);
+$game->setUp();
+
+$game->run();
