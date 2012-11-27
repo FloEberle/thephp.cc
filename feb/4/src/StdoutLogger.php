@@ -1,5 +1,6 @@
 <?php
-
+// No testing needed for echo
+// @codeCoverageIgnoreStart
 class StdoutLogger implements LoggerInterface
 {
     public function log($message)
@@ -7,3 +8,4 @@ class StdoutLogger implements LoggerInterface
         echo $message."\n";
     }
 }
+// @codeCoverageIgnoreEnd

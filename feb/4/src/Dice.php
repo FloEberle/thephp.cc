@@ -7,10 +7,10 @@ class Dice implements DiceInterface
     private $colors = array();
 
     /**
-     * @param Configuration   $configuration
+     * @param ConfigurationInterface   $configuration
      * @param LoggerInterface $logger
      */
-    public function __construct(Configuration $configuration, LoggerInterface $logger)
+    public function __construct(ConfigurationInterface $configuration, LoggerInterface $logger)
     {
         $this->colors = $configuration->get('colors');
         $this->logger = $logger;

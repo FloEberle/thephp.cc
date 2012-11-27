@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project name="StoreFront" default="build">
 
- <target name="build" depends="prepare,lint,phploc,pdepend,phpmd-ci,phpcpd,phpcs-ci,phpunit,phpcb,phpdox"/>
+ <target name="build" depends="prepare,lint,phploc,pdepend,phpmd-ci,phpcpd,phpcs-ci,phpunit,phpcb"/>
 
  <import file="/var/www/packages/deploy-include.xml" optional="true" />
 
@@ -26,7 +26,7 @@
   <delete dir="${basedir}/build/RPM"/>
  </target>
 
- <target name="prepare" depends="clean,phpab" description="Prepare for build">
+ <target name="prepare" depends="clean,phpab,compress-js" description="Prepare for build">
   <mkdir dir="${basedir}/build/api"/>
   <mkdir dir="${basedir}/build/code-browser"/>
   <mkdir dir="${basedir}/build/coverage"/>
@@ -68,6 +68,23 @@
   </apply>
  </target>
 
+ <target name="compress-js">
+   <fileset id="javascript-files" dir="html/js">
+       <exclude name="store.js"/>
+       <exclude name="jquery.js"/>
+   </fileset>
+   <concat destfile="html/js/store.js">
+       <filelist files="html/js/jquery.js" />
+   </concat>
+   <pathconvert pathsep=" " property="javascript-files" refid="javascript-files" />
+   <exec executable="java" output="html/js/store.js" logError="true" append="true" failonerror="true">
+     <arg value="-jar" />
+     <arg path="build/closure-compiler/compiler.jar" />
+     <arg line="--js ${javascript-files}" />
+     <arg value="--compilation_level" />
+     <arg value="SIMPLE_OPTIMIZATIONS"/>
+   </exec>
+ </target>
 
  <target name="phpunit" description="Run unit tests with PHPUnit">
   <if>
@@ -152,13 +169,5 @@
    <arg path="${basedir}/build/code-browser" />
   </exec>
  </target>
-
-
-<target name="phpdox" description="Generate API documentation using PHPDocumentor">
-    <exec executable="phpdox">
-        <arg value="-f" />
-        <arg path="${basedir}/build/phpdox.xml" />
-    </exec>
-</target>
 
 </project>

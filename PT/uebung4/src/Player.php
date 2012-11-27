@@ -3,12 +3,20 @@
 class Player
 {
     private $cards = array();
-    private $numberOfCards;
+    private $name;
 
-    public function __construct(Cube $cube, $numberOfCards)
+    public function __construct(PlayerCards $playerCards , $name)
     {
-        $this->numberOfCards = $numberOfCards;
-        $this->cards = $cube->createPlayerCards($numberOfCards);
+        $this->name = $name;
+        $this->cards = $playerCards->createPlayerCards();
+    }
+
+    /**
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->name;
     }
 
     /**
@@ -20,15 +28,24 @@ class Player
         return in_array($color, $this->cards);
     }
 
+    /**
+     * @return array
+     */
+    public function hasCards()
+    {
+        return $this->cards;
+    }
+
+/**
+     * @param $color
+     */
     public function removeCard($color)
     {
-        foreach ($this->cards as $cardId) {
-            if ($this->cards[$cardId] == $color){
-                unset($this->cards[$cardId]);
+        foreach ($this->cards as $index => $card) {
+            if($color == $card) {
+                // echo $this->name . ' legt ' . $color . ' weg' . PHP_EOL;
+                unset($this->cards[$index]);
             }
         }
     }
 }
-
-
-
