@@ -33,7 +33,7 @@ class Player
      */
     public function hasCards()
     {
-        return $this->cards;
+        return count($this->cards) > 0;
     }
 
 /**

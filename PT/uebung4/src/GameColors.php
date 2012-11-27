@@ -10,6 +10,9 @@ class GameColors
         $this->colors = $ini['colors'];
     }
 
+    /**
+     * @return array
+     */
     public function getAllColors()
     {
         return $this->colors;

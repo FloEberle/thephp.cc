@@ -9,6 +9,9 @@ class PlayerCards
         $this->colors = $gameColors->getAllColors();
     }
 
+    /**
+     * @return array
+     */
     public function createPlayerCards()
     {
         $cards = $this->colors;
