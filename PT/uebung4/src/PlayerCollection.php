@@ -15,14 +15,19 @@ class PlayerCollection
         $this->playerlist['players'][] = $player;
     }
 
+    /**
+     * @return array
+     */
     public function getPlayerNames()
     {
         return $this->playerlist['names'];
     }
 
+    /**
+     * @return array
+     */
     public function getPlayers()
     {
         return $this->playerlist['players'];
-
     }
 }

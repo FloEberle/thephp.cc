@@ -1,21 +1,22 @@
 <?php
 
+// @codeCoverageIgnoreStart
 require __DIR__ . '/autoload.php';
 
 $configuration = new Configuration();
 $gameColors = new GameColors($configuration);
 $cube = new Cube($gameColors);
 $playerCollection = new PlayerCollection($configuration);
-$cards = new PlayerCards($gameColors);
+
 
 foreach ($playerCollection->getPlayerNames() as $name){
-    $playerCollection->add(new Player($cards, $name));
+    $playerCollection->add(new Player(new PlayerCards($gameColors), $name));
 }
-$players = $playerCollection->getPlayers();
 
-$gameStatus = 'running';
-while ($gameStatus == 'running'){
-    foreach($players as $player){
+$gameStatus = '';
+while ($gameStatus != 'over'){
+    foreach($playerCollection->getPlayers() as $player){
+
         echo $player->getName() . ' würfelt' . PHP_EOL;
 
         $color = $cube->roll();
@@ -32,3 +33,4 @@ while ($gameStatus == 'running'){
         }
     }
 }
+// @codeCoverageIgnoreEnd

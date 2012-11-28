@@ -1,28 +1,38 @@
 <?php
 
 /*
- * @covers Player
+ * @-covers Player
  */
 class PlayerTest extends PHPUnit_Framework_TestCase
 {
     public function setUp()
     {
-        $this->colorBackend = new ColorBackend();
-        $this->gameColors = new GameColors($this->colorBackend);
+        $this->configuration = new Configuration();
+        $this->gameColors = new GameColors($this->configuration);
         $this->cube = new Cube($this->gameColors);
         $this->playerCards = new PlayerCards($this->gameColors);
-        $this->alice = new Player($this->playerCards, 'Alice');
+        $this->player = new Player($this->playerCards, 'Alice');
     }
 
-    public function testHasCardWorks()
+    public function testHasCardColorWorks()
     {
-        $this->assertTrue($this->alice->hasCardColor('blue'));
-        $this->assertFalse($this->alice->hasCardColor('lilablassblau'));
+        $this->assertTrue($this->player->hasCardColor('blue'));
+        $this->assertFalse($this->player->hasCardColor('lilablassblau'));
+    }
+
+    public function testHasCards()
+    {
+        $this->assertTrue($this->player->hasCards());
     }
 
     public function testRemoveCardsWorks()
     {
-        $this->alice->removeCard('blue');
-        $this->assertFalse($this->alice->hasCardColor('blue'));
+        $this->player->removeCard('blue');
+        $this->assertFalse($this->player->hasCardColor('blue'));
+    }
+
+    public function testGetNameReturnsName()
+    {
+        $this->assertEquals('Alice', $this->player->getName());
     }
 }
