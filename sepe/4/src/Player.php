@@ -8,14 +8,14 @@ class Player
     private $name;
 
     /**
-     * @var
+     * @var Dice
      */
     private $dice;
 
     /**
-     * @var CardGenerator
+     * @var CardSet
      */
-    private $cardGenerator;
+    private $cardSet;
 
     /**
      * @var array
@@ -25,24 +25,19 @@ class Player
     /**
      * @param $name
      * @param Dice $dice
-     * @param CardGenerator $cardGenerator
+     * @param CardSet $cardSet
      */
-    public function __construct($name, Dice $dice, CardGenerator $cardGenerator)
+    public function __construct($name, Dice $dice, CardSet $cardSet)
     {
         $this->name = $name;
-        $this->cardGenerator = $cardGenerator;
+        $this->cardSet = $cardSet;
         $this->dice = $dice;
-    }
-
-    public function getCards()
-    {
-        $this->cards = $this->cardGenerator->getCards();
     }
 
     /**
      * @return string
      */
-    public function throwDice()
+    public function rollDice()
     {
         return $this->dice->getColor();
     }
@@ -56,4 +51,42 @@ class Player
         return in_array($color, $this->cards);
     }
 
+    /**
+     * @param $color
+     * @throws PlayerException
+     */
+    public function turnCard($color)
+    {
+        if (!in_array($color, $this->cards)) {
+            throw new PlayerException('Der Spieler hat die Farbe ' . $color . ' nicht.',1);
+        }
+
+        foreach ($this->cards as $key => $value) {
+            if ($value === $color) {
+                unset($this->cards[$key]);
+                return;
+            }
+        }
+    }
+
+    public function getCardSet()
+    {
+        $this->cards = $this->cardSet->getCardSet();
+    }
+
+    /**
+     * @return int
+     */
+    public function getCountCards()
+    {
+        return count($this->cards);
+    }
+
+    /**
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
 }

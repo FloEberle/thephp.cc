@@ -1,6 +1,6 @@
 <?php
 
-require 'autoload.php';
+require __DIR__ . '/autoload.php';
 
 $colors = [
     'red',
@@ -8,7 +8,7 @@ $colors = [
     'yellow',
     'green',
     'black',
-    'white'
+    'white',
 ];
 
 $players = [
@@ -18,14 +18,15 @@ $players = [
 ];
 
 $dice = new Dice($colors);
-$cardGenerator = new CardGenerator($colors);
+$cardSet = new CardSet($colors);
 $playerCollection = new PlayerCollection();
 
 foreach ($players as $name) {
     $playerCollection->addPlayer(
-        new Player($name, $dice, $cardGenerator)
+        new Player($name, $dice, $cardSet)
     );
 }
 
-$game = new GameController($playerCollection);
+$game = new Game($playerCollection);
+$game->shareCards();
 $game->start();

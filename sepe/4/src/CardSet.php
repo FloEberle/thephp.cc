@@ -1,6 +1,6 @@
 <?php
 
-class CardGenerator
+class CardSet
 {
 
     /**
@@ -24,8 +24,8 @@ class CardGenerator
     private function generateCardSet()
     {
         unset($this->cards);
-        $rand = rand(1,6);
-        for($count = 1; $count < 7; $count++)
+        $rand = rand(0,5);
+        for($count = 0; $count < 6; $count++)
         {
             if ($count !== $rand) {
                 $this->cards[] = $this->colors[$count];
@@ -36,10 +36,19 @@ class CardGenerator
     /**
      * @return array
      */
-    public function getCards()
+    public function getCardSet()
     {
         $this->generateCardSet();
         return $this->cards;
+    }
+
+    /**
+     * @param $color
+     * @return bool
+     */
+    public function hasColor($color)
+    {
+        return in_array($color, $this->cards);
     }
 
 }

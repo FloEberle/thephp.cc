@@ -5,7 +5,7 @@ class PlayerCollection
     /**
      * @var array
      */
-    private $players = [];
+    private $players = array();
 
     /**
      * @param Player $player
