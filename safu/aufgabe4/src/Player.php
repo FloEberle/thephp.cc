@@ -20,12 +20,21 @@ class Player
      */
     private $cube;
 
+    /**
+     * 
+     * @param string $name
+     * @param Cube $cube
+     */
     public function __construct($name, Cube $cube)
     {
         $this->name = $name;
         $this->cube = $cube;
     }
     
+    /**
+     * 
+     * @param Card $card
+     */
     public function addCard(Card $card)
     {
         $this->cards[] = $card; 
@@ -41,11 +50,19 @@ class Player
         }
     }
     
+    /**
+     * 
+     * @return boolean
+     */
     public function hasCards()
     {
         return count($this->cards) > 0;
     }
     
+    /**
+     * 
+     * @return string
+     */
     public function getName()
     {
         return $this->name;

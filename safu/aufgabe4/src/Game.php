@@ -8,8 +8,12 @@ class Game
      */
     private $isRunning = true;
     
+    /**
+     *
+     * @var array
+     */
     private $players = array();
-    
+         
     public function setUp()
     {
         $playerNames = array('Hugo', 'peter', 'hans');
@@ -50,7 +54,7 @@ class Game
             // Player.hasCards() == false -> stopGame() und break
         }
     }
-    
+           
     private function stopGame()
     {
         $this->isRunning = false; 
@@ -64,7 +68,10 @@ class Game
         return $this->players;
     }
 
-    
+    /**
+     * 
+     * @return boolean
+     */
     public function getGameStatus()
     {
         return $this->isRunning;

@@ -20,7 +20,7 @@ class Dice
      */
     public function getColor()
     {
-        return $this->colors[rand(1,6)];
+        return $this->colors[rand(0,5)];
     }
 
 }
