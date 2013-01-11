@@ -76,6 +76,7 @@ class Player
 
     /**
      * @return int
+     * @codeCoverageIgnoreStart
      */
     public function getCountCards()
     {

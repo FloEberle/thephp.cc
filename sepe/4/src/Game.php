@@ -1,5 +1,5 @@
 <?php
-
+// @codeCoverageIgnoreStart
 class Game
 {
 
@@ -61,3 +61,4 @@ class Game
         echo 'And the winner ist ' . $this->winner . PHP_EOL;
     }
 }
+// @codeCoverageIgnoreEnd
