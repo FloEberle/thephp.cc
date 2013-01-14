@@ -66,8 +66,10 @@ class Player
                 unset($this->cards[$key]);
                 return;
             }
+        // @codeCoverageIgnoreStart
         }
     }
+    // @codeCoverageIgnoreEnd
 
     public function getCardSet()
     {

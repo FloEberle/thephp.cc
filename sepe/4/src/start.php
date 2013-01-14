@@ -1,5 +1,7 @@
 <?php
 
+// @codeCoverageIgnoreStart
+
 require __DIR__ . '/autoload.php';
 
 $colors = [
@@ -30,3 +32,5 @@ foreach ($players as $name) {
 $game = new Game($playerCollection);
 $game->shareCards();
 $game->start();
+
+// @codeCoverageIgnoreEnd

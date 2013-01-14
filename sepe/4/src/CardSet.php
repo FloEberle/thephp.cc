@@ -21,7 +21,10 @@ class CardSet
         $this->colors = $colors;
     }
 
-    private function generateCardSet()
+    /**
+     * @return array
+     */
+    public function getCardSet()
     {
         unset($this->cards);
         $rand = rand(0,5);
@@ -31,24 +34,7 @@ class CardSet
                 $this->cards[] = $this->colors[$count];
             }
         }
-    }
-
-    /**
-     * @return array
-     */
-    public function getCardSet()
-    {
-        $this->generateCardSet();
         return $this->cards;
-    }
-
-    /**
-     * @param $color
-     * @return bool
-     */
-    public function hasColor($color)
-    {
-        return in_array($color, $this->cards);
     }
 
 }
