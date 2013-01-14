@@ -2,12 +2,12 @@
 
 class PlayerCollection
 {
-    private $playerlist = array();
-    private $playernames = array();
+    private $playerList = array();
+    private $playerNames = array();
 
     public function add(Player $player)
     {
-        $this->playerlist[] = $player;
+        $this->playerList[] = $player;
     }
 
     /**
@@ -15,10 +15,10 @@ class PlayerCollection
      */
     public function getPlayerNames()
     {
-        foreach($this->playerlist as $player){
-            $this->playernames[] = $player->getName();
+        foreach($this->playerList as $player){
+            $this->playerNames[] = $player->getName();
         }
-        return $this->playernames;
+        return $this->playerNames;
     }
 
     /**
@@ -26,6 +26,6 @@ class PlayerCollection
      */
     public function getPlayers()
     {
-        return $this->playerlist;
+        return $this->playerList;
     }
 }

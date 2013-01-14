@@ -4,10 +4,11 @@
  * Das ist der Spielablauf, der imho nicht getestet werden muss,
  * da alle Komponenten des Spiels einzeln getestet werden
  */
-// @codeCoverageIgnoreStart
 class Game
 {
+    // @codeCoverageIgnoreStart
     private $gameStatus = '';
+
     public function __construct(Configuration $configuration,
                                 GameColors $gameColors,
                                 Cube $cube,
@@ -21,7 +22,8 @@ class Game
 
     public function prepare()
     {
-        foreach ($this->playerCollection->getPlayerNames() as $name){
+        $ini = $this->configuration->readIniFile();
+        foreach ($ini['players'] as $name){
             $this->playerCollection->add(new Player(new PlayerCards($this->gameColors), $name));
         }
         $this->gameStatus = 'prepared';
