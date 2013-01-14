@@ -1,5 +1,10 @@
 <?php
 
+/*
+ * Das ist der Spielablauf, der imho nicht getestet werden muss,
+ * da alle Komponenten des Spiels einzeln getestet werden
+ */
+// @codeCoverageIgnoreStart
 class Game
 {
     private $gameStatus = '';
@@ -47,4 +52,5 @@ class Game
             }
         }
     }
+    // @codeCoverageIgnoreEnd
 }

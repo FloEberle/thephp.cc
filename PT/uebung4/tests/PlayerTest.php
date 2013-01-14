@@ -17,7 +17,6 @@ class PlayerTest extends PHPUnit_Framework_TestCase
     public function testHasCardColorWorks()
     {
         $this->assertTrue($this->player->hasCardColor('blue'));
-        $this->assertFalse($this->player->hasCardColor('lilablassblau'));
     }
 
     public function testHasCards()

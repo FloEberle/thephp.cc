@@ -5,7 +5,7 @@ class Player
     private $cards = array();
     private $name;
 
-    public function __construct(PlayerCards $playerCards , $name)
+    public function __construct(PlayerCards $playerCards, $name)
     {
         $this->name = $name;
         $this->cards = $playerCards->createPlayerCards();
@@ -43,7 +43,6 @@ class Player
     {
         foreach ($this->cards as $index => $card) {
             if($color == $card) {
-                // echo $this->name . ' legt ' . $color . ' weg' . PHP_EOL;
                 unset($this->cards[$index]);
             }
         }

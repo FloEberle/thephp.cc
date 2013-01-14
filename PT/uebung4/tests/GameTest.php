@@ -9,24 +9,15 @@ class GameTest extends PHPUnit_Framework_TestCase
         $this->gameColors = new GameColors($this->configuration);
         $this->cube = new Cube($this->gameColors);
         $this->playerCollection = new PlayerCollection($this->configuration);
-        $this->game = new Game($this->configuration,
+        $this->game = new Game(
+            $this->configuration,
             $this->gameColors,
             $this->cube,
             $this->playerCollection);
     }
 
-    public function testNewGameIsInstanceOfNewGame()
+    public function testNewGameIsInstanceOfGame()
     {
         $this->assertInstanceOf('Game', $this->game);
-
     }
-
-    /*
-    public function testNewPlayersAreAddedToPlayerCollectionDuringGamePrepare()
-    {
-
-
-    }
-    */
-
 }

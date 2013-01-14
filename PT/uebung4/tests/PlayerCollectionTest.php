@@ -5,13 +5,19 @@
  */
 class PlayerCollectionTest extends PHPUnit_Framework_TestCase
 {
+    private $configuration;
+    private $gameColors;
+    private $cube;
+    private $playerCollection;
+    private $cards;
+
     public function setUp()
     {
-        $configuration = new Configuration();
-        $gameColors = new GameColors($configuration);
-        $this->cube = new Cube($gameColors);
-        $this->playerCollection = new PlayerCollection($configuration);
-        $this->cards = new PlayerCards($gameColors);
+        $this->configuration = new Configuration();
+        $this->gameColors = new GameColors($this->configuration);
+        $this->cube = new Cube($this->gameColors);
+        $this->playerCollection = new PlayerCollection($this->configuration);
+        $this->cards = new PlayerCards($this->gameColors);
     }
 
     public function testNewPlayerCollectionIsInstanceOfPlayerCollection()
@@ -26,8 +32,14 @@ class PlayerCollectionTest extends PHPUnit_Framework_TestCase
         $this->assertTrue(in_array($newPlayer, $this->playerCollection->getPlayers()));
     }
 
+
     public function testGetPlayerNamesReturnsPlayerNames()
     {
+        $ini = $this->configuration->readIniFile();
+        foreach ($ini['players'] as $name){
+            $this->playerCollection->add(new Player(new PlayerCards($this->gameColors), $name));
+        }
         $this->assertEquals(array('Bob', 'Alice', 'Carol'), $this->playerCollection->getPlayerNames());
     }
 }
+

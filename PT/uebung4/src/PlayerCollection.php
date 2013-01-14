@@ -3,16 +3,11 @@
 class PlayerCollection
 {
     private $playerlist = array();
-
-    public function __construct(Configuration $configurationBackend)
-    {
-        $ini = $configurationBackend->readIniFile();
-        $this->playerlist['names'] = $ini['players'];
-    }
+    private $playernames = array();
 
     public function add(Player $player)
     {
-        $this->playerlist['players'][] = $player;
+        $this->playerlist[] = $player;
     }
 
     /**
@@ -20,7 +15,10 @@ class PlayerCollection
      */
     public function getPlayerNames()
     {
-        return $this->playerlist['names'];
+        foreach($this->playerlist as $player){
+            $this->playernames[] = $player->getName();
+        }
+        return $this->playernames;
     }
 
     /**
@@ -28,6 +26,6 @@ class PlayerCollection
      */
     public function getPlayers()
     {
-        return $this->playerlist['players'];
+        return $this->playerlist;
     }
 }
