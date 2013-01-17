@@ -4,9 +4,9 @@ class Cube
 {
     private $colors = array();
 
-    public function __construct(GameColors $gameColors)
+    public function __construct($colors)
     {
-        $this->colors = $gameColors->getAllColors();
+        $this->colors = $colors;
     }
 
     /**
@@ -14,15 +14,7 @@ class Cube
      */
     public function roll()
     {
-        $colorId = array_rand($this->colors, 1);
-        return  $this->colors[$colorId];
-    }
-
-    /**
-     * @return array
-     */
-    public function getAllColors()
-    {
-        return $this->colors;
+        $index = array_rand($this->colors, 1);
+        return  $this->colors[$index];
     }
 }

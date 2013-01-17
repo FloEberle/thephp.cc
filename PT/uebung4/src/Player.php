@@ -3,12 +3,15 @@
 class Player
 {
     private $cards = array();
+
+    /**
+     * @var string
+     */
     private $name;
 
-    public function __construct(PlayerCards $playerCards, $name)
+    public function __construct($name)
     {
         $this->name = $name;
-        $this->cards = $playerCards->createPlayerCards();
     }
 
     /**
@@ -20,31 +23,39 @@ class Player
     }
 
     /**
-     * @param $color
-     * @return bool
+     * @param $cards
      */
-    public function hasCardColor($color)
+    public function receiveCards($cards)
     {
-        return in_array($color, $this->cards);
+        $this->cards[] = $cards;
     }
 
     /**
-     * @return array
+     * @param $color
+     * @return bool
      */
-    public function hasCards()
+    public function hasCard($color)
+    {
+        foreach ($this->cards as $card){
+            if ($color == $card->getColor()){
+                $this->turnCard($card);
+            }
+        }
+    }
+
+    /**
+     * @return bool
+     */
+    public function hasCardsLeft()
     {
         return count($this->cards) > 0;
     }
 
-/**
-     * @param $color
+    /**
+     * @param $card
      */
-    public function removeCard($color)
+    private function turnCard(Card $card)
     {
-        foreach ($this->cards as $index => $card) {
-            if($color == $card) {
-                unset($this->cards[$index]);
-            }
-        }
+        $card->turn();
     }
 }
