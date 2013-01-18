@@ -16,7 +16,7 @@ class Game
     private $croupier;
 
     public function __construct(Configuration $configuration,
-                                Cube $dice)
+                                Dice $dice)
     {
         $this->configuration = $configuration;
         $this->playerNames = $this->configuration->getPlayers();

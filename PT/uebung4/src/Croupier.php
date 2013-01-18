@@ -2,7 +2,14 @@
 
 class Croupier
 {
+    /**
+     * @var array
+     */
     private $gameColors = array();
+
+    /**
+     * @var array
+     */
     private $players = array();
 
     public function __construct($gameColors, $players)

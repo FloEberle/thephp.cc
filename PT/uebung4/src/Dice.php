@@ -1,7 +1,10 @@
 <?php
 
-class Cube
+class Dice
 {
+    /**
+     * @var array
+     */
     private $colors = array();
 
     public function __construct($colors)

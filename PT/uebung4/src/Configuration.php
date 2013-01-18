@@ -24,6 +24,9 @@ class Configuration
         $this->loaded = true;
     }
 
+    /**
+     * @return array
+     */
     public function getPlayers()
     {
         if (!$this->loaded){
@@ -32,6 +35,9 @@ class Configuration
         return $this->config['players'];
     }
 
+    /**
+     * @return array
+     */
     public function getColors()
     {
         if (!$this->loaded){

@@ -2,6 +2,9 @@
 
 class Player
 {
+    /**
+     * @var array
+     */
     private $cards = array();
 
     /**
@@ -55,14 +58,17 @@ class Player
         return false;
     }
 
-
-    public function throwDice(Cube $dice)
+    /**
+     * @param Dice $dice
+     * @return string $color
+     */
+    public function throwDice(Dice $dice)
     {
         return $dice->roll();
     }
 
     /**
-     * @param $card
+     * @param Card $card
      */
     private function turnCard(Card $card)
     {

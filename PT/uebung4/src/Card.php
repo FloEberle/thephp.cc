@@ -2,6 +2,9 @@
 
 class Card
 {
+    /**
+     * @var bool
+     */
     private $turned = false;
 
     /**
@@ -14,16 +17,25 @@ class Card
         $this->color = $color;
     }
 
+    /**
+     * turns a Card, triggered by owning Player
+     */
     public function turn()
     {
         $this->turned = true;
     }
 
+    /**
+     * @return string $color
+     */
     public function getColor()
     {
         return $this->color;
     }
 
+    /**
+     * @return bool
+     */
     public function isTurned()
     {
         return $this->turned;
