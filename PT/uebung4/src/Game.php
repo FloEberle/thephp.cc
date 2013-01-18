@@ -16,12 +16,12 @@ class Game
     private $croupier;
 
     public function __construct(Configuration $configuration,
-                                Cube $cube)
+                                Cube $dice)
     {
         $this->configuration = $configuration;
         $this->playerNames = $this->configuration->getPlayers();
         $this->gameColors= $this->configuration->getColors();
-        $this->cube = $cube;
+        $this->dice = $dice;
 
     }
 
@@ -46,7 +46,7 @@ class Game
 
                 echo $player->getName() . ' würfelt' . PHP_EOL;
 
-                $color = $this->cube->roll();
+                $color = $player->throwDice($this->dice);
                 echo 'Es wurde ' . $color . ' gewürfelt' . PHP_EOL;
 
                 if ($player->hasCard($color)){

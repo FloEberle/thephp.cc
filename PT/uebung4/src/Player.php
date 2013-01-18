@@ -55,6 +55,12 @@ class Player
         return false;
     }
 
+
+    public function throwDice(Cube $dice)
+    {
+        return $dice->roll();
+    }
+
     /**
      * @param $card
      */
