@@ -20,6 +20,7 @@ class Game
     {
         $this->configuration = $configuration;
         $this->playerNames = $this->configuration->getPlayers();
+        $this->gameColors= $this->configuration->getColors();
         $this->cube = $cube;
 
     }
@@ -49,7 +50,6 @@ class Game
                 echo 'Es wurde ' . $color . ' gewürfelt' . PHP_EOL;
 
                 if ($player->hasCard($color)){
-                    $player->removeCard($color);
                     echo $player->getName() . ' legt ' . $color . ' weg' . PHP_EOL;
                 }
                 if ($player->hasCardsLeft() == false){

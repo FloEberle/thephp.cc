@@ -26,8 +26,11 @@ class Croupier
      */
     private function createPlayerCards()
     {
-        $playerCards = array($this->gameColors);
+        $playerCards = array();
         $random = rand(0, count($this->gameColors) - 1);
+        foreach ($this->gameColors as $color){
+            $playerCards[] = new Card($color);
+        }
         unset($playerCards[$random]);
         return $playerCards;
     }

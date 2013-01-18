@@ -27,17 +27,16 @@ class Player
      */
     public function receiveCards($cards)
     {
-        $this->cards[] = $cards;
+        $this->cards = $cards;
     }
 
     /**
      * @param $color
-     * @return bool
      */
     public function hasCard($color)
     {
-        foreach ($this->cards as $card){
-            if ($color == $card->getColor()){
+        foreach ($this->cards as $card) {
+            if ($card->getColor() == $color) {
                 $this->turnCard($card);
             }
         }
@@ -48,7 +47,12 @@ class Player
      */
     public function hasCardsLeft()
     {
-        return count($this->cards) > 0;
+        foreach ($this->cards as $card) {
+            if ($card->isTurned() == false) {
+                return true;
+            }
+        }
+        return false;
     }
 
     /**

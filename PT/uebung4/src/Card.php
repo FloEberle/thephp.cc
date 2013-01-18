@@ -9,7 +9,7 @@ class Card
      */
     private $color;
 
-    private function __construct($color)
+    public function __construct($color)
     {
         $this->color = $color;
     }
