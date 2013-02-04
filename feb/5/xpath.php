@@ -33,5 +33,7 @@ var_dump($originalImgUrl);
 
 //---------------------- Aufgabe 2 nur mit Xpath
 
-$min = $xpath->query('/p:product/p:prices/p:price[@value < preceding-sibling::price/@value]/@value');
-var_dump($min->length);
+$magicMin = $xpath->query('/p:product/p:prices/p:price[not(preceding-sibling::p:price/@value <= @value) and not(following-sibling::p:price/@value < @value)]/@value');
+$magicMax = $xpath->query('/p:product/p:prices/p:price[not(preceding-sibling::p:price/@value >= @value) and not(following-sibling::p:price/@value > @value)]/@value');
+var_dump($magicMin);
+var_dump($magicMax);
