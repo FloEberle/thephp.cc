@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<product xmlns="http://competec.ch/product" sku="104975" url="schlauchtuelle-104975" isNew="false" specialOffer="false" warranty="12" images360="false" manufacturerId="18274" isOccasionProduct="false" hasOccasionProducts="false" rating="0">
+  <name><![CDATA[Schlauchtülle 10mm]]></name>
+  <weight unit="g">10</weight>
+  <tax>8</tax>
+  <manufacturer><![CDATA[Diverse]]></manufacturer>
+  <manufacturerProductId><![CDATA[XXX]]></manufacturerProductId>
+  <prices>
+    <price class="enduser" value="1190"/>
+    <price class="oema" value="605"/>
+    <price class="oemb" value="675"/>
+    <price class="disti" value="485"/>
+    <price class="mediamarkt" value="990"/>
+    <price class="dp" value="800"/>
+    <price class="buchhandel" value="990"/>
+    <price class="subdisti" value="535"/>
+    <price class="liste" value="1990"/>
+  </prices>
+  <category id="2994" label="Wasserkühlung-Zubehör"/>
+  <accessories/>
+  <images xmlns="http://competec.ch/images">
+    <image number="001" name="schlauchtuelle-001">
+      <size variant="original" src="http://vwebcdn01.brack.ch/104975/schlauchtuelle-001.jpg"/>
+      <size variant="xxlarge" src="http://vwebcdn01.brack.ch/104975/schlauchtuelle-001.xxl.jpg"/>
+      <size variant="xlarge" src="http://vwebcdn01.brack.ch/104975/schlauchtuelle-001.xl.jpg"/>
+      <size variant="large" src="http://vwebcdn01.brack.ch/104975/schlauchtuelle-001.l.jpg"/>
+      <size variant="medium" src="http://vwebcdn01.brack.ch/104975/schlauchtuelle-001.m.jpg"/>
+      <size variant="small" src="http://vwebcdn01.brack.ch/104975/schlauchtuelle-001.s.jpg"/>
+      <size variant="xsmall" src="http://vwebcdn01.brack.ch/104975/schlauchtuelle-001.xs.jpg"/>
+      <size variant="xxsmall" src="http://vwebcdn01.brack.ch/104975/schlauchtuelle-001.xxs.jpg"/>
+      <size variant="xxxsmall" src="http://vwebcdn01.brack.ch/104975/schlauchtuelle-001.xxxs.jpg"/>
+    </image>
+  </images>
+  <description>
+    <short><![CDATA[Schlauchtülle 10mm 1/8-Zoll]]></short>
+    <long><![CDATA[Schlauchtülle, 10mm, 1/8-Zoll]]></long>
+  </description>
+</product>
