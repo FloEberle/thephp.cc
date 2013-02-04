@@ -1,0 +1,6 @@
+<?xml version="1.0" ?>
+<cat:catalog xmlns:cat="competec:catalog">
+
+    <cat:category name="Projektoren" special="Y" id="12" />
+    
+</cat:catalog>
