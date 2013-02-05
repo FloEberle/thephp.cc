@@ -12,7 +12,7 @@
     </div>
     </xsl:template>
 
-    <xsl:template match="product:price[@value]">
+    <xsl:template match="product:price">
         <li><xsl:value-of select="@class" /> Preis <xsl:value-of select="@value" /></li>
     </xsl:template>
 
