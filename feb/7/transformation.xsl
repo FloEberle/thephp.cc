@@ -5,14 +5,14 @@
     <div>
         <h1>Sortierte Preise</h1>
         <ul>
-            <xsl:apply-templates select="//product:product/product:prices/product:price">
+            <xsl:apply-templates select="//product:product/product:prices/product:price[@value &gt; 700]" >
                 <xsl:sort order="ascending" select="@value" data-type="number" />
             </xsl:apply-templates>
         </ul>
     </div>
     </xsl:template>
 
-    <xsl:template match="product:price">
+    <xsl:template match="product:price[@value]">
         <li><xsl:value-of select="@class" /> Preis <xsl:value-of select="@value" /></li>
     </xsl:template>
 
