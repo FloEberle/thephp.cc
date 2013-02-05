@@ -2,17 +2,17 @@
 	<xsl:output encoding="UTF-8" indent="yes" method="xml" />
 	<xsl:template match="/">
 		<div>
-				<xsl:apply-templates select="//ex:price">
+				<xsl:apply-templates select="//ex:price[@value&gt;700]">
 					<xsl:sort order="descending" select="@value" data-type="number" />
 				</xsl:apply-templates>	
 		</div>
 	</xsl:template>
 	
-	<xsl:template match="ex:price[@value&gt;700]">
+	<xsl:template match="ex:price">
 		<div><xsl:value-of select="@value" /></div><xsl:text>&#10;</xsl:text>
 	</xsl:template>
 	
-	<xsl:template match="ex:price[@class='enduser' and @value&gt;700]">
+	<xsl:template match="ex:price[@class='enduser']">
 		<strong><xsl:value-of select="@value" /></strong><xsl:text>&#10;</xsl:text>
 	</xsl:template>
 	
