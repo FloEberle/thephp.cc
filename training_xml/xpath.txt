@@ -1,0 +1,31 @@
+
+
+ /  -> Seperator für Level
+ // -> Beliebige Ebenen tiefer
+ 
+ *  -> wildcard
+ 
+ @  -> Zugriff auf Attribute
+ 
+ [] -> Bedingungen
+ 
+ |  -> Verbindung von Ausdrücken
+ 
+ Funktionen:
+ 
+  - count()
+  - concat()
+  - starts-with()
+  - contains
+  - ...
+  
+Achsen:
+
+  parent::
+  
+  self::
+  child::
+  
+  following-sibling::
+  preceding-sibling::
+

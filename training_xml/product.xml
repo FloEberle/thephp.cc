@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<product sku="12345" name="Projektor">
+
+    <categories>
+       <category id="12" />
+    </categories>
+
+    <description type="short">
+      Kurzbeschreibung
+    </description>
+    <description type="full">Beschreibung</description>
+</product>

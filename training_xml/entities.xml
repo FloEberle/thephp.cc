@@ -1,0 +1,5 @@
+<?xml version="1.0" ?>
+<!DOCTYPE root SYSTEM "entities.dtd">
+<root>
+    <node value="abcdef">&hallowelt;</node>
+</root>
