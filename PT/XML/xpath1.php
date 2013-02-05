@@ -13,13 +13,8 @@ var_dump($long_desc->item(0)->nodeValue);
 
 
 // 2
-// $prices = $xpath->query('//p:prices');
+$prices = $xpath->query('//p:prices');
 
-$items = $dom->getElementsByTagName('prices');
-
-for ($i = 0; $i < $items->length; $i++) {
-    echo $items->item($i)->nodeValue . "\n";
-}
 
 
 
