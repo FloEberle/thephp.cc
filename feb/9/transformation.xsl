@@ -10,14 +10,16 @@
         <table>
             <xsl:for-each select="//product:product/product:prices/product:price">
                 <tr>
+                    <xsl:attribute name="class">
                     <xsl:choose>
                         <xsl:when test="position() mod 2">
-                            <xsl:attribute name="class">even</xsl:attribute>
+                            <xsl:text>even</xsl:text>
                         </xsl:when>
                         <xsl:otherwise>
-                            <xsl:attribute name="class">odd</xsl:attribute>
+                            <xsl:text>odd</xsl:text>
                         </xsl:otherwise>
                     </xsl:choose>
+                    </xsl:attribute>
                     <td><xsl:value-of select="@class" /> für <xsl:value-of select="@value" /></td>
                 </tr>
             </xsl:for-each>
