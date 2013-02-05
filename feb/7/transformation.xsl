@@ -5,12 +5,21 @@
     <div>
         <h1>Sortierte Preise</h1>
         <ul>
-            <xsl:for-each select="//product:product/product:prices/product:price">
+            <xsl:apply-templates select="//product:product/product:prices/product:price">
                 <xsl:sort order="ascending" select="@value" data-type="number" />
-                <li><xsl:value-of select="@class" /> Preis <xsl:value-of select="@value" /></li>
-            </xsl:for-each>
+            </xsl:apply-templates>
         </ul>
     </div>
     </xsl:template>
+
+    <xsl:template match="product:price">
+        <li><xsl:value-of select="@class" /> Preis <xsl:value-of select="@value" /></li>
+    </xsl:template>
+
+    <xsl:template match="product:price[@class = 'enduser']">
+        <li class='bold'><xsl:value-of select="@class" /> Preis <xsl:value-of select="@value" /></li>
+    </xsl:template>
+
+
 
 </xsl:stylesheet>
