@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<product sku="12345" name="Projektor &quot;SuperLight(tm)&quot; &lt;14&gt;">
+    <categories>
+       <category id="12" />
+    </categories>
+    <description type="short">
+      kurzer text
+    </description>
+    <description type="full">langer text</description>
+    <description type="short" class="teaser">teaser text</description>
+</product>
