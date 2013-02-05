@@ -5,7 +5,7 @@
     <div>
         <h1>Sortierte Preise</h1>
         <ul>
-            <xsl:apply-templates select="//product:product/product:prices/product:price">
+            <xsl:apply-templates select="//product:product/product:prices/product:price[@value &gt; 700]" >
                 <xsl:sort order="ascending" select="@value" data-type="number" />
             </xsl:apply-templates>
         </ul>
