@@ -33,6 +33,7 @@ var_dump($originalImgUrl);
 
 //---------------------- Aufgabe 2 nur mit Xpath
 
+//Achtung: Quadratische Komplexität, mit vorsicht genissen...
 $magicMin = $xpath->query('/p:product/p:prices/p:price[not(preceding-sibling::p:price/@value <= @value) and not(following-sibling::p:price/@value < @value)]/@value');
 $magicMax = $xpath->query('/p:product/p:prices/p:price[not(preceding-sibling::p:price/@value >= @value) and not(following-sibling::p:price/@value > @value)]/@value');
 var_dump($magicMin->item(0)->nodeValue);

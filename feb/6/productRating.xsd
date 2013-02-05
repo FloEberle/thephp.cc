@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://competec.ch/ratings" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="ratings" type="rat:ratingsType" xmlns:rat="http://competec.ch/ratings"/>
+  <xs:complexType name="ratingType">
+    <xs:sequence>
+      <xs:element name="comment">
+        <xs:simpleType>
+          <xs:restriction base="xs:string" />
+        </xs:simpleType>
+      </xs:element>
+      <xs:element type="rat:tagsType" name="tags" xmlns:rat="http://competec.ch/ratings"/>
+    </xs:sequence>
+    <xs:attribute type="xs:integer" name="id"/>
+    <xs:attribute type="xs:string" name="username"/>
+    <xs:attribute type="xs:byte" name="stars"/>
+    <xs:attribute type="xs:string" name="date"/>
+    <xs:attribute type="xs:byte" name="imageCount"/>
+    <xs:attribute type="xs:integer" name="helpful"/>
+    <xs:attribute type="xs:integer" name="notHelpful"/>
+    <xs:attribute type="xs:string" name="userGroup"/>
+  </xs:complexType>
+  <xs:complexType name="ratingsType">
+    <xs:sequence>
+      <xs:element type="rat:ratingType" name="rating" maxOccurs="unbounded" minOccurs="0" xmlns:rat="http://competec.ch/ratings"/>
+    </xs:sequence>
+    <xs:attribute type="xs:decimal" name="average"/>
+  </xs:complexType>
+  <xs:complexType name="tagsType">
+    <xs:sequence>
+      <xs:element name="pro" maxOccurs="4" minOccurs="0">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="Design"/>
+            <xs:enumeration value="Handhabung"/>
+            <xs:enumeration value="Preis / Leistung"/>
+            <xs:enumeration value="Verarbeitung"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+        <xs:element name="contra" maxOccurs="4" minOccurs="0">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="Design"/>
+            <xs:enumeration value="Handhabung"/>
+            <xs:enumeration value="Preis / Leistung"/>
+            <xs:enumeration value="Verarbeitung"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

@@ -1,0 +1,29 @@
+<?xml version="1.0" ?>
+<product>
+   <sku>12345</sku>
+   <name>Projektor</name>
+</product>
+
+
+<?xml version="1.0" ?>
+<product sku="12345" name="Projektor">
+</product>
+
+
+<description short="Kurzbeschreibung" full="Hier steht die Beschreibung" />
+
+<description short="Kurzbeschreibung">
+Hier steht die Beschreibung
+asdfasfdsaf
+asdfasdf
+
+asdfasfasdf dfas adf adsf sad
+asdfadsfdsaf
+</description>
+
+<description type="short">Kurzbeschreibung</description>
+<description type="full">Beschreibung</description>
+
+
+<shortdescription>asdfasfsadf</shortdescription>
+

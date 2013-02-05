@@ -1,0 +1,16 @@
+<?xml version="1.0" ?>
+<root>
+    <container id="c1">
+        <child id="a1" />
+        <child id="a2" />
+    </container>
+    <container id="c2">
+        <child id="b1" />
+        <child id="b2" />
+    </container>
+    <foo id="foo!" />
+    <container id="c3">
+        <child id="d1" />
+        <child id="d2" />
+    </container>
+</root>
