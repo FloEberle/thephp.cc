@@ -1,0 +1,22 @@
+- Abgestimmte HTML-Struktur kann in einem Overlay-Layer eingezeichnet werden.
+- Gleiche Strukturen finden und auszeichnen
+- Das Layout ist der Aufbau der Seite (Platzverteilung von Informationen)
+- Das Design zeichnet die Gestaltung der einzelnen Content-Elemente aus. Dem Design ist es egal wo es sich befindet auf der Seite.
+- Dokumentation mit allen verwendeten Klassen erstellen (include Dateien)
+- Guter Code ist ein freundliches Denken an den der nach dir kommt.
+- Erst fragen, WAS ein Element ist und danach erst das AUSSEHEN.
+- Eine Startseite hat selten etwas mit Logik zu tun.
+- http://www.iecss.com
+- Yahoo-Reset css, Meyer Reset  css, normalize.css <-- empfohlen
+- http://html5doctor.com
+- Dreieck mit CSS: http://jsbin.com/oteheq/1/edit
+- Es ist ein Unterschied: Ob ich den Inhalt ohne JS erreiche oder den Inhalt in der gleichen Optik erreiche ohne JS.
+- http://css3clickchart.com
+- http://dochub.io/#css/
+- http://html5please.com/
+- http://caniuse.com
+- https://github.com/jensgro/Frontenddevelopment-Resources
+- http://codepen.io/
+- http://html5boilerplate.com/
+- placekitten.com
+- 
