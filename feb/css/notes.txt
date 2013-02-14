@@ -19,4 +19,6 @@
 - http://codepen.io/
 - http://html5boilerplate.com/
 - placekitten.com
-- 
+- clearfix: Dem umfassenden Container die Chance geben, die floatenden Elemente zu clearen (bsp. Bilder lappen über div hinaus)
+- http://www.yaml.de/
+- http://jsbin.com/okuful/1 <-- Verlaufsbalken mit CSS
