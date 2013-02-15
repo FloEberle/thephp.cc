@@ -1,0 +1,512 @@
+.check, 
+#aboutBox a, 
+.rememberList,
+li.compare,
+a.compare,
+ul#topnav ul li.right a.allBrands,
+#scrollup #arrow,
+.checkout .editButton,
+.account #leftContentWrapper li.settings h2,
+.account #leftContentWrapper li.watchAndCompare h2,
+.account #leftContentWrapper li.orders h2, 
+.facebookIcon ,
+.twitterIcon,
+.mailIcon,
+.checkout #checkoutProcessOverview .arrowNoActive,
+.checkout #checkoutProcessOverview .arrowLeftActive,
+.checkout #checkoutProcessOverview .arrowRightActive,
+.checkout .paymentTypeListWrapper li.bill span,
+.checkout .paymentTypeListWrapper li.prepayment span,
+.checkout .paymentTypeListWrapper li.paymentOnShipping span,
+.checkout .paymentTypeListWrapper li.postfinance span,
+.checkout .paymentTypeListWrapper li.creditcard span,
+.checkout .paymentTypeListWrapper li.cash span,
+.filterNav li h2, .navigation h2,
+.filterNav li.open h2,
+.cartTop .cartTopQuantity,
+.breadcrumb ul li,
+.productFactsNavi li.rememberList,
+.productFactsNavi a.compareIconBG,
+.productFactsNavi a.printIconBG,
+.productFactsNavi a.pdfIconBG,
+.main .productTeaserWrapper .prevButton,
+.main .productTeaserWrapper .nextButton,
+.productImageSliderLeft img.active,
+.productImageSliderLeft img:hover,
+.resultViewOptions .compactView,
+.resultViewOptions .listView,
+.resultViewMoreOptions .sort,
+.resultViewMoreOptions .articlePerSite,
+.externLinks .newsletter a,
+.externLinks .brackBlog a,
+.externLinks .dayDeal a,
+.externLinks .twitter a,
+.externLinks .facebook a,
+a.logoTop,
+a.masterCardBGLink,
+a.visaBGLink,
+a.trustedShopsBGLink,
+span.proClimaBGLink,
+span.postFinanceBGFooter,
+span.masterCardBGFooter,
+span.visaBGFooter,
+a.trustedShopsBGLinkBig,
+.smallRatingStars0,
+.smallRatingStars10,
+.smallRatingStars15,
+.smallRatingStars20,
+.smallRatingStars25,
+.smallRatingStars30,
+.smallRatingStars35,
+.smallRatingStars40,
+.smallRatingStars45,
+.smallRatingStars50,
+span.aktionTopRight,
+span.aktionBottomLeft,
+span.saleTopRight,
+span.oekoFlag,
+span.newFlag,
+span.occasionFlag,
+span.selloutFlag,
+.prevButton,
+.nextButton,
+.downButton,
+#popupCloseButton,
+.searchSubmit,
+.addToCartIconButton
+{
+	background-image: url('../img/template_images.png');
+	background-repeat: no-repeat;
+	background-attachment: scroll;
+	background-color: transparent;
+}
+
+/* ----------------------------- */
+.check {
+    background-position: -148px -290px;
+    width: 16px;
+    height: 13px;
+    display: inline-block;
+}
+#aboutBox a {
+    padding: 0 10px 0 11px;
+    background-position: 0 -417px;
+}
+.rememberList {
+li.compare,
+a.compare {
+ul#topnav ul li.right a.allBrands {
+#scrollup #arrow {
+.checkout .editButton {
+    background-position: -33px -310px;
+    border: 0 none;
+    cursor: pointer;
+    height: 16px;
+    margin-left: 5px;
+    width: 16px;
+}
+.account #leftContentWrapper li.settings h2 {
+    background-position: 0 -1166px;
+    width: 24px;
+    height: 12px;
+}
+.account #leftContentWrapper li.watchAndCompare h2 {
+    background-position: 0 -1062px;
+    width: 24px;
+    height: 12px;
+}
+.account #leftContentWrapper li.orders h2 {
+    background-position: 0 -1116px;
+    width: 24px;
+    height: 12px;
+}
+.facebookIcon {
+    background-position: 0 -525px;
+}                                                                
+.twitterIcon {                   
+    background-position: 0 -501px;
+}                                                                 
+.mailIcon {                      
+    background-position: 0 -430px;
+}
+.checkout #checkoutProcessOverview .arrowNoActive {
+    background-position: -104px -290px;
+}
+.checkout #checkoutProcessOverview .arrowLeftActive {
+    background-position: -124px -290px;
+}
+.checkout #checkoutProcessOverview .arrowRightActive {
+    background-position:-114px -290px;
+}
+.checkout .paymentTypeListWrapper li.bill span {
+    background-position: -25px -265px;
+    width: 24px;
+    height: 24px;
+    display: inline-block;
+}
+.checkout .paymentTypeListWrapper li.prepayment span {
+    background-position: -50px -265px;
+    width: 24px;
+    height: 24px;
+    display: inline-block;
+}
+.checkout .paymentTypeListWrapper li.paymentOnShipping span {
+    background-position: -100px -265px;
+    width: 24px;
+    height: 24px;
+    display: inline-block;
+}
+.checkout .paymentTypeListWrapper li.postfinance span {
+    background-position: -150px -265px;
+    width: 24px;
+    height: 24px;
+    display: inline-block;
+}
+.checkout .paymentTypeListWrapper li.creditcard span {
+    background-position: -125px -265px;
+    width: 24px;
+    height: 24px;
+    display: inline-block;
+}
+
+.checkout .paymentTypeListWrapper li.cash span {
+    background-position: -50px -265px;
+    width: 24px;
+    height: 24px;
+    display: inline-block;
+}
+
+.filterNav li h2, .navigation h2 {
+    font-size: 14px;
+    color: #E2001A;
+    background-position: 210px -381px;
+    cursor:pointer;
+}
+
+.filterNav li.open h2 {
+    background-position: 210px -341px;
+}
+
+.cartTop .cartTopQuantity {
+    position: absolute;
+    top: -5px;
+    right: 0;
+    height: 35px;
+    width: 22px;
+    padding-right: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #E2001A;
+    background-position: -97px 6px;
+}
+
+.breadcrumb ul li {
+    display: inline;
+    padding: 0 5px 0 15px;
+    background-position: 0 -400px;
+}
+
+.productFactsNavi li.rememberList {
+    height: 20px;
+    padding: 7px 0 0 14px;
+    background-position: 0 -666px ;
+}
+
+
+.productFactsNavi a.compareIconBG {
+    background-position: 0 -666px;
+    padding-left: 23px;
+}
+
+.productFactsNavi a.printIconBG {
+    background-position: 0 -713px;
+}
+
+.productFactsNavi a.pdfIconBG {
+    background-position: 0 -689px;
+}
+
+.main .productTeaserWrapper .prevButton {
+    left: -18px;
+    background-position: -102px -322px;
+}
+
+.main .productTeaserWrapper .nextButton {
+    right: -18px;
+    background-position: -121px -322px;
+}
+
+.productImageSliderLeft img.active,
+.productImageSliderLeft img:hover {
+    background-position: 0 -1365px;
+}
+
+.resultViewOptions .compactView {
+    background-position: 5px -758px;
+}
+
+.resultViewOptions .listView {
+    background-position: 5px -736px;
+}
+
+.resultViewMoreOptions .sort{
+    text-decoration: none;
+    background-position: 5px -806px;
+}
+
+.resultViewMoreOptions .articlePerSite {
+    text-decoration: none;
+    background-position: 5px -762px;
+    margin-left: 10px;
+}
+
+.externLinks .newsletter a {
+    background-position: 0 -431px;
+}
+
+.externLinks .brackBlog a {
+    background-position: 0 -455px;
+}
+
+.externLinks .dayDeal a {
+    background-position: 0 -479px;
+}
+
+.externLinks .twitter a {
+    background-position: 0 -502px;
+}
+
+.externLinks .facebook a {
+    background-position: 0 -526px;
+}
+
+a.logoTop {
+    display: block;
+    background-position: 0 -51px;
+    width: 189px;
+    height: 72px;
+}
+
+a.masterCardBGLink {
+    width: 62px;
+    height: 22px;
+    background-position: -39px -119px;
+	background-color: red;
+    right: 125px;
+}
+
+a.visaBGLink {
+    width: 57px;
+    height: 33px;
+    background-position: 0 0;
+    right: 60px;
+}
+
+a.trustedShopsBGLink {
+    width: 34px;
+    height: 34px;
+    background-position: -60px 0;
+    right: 61px;
+}
+
+span.proClimaBGLink {
+    width: 51px;
+    height: 36px;
+    background-position: -79px -152px;
+    right: 0;
+}
+
+span.postFinanceBGFooter {
+    width: 70px;
+    height: 25px;
+    background-position: 0 -239px;
+    bottom: 14px;
+    right: 178px;
+}
+
+span.masterCardBGFooter {
+    width: 42px;
+    height: 25px;
+    background-position: -71px -239px;
+    right: 60px;
+    bottom: 14px;
+}
+
+span.visaBGFooter {
+    width: 66px;
+    height: 20px;
+    background-position: -114px -239px;
+    right: 107px;
+    bottom: 16px;
+}
+
+a.trustedShopsBGLinkBig {
+    width: 50px;
+    height: 50px;
+    background-position: -80px -180px;
+    right: 10px;
+}
+
+.smallRatingStars0,
+.smallRatingStars10,
+.smallRatingStars15,
+.smallRatingStars20,
+.smallRatingStars25,
+.smallRatingStars30,
+.smallRatingStars35,
+.smallRatingStars40,
+.smallRatingStars45,
+.smallRatingStars50 {
+    width: 58px;
+    height: 10px;
+}
+
+.smallRatingStars0 {
+    background-position: -131px -228px;
+}
+
+.smallRatingStars10 {
+    background-position: -131px -217px;
+}
+
+.smallRatingStars15 {
+    background-position: -131px -206px;
+}
+
+.smallRatingStars20 {
+    background-position: -131px -195px;
+}
+
+.smallRatingStars25 {
+    background-position: -131px -183px;
+}
+
+.smallRatingStars30 {
+    background-position: -131px -171px;
+}
+
+.smallRatingStars35 {
+    background-position: -131px -160px;
+}
+
+.smallRatingStars40 {
+    background-position: -131px -149px;
+}
+
+.smallRatingStars45 {
+    background-position: -131px -138px;
+}
+
+.smallRatingStars50 {
+    background-position: -131px -127px;
+}
+
+span.aktionTopRight {
+    position: absolute;
+    right: -1px;
+    top: -1px;
+    width: 72px;
+    height: 60px;
+    background-position: -1px -178px;
+}
+
+span.aktionBottomLeft {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 52px;
+    height: 42px;
+    background-position: -138px -7px;
+}
+
+span.saleTopRight {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 52px;
+    height: 42px;
+    background-position: 0 0;
+}
+
+span.oekoFlag {
+    background-position: 0 -904px;
+}                                 
+                                  
+span.newFlag {                    
+    background-position: 0 -863px;
+}                                 
+                                  
+span.occasionFlag {               
+    background-position: 0 -1211px;
+}
+
+span.selloutFlag {
+    background-position: 0 -1281px;
+}
+
+.prevButton {
+    height: 27px;
+    width: 18px;
+    top: 50%;
+    margin-top: -18px;
+    left: 0;
+    background-position: -20px -125px;
+}
+
+.nextButton {
+    height: 27px;
+    width: 18px;
+    top: 50%;
+    margin-top: -18px;
+    right: 0;
+    background-position: 0 -125px;
+}
+
+.downButton {
+    background-position: -101px -32px;
+    height: 18px;
+    width: 27px;
+    bottom: 0;
+    margin-left: -15px;
+    left: 50%;
+}
+
+#popupCloseButton {
+    position: absolute;
+    display: block;
+    top: -16px;
+    right: -17px;
+    height: 29px;
+    width: 29px;
+    background-position: 0 -291px;
+    z-index: 1004;
+}
+
+.searchSubmit {
+    display:block;
+    float:left;
+    background-position: 0 -154px;
+	background-color: red;
+    cursor: pointer;
+    width: 74px;
+    height: 24px;
+    border: none;
+    font-weight: bold;
+    color: #ffffff;
+    font-size: 11px;
+    text-align: right;
+    padding-right: 4px;
+}
+
+.addToCartIconButton {
+    width: 27px;
+    height: 25px;
+    background-position: -103px -126px;
+    border: none;
+    display: block;
+    float: right;
+    cursor: pointer;
+}
+
+
+

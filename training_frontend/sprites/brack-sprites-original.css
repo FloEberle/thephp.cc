@@ -1,0 +1,466 @@
+
+.check {
+    background: url('../img/template_images.png') no-repeat -148px -290px;
+    width: 16px;
+    height: 13px;
+    display: inline-block;
+}
+
+#aboutBox a {
+    padding: 0 10px 0 11px;
+    background: url("../img/template_images.png") no-repeat scroll 0 -417px transparent;
+}
+
+.rememberList {
+    background: url("../img/template_images.png") no-repeat scroll 5px -673px transparent;
+    padding: 1px 5px 0 20px;
+    margin-left: 20px;
+    border: 0;
+}
+
+li.compare,
+a.compare {
+    background: url("../img/template_images.png") no-repeat scroll 0 -652px transparent;
+    padding-left: 25px;
+    margin-left: 20px;
+    border: 0;
+}
+
+ul#topnav ul li.right a.allBrands {
+    margin-top: 10px;
+    padding: 0 0 0 10px;
+    background: url("../img/template_images.png") no-repeat scroll 0 -364px transparent;
+    opacity: 0.7;
+}
+
+#scrollup #arrow {
+    background: url(../img/template_images.png) no-repeat 0 -265px;
+    width: 24px;
+    height: 18px;
+    margin-left: 3px;
+}
+
+.checkout .editButton {
+    background: url('../img/template_images.png') repeat-x scroll -33px -310px transparent;
+    border: 0 none;
+    cursor: pointer;
+    height: 16px;
+    margin-left: 5px;
+    width: 16px;
+}
+
+.account #leftContentWrapper li.settings h2 {
+    background: url('../img/template_images.png') no-repeat scroll 0 -1166px;
+    width: 24px;
+    height: 12px;
+}
+
+.account #leftContentWrapper li.watchAndCompare h2 {
+    background: url('../img/template_images.png') no-repeat scroll 0 -1062px;
+    width: 24px;
+    height: 12px;
+}
+
+.account #leftContentWrapper li.orders h2 {
+    background: url('../img/template_images.png') no-repeat scroll 0 -1116px;
+    width: 24px;
+    height: 12px;
+}
+
+.facebookIcon {
+    background: url('../img/template_images.png') no-repeat scroll 0 -525px transparent;
+}
+
+.twitterIcon {
+    background: url('../img/template_images.png') no-repeat scroll 0 -501px transparent;
+}
+
+.mailIcon {
+    background: url('../img/template_images.png') no-repeat scroll 0 -430px transparent;
+}
+
+.checkout #checkoutProcessOverview .arrowNoActive {
+    background: url('../img/template_images.png') repeat-x scroll -104px -290px transparent;
+}
+
+.checkout #checkoutProcessOverview .arrowLeftActive {
+    background: url('../img/template_images.png') repeat-x scroll -124px -290px transparent;
+}
+
+.checkout #checkoutProcessOverview .arrowRightActive {
+    background: url('../img/template_images.png') repeat-x scroll -114px -290px transparent;
+}
+
+.checkout .paymentTypeListWrapper li.bill span {
+    background: url(../img/template_images.png) no-repeat -25px -265px;
+    width: 24px;
+    height: 24px;
+    display: inline-block;
+}
+
+.checkout .paymentTypeListWrapper li.prepayment span {
+    background: url(../img/template_images.png) no-repeat -50px -265px;
+    width: 24px;
+    height: 24px;
+    display: inline-block;
+}
+
+.checkout .paymentTypeListWrapper li.paymentOnShipping span {
+    background: url(../img/template_images.png) no-repeat -100px -265px;
+    width: 24px;
+    height: 24px;
+    display: inline-block;
+}
+
+.checkout .paymentTypeListWrapper li.postfinance span {
+    background: url(../img/template_images.png) no-repeat -150px -265px;
+    width: 24px;
+    height: 24px;
+    display: inline-block;
+}
+
+.checkout .paymentTypeListWrapper li.creditcard span {
+    background: url(../img/template_images.png) no-repeat -125px -265px;
+    width: 24px;
+    height: 24px;
+    display: inline-block;
+}
+
+.checkout .paymentTypeListWrapper li.cash span {
+    background: url(../img/template_images.png) no-repeat -50px -265px;
+    width: 24px;
+    height: 24px;
+    display: inline-block;
+}
+
+.filterNav li h2, .navigation h2 {
+    font-size: 14px;
+    color: #E2001A;
+    background: url("../img/template_images.png") no-repeat scroll 210px -381px transparent;
+    cursor:pointer;
+}
+
+.filterNav li.open h2 {
+    background: url("../img/template_images.png") no-repeat scroll 210px -341px transparent;
+}
+
+.cartTop .cartTopQuantity {
+    position: absolute;
+    top: -5px;
+    right: 0;
+    height: 35px;
+    width: 22px;
+    padding-right: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #E2001A;
+    background: url("../img/template_images.png") no-repeat scroll -97px 6px transparent;
+}
+
+.breadcrumb ul li {
+    display: inline;
+    padding: 0 5px 0 15px;
+    background: url("../img/template_images.png") no-repeat scroll 0 -400px transparent;
+}
+
+.productFactsNavi li.rememberList {
+    height: 20px;
+    padding: 7px 0 0 14px;
+    background: url('../img/template_images.png') no-repeat scroll 0 -666px transparent;
+}
+
+.productFactsNavi a.compareIconBG {
+    background: url('../img/template_images.png') no-repeat scroll 0 -666px transparent;
+    padding-left: 23px;
+}
+
+.productFactsNavi a.printIconBG {
+    background: url('../img/template_images.png') no-repeat scroll 0 -713px transparent;
+}
+
+.productFactsNavi a.pdfIconBG {
+    background: url('../img/template_images.png') no-repeat scroll 0 --689px transparent;
+}
+
+.main .productTeaserWrapper .prevButton {
+    left: -18px;
+    background: url('../img/template_images.png') no-repeat -102px -322px;
+}
+
+.main .productTeaserWrapper .nextButton {
+    right: -18px;
+    background: url('../img/template_images.png') no-repeat -121px -322px;
+}
+
+.productImageSliderLeft img.active,
+.productImageSliderLeft img:hover {
+    background: url("../img/template_images.png") no-repeat scroll 0 -1365px;
+}
+
+.resultViewOptions .compactView {
+    background: url('../img/template_images.png') no-repeat scroll 5px -758px transparent;
+}
+
+.resultViewOptions .listView {
+    background: url('../img/template_images.png') no-repeat scroll 5px -736px transparent;
+}
+
+.resultViewMoreOptions .sort{
+    text-decoration: none;
+    background: url("../img/template_images.png") no-repeat scroll 5px -806px transparent;
+}
+
+.resultViewMoreOptions .articlePerSite {
+    text-decoration: none;
+    background: url("../img/template_images.png") no-repeat scroll 5px -762px transparent;
+    margin-left: 10px;
+}
+
+.externLinks .newsletter a {
+    background: url('../img/template_images.png') no-repeat scroll 0 -431px transparent;
+}
+
+.externLinks .brackBlog a {
+    background: url('../img/template_images.png') no-repeat scroll 0 -455px transparent;
+}
+
+.externLinks .dayDeal a {
+    background: url('../img/template_images.png') no-repeat scroll 0 -479px transparent;
+}
+
+.externLinks .twitter a {
+    background: url('../img/template_images.png') no-repeat scroll 0 -502px transparent;
+}
+
+.externLinks .facebook a {
+    background: url('../img/template_images.png') no-repeat scroll 0 -526px transparent;
+}
+
+a.logoTop {
+    display: block;
+    background: url("../img/template_images.png") no-repeat scroll 0 -51px transparent;
+    width: 189px;
+    height: 72px;
+}
+
+a.masterCardBGLink {
+    width: 62px;
+    height: 22px;
+    background: url("../img/template_images.png") no-repeat scroll -39px -119px red;
+    right: 125px;
+}
+
+a.visaBGLink {
+    width: 57px;
+    height: 33px;
+    background: url("../img/template_images.png") no-repeat scroll 0 -0px transparent;
+    right: 60px;
+}
+
+a.trustedShopsBGLink {
+    width: 34px;
+    height: 34px;
+    background: url("../img/template_images.png") no-repeat scroll -60px 0 transparent;
+    right: 61px;
+}
+
+span.proClimaBGLink {
+    width: 51px;
+    height: 36px;
+    background: url("../img/template_images.png") no-repeat scroll -79px -152px transparent;
+    right: 0;
+}
+
+span.postFinanceBGFooter {
+    width: 70px;
+    height: 25px;
+    background: url("../img/template_images.png") no-repeat 0 -239px transparent;
+    bottom: 14px;
+    right: 178px;
+}
+
+span.masterCardBGFooter {
+    width: 42px;
+    height: 25px;
+    background: url("../img/template_images.png") no-repeat -71px -239px transparent;
+    right: 60px;
+    bottom: 14px;
+}
+
+span.visaBGFooter {
+    width: 66px;
+    height: 20px;
+    background: url("../img/template_images.png") no-repeat -114px -239px transparent;
+    right: 107px;
+    bottom: 16px;
+}
+
+a.trustedShopsBGLinkBig {
+    width: 50px;
+    height: 50px;
+    background: url("../img/template_images.png") no-repeat scroll -80px -180px transparent;
+    right: 10px;
+}
+
+.smallRatingStars0,
+.smallRatingStars10,
+.smallRatingStars15,
+.smallRatingStars20,
+.smallRatingStars25,
+.smallRatingStars30,
+.smallRatingStars35,
+.smallRatingStars40,
+.smallRatingStars45,
+.smallRatingStars50 {
+    width: 58px;
+    height: 10px;
+    background-image: url("../img/template_images.png") ;
+    background-repeat: no-repeat;
+}
+
+.smallRatingStars0 {
+    background-position: -131px -228px;
+}
+
+.smallRatingStars10 {
+    background-position: -131px -217px;
+}
+
+.smallRatingStars15 {
+    background-position: -131px -206px;
+}
+
+.smallRatingStars20 {
+    background-position: -131px -195px;
+}
+
+.smallRatingStars25 {
+    background-position: -131px -183px;
+}
+
+.smallRatingStars30 {
+    background-position: -131px -171px;
+}
+
+.smallRatingStars35 {
+    background-position: -131px -160px;
+}
+
+.smallRatingStars40 {
+    background-position: -131px -149px;
+}
+
+.smallRatingStars45 {
+    background-position: -131px -138px;
+}
+
+.smallRatingStars50 {
+    background-position: -131px -127px;
+}
+
+span.aktionTopRight {
+    position: absolute;
+    right: -1px;
+    top: -1px;
+    width: 72px;
+    height: 60px;
+    background: url("../img/template_images.png") no-repeat scroll -1px -178px transparent;
+}
+
+span.aktionBottomLeft {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 52px;
+    height: 42px;
+    background: url("../img/template_images.png") no-repeat scroll -138px -7px transparent;
+}
+
+span.saleTopRight {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 52px;
+    height: 42px;
+    background: url("../img/saleTopRight.png") no-repeat scroll 0 0 transparent;
+}
+
+span.oekoFlag {
+    background: url("../img/template_images.png") no-repeat scroll 0 -904px transparent;
+}
+
+span.newFlag {
+    background: url("../img/template_images.png") no-repeat scroll 0 -863px transparent;
+}
+
+span.occasionFlag {
+    background: url("../img/template_images.png") no-repeat scroll 0 -1211px transparent;
+}
+
+span.selloutFlag {
+    background: url("../img/template_images.png") no-repeat scroll 0 -1281px transparent;
+}
+
+.prevButton {
+    height: 27px;
+    width: 18px;
+    top: 50%;
+    margin-top: -18px;
+    left: 0;
+    background: url("../img/template_images.png") no-repeat scroll -20px -125px transparent;
+}
+
+.nextButton {
+    height: 27px;
+    width: 18px;
+    top: 50%;
+    margin-top: -18px;
+    right: 0;
+    background: url("../img/template_images.png") no-repeat scroll 0 -125px transparent;
+}
+
+.downButton {
+    background: url("../img/template_images.png") no-repeat scroll -101px -32px transparent;
+    height: 18px;
+    width: 27px;
+    bottom: 0;
+    margin-left: -15px;
+    left: 50%;
+}
+
+#popupCloseButton {
+    position: absolute;
+    display: block;
+    top: -16px;
+    right: -17px;
+    height: 29px;
+    width: 29px;
+    background: url('../img/template_images.png') no-repeat 0 -291px;
+    z-index: 1004;
+}
+
+.searchSubmit {
+    display:block;
+    float:left;
+    background: url("../img/template_images.png") no-repeat scroll 0 -154px red;
+    cursor: pointer;
+    width: 74px;
+    height: 24px;
+    border: none;
+    font-weight: bold;
+    color: #ffffff;
+    font-size: 11px;
+    text-align: right;
+    padding-right: 4px;
+}
+
+.addToCartIconButton {
+    width: 27px;
+    height: 25px;
+    background: url("../img/template_images.png") no-repeat scroll -103px -126px transparent;
+    border: none;
+    display: block;
+    float: right;
+    cursor: pointer;
+}
+
