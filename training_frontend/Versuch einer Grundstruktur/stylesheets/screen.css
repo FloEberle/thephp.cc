@@ -175,3 +175,59 @@ a {
 .mediaContent {
   margin: 10px;
 }
+
+/* line 2, ../sass/partials/_sidebarContainers.scss */
+.sideContainer {
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+/* line 7, ../sass/partials/_sidebarContainers.scss */
+dl.tableView {
+  padding: 0;
+  overflow: hidden;
+}
+/* line 10, ../sass/partials/_sidebarContainers.scss */
+dl.tableView dt {
+  float: left;
+  width: 50%;
+  margin-bottom: 12px;
+  clear: both;
+}
+/* line 16, ../sass/partials/_sidebarContainers.scss */
+dl.tableView dd {
+  float: right;
+  width: 49%;
+  text-align: right;
+  margin-bottom: 12px;
+}
+
+/* line 29, ../sass/partials/_sidebarContainers.scss */
+.noBorder {
+  border: none;
+}
+
+/* line 34, ../sass/partials/_sidebarContainers.scss */
+.border4Sides {
+  border: 1px solid #bfe3f4;
+}
+
+/* line 39, ../sass/partials/_sidebarContainers.scss */
+.borderTop {
+  border-top: 1px solid #bfe3f4;
+}
+
+/* line 44, ../sass/partials/_sidebarContainers.scss */
+.coloredBackground {
+  background-color: #eef8fc;
+}
+
+/* line 25, ../sass/screen.scss */
+.ym-col1 {
+  width: 30%;
+}
+
+/* line 26, ../sass/screen.scss */
+.ym-col3 {
+  margin: 0 0 0 35%;
+}
