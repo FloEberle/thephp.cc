@@ -2,42 +2,47 @@
 
 .media {
   border: 1px solid #ccc;
-  margin: 0 0 10px 0;
-
-
+  margin: 0 0 $mediaElementMarginSize 0;
 }
 .mediaImage {
   float: left;
-  margin: 0 10px 10px 0;
+  margin: 0 $mediaElementMarginSize $mediaElementMarginSize 0;
 }
 
-.right-image  .media-img {
-  float: right;
-  margin: 0 10px 0 10px;
-}
-.media-imagecnt .media-img {
-  float: none;
-  display: block;
+.rightImage {
+	.mediaImagecnt {
+		float: right;
+		img {
+		  margin: 0 0 $mediaElementMarginSize $mediaElementMarginSize;
+		}
+	}
+	.mediaImage {
+	  float: right;
+	  margin: 0 $mediaElementMarginSize 0 $mediaElementMarginSize;		
+	}
 }
 
-.media-headline {
+// Wenn mehrere Bilder eingebunden werden, muss doch ein Container um die Bilder.
+.mediaImagecnt {
+	float: left;
+	.mediaImage {
+	  float: none;
+	  display: block;		
+	}
+	img {
+	  margin: 0 $mediaElementMarginSize $mediaElementMarginSize 0;
+	}	
+}
+
+// Die Ansteuerung einer Klasse macht uns in der Implementierung des Mediaelements
+// unabhängig von der endgültigen Semantik. Es kann eine h2, h3 oder sonstwie sein.
+.mediaHeadline {
   background: #ccc;
-  padding: 10px;
+  padding: $mediaElementPaddingSize;
   margin: 0;
 }
-.media-content {
-  margin: 10px;
-}
 
-.media-imagecnt {
-  float: left;
-}
-.right-image  .media-imagecnt {
-  float: right;
-}
-.media-imagecnt img {
-  margin: 0 10px 10px 0;
-}
-.right-image  .media-imagecnt img {
-  margin: 0 0 10px 10px;
+// In diesen Contentcontainer kann alles Mögliche platziert werden. 
+.mediaContent {
+  margin: $mediaElementMarginSize;
 }
