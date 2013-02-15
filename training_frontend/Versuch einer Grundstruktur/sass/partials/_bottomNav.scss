@@ -1,0 +1,37 @@
+#bottomnav {
+
+  .ym-wbox{
+    border-top: 1px solid #bfdfee;
+
+    padding: 10px;
+    @include background(linear-gradient(#EEF8FC, #FFFFFF));
+  }
+
+  h3 {
+    &, a {
+      color: #222;
+    }
+  }
+
+  ul, li {
+    list-style-type: none;
+    margin: 0 0 0 0;
+  }
+
+  .ym-g2-7 {
+    a {
+      background: #fbfcfe;
+      display:block;
+      padding: 5px;
+    }
+
+    li {
+      padding: 0px 20px 5px 0px;
+      span {
+        display: inline-block;
+      }
+    }
+
+  }
+}
+

@@ -1,17 +1,9 @@
 #footer {
-  @include background(linear-gradient(#EEF8FC, #FFFFFF));
+  .ym-wbox{
+    border-top: 1px solid #bfdfee;
 
-  h3 {
-    &, a {
-      color: #222;
-    }
+    padding: 10px;
   }
 
-  ul, li {
-    list-style-type: none;
-    margin: 0 0 0 0;
-    .extern {
-      background: #fbfcfe;
-    }
-  }
 }
+

@@ -6,6 +6,67 @@
 	State
 	Theme
 */
+/* line 98, sprites/basics/*.png */
+.basics-sprite, .basics-brack, .basics-daydeal, .basics-facebook, .basics-mastercard, .basics-postfinance, .basics-proclima, .basics-twitter, .basics-visa {
+  background: url('/images/sprites/basics-scaddcb69af.png') no-repeat;
+}
+
+/* line 60, ../../../../../../../usr/lib/ruby/gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/sprites/_base.scss */
+.basics-brack {
+  background-position: 0 -140px;
+  height: 16px;
+  width: 16px;
+}
+
+/* line 60, ../../../../../../../usr/lib/ruby/gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/sprites/_base.scss */
+.basics-daydeal {
+  background-position: 0 -124px;
+  height: 16px;
+  width: 16px;
+}
+
+/* line 60, ../../../../../../../usr/lib/ruby/gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/sprites/_base.scss */
+.basics-facebook {
+  background-position: 0 -108px;
+  height: 16px;
+  width: 16px;
+}
+
+/* line 60, ../../../../../../../usr/lib/ruby/gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/sprites/_base.scss */
+.basics-mastercard {
+  background-position: 0 -83px;
+  height: 25px;
+  width: 42px;
+}
+
+/* line 60, ../../../../../../../usr/lib/ruby/gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/sprites/_base.scss */
+.basics-postfinance {
+  background-position: 0 -58px;
+  height: 25px;
+  width: 70px;
+}
+
+/* line 60, ../../../../../../../usr/lib/ruby/gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/sprites/_base.scss */
+.basics-proclima {
+  background-position: 0 0;
+  height: 38px;
+  width: 53px;
+}
+
+/* line 60, ../../../../../../../usr/lib/ruby/gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/sprites/_base.scss */
+.basics-twitter {
+  background-position: 0 -156px;
+  height: 15px;
+  width: 16px;
+}
+
+/* line 60, ../../../../../../../usr/lib/ruby/gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/sprites/_base.scss */
+.basics-visa {
+  background-position: 0 -38px;
+  height: 20px;
+  width: 66px;
+}
+
 /* line 2, ../sass/partials/_basics.scss */
 .ym-wrapper {
   width: 100%;
@@ -102,26 +163,44 @@ a {
   top: 3px;
 }
 
-/* line 1, ../sass/partials/_footer.scss */
-#footer {
+/* line 3, ../sass/partials/_bottomNav.scss */
+#bottomnav .ym-wbox {
+  border-top: 1px solid #bfdfee;
+  padding: 10px;
   background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #eef8fc), color-stop(100%, #ffffff));
   background: -webkit-linear-gradient(#eef8fc, #ffffff);
   background: -moz-linear-gradient(#eef8fc, #ffffff);
   background: -o-linear-gradient(#eef8fc, #ffffff);
   background: linear-gradient(#eef8fc, #ffffff);
 }
-/* line 5, ../sass/partials/_footer.scss */
-#footer h3, #footer h3 a {
+/* line 11, ../sass/partials/_bottomNav.scss */
+#bottomnav h3, #bottomnav h3 a {
   color: #222;
 }
-/* line 10, ../sass/partials/_footer.scss */
-#footer ul, #footer li {
+/* line 16, ../sass/partials/_bottomNav.scss */
+#bottomnav ul, #bottomnav li {
   list-style-type: none;
   margin: 0 0 0 0;
 }
-/* line 13, ../sass/partials/_footer.scss */
-#footer ul .extern, #footer li .extern {
+/* line 22, ../sass/partials/_bottomNav.scss */
+#bottomnav .ym-g2-7 a {
   background: #fbfcfe;
+  display: block;
+  padding: 5px;
+}
+/* line 28, ../sass/partials/_bottomNav.scss */
+#bottomnav .ym-g2-7 li {
+  padding: 0px 20px 5px 0px;
+}
+/* line 30, ../sass/partials/_bottomNav.scss */
+#bottomnav .ym-g2-7 li span {
+  display: inline-block;
+}
+
+/* line 2, ../sass/partials/_footer.scss */
+#footer .ym-wbox {
+  border-top: 1px solid #bfdfee;
+  padding: 10px;
 }
 
 /* line 3, ../sass/partials/_media.scss */
