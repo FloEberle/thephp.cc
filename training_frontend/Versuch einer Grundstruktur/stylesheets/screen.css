@@ -8,40 +8,40 @@
 */
 /* line 98, sprites/basics/*.png */
 .basics-sprite, .basics-brack, .basics-daydeal, .basics-facebook, .basics-mastercard, .basics-postfinance, .basics-proclima, .basics-twitter, .basics-visa {
-  background: url('/images/sprites/basics-scaddcb69af.png') no-repeat;
+  background: url('/images/sprites/basics-s392fa84c59.png') no-repeat;
 }
 
 /* line 60, ../../../../../../../usr/lib/ruby/gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/sprites/_base.scss */
 .basics-brack {
-  background-position: 0 -140px;
+  background-position: 0 -139px;
   height: 16px;
   width: 16px;
 }
 
 /* line 60, ../../../../../../../usr/lib/ruby/gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/sprites/_base.scss */
 .basics-daydeal {
-  background-position: 0 -124px;
+  background-position: 0 -123px;
   height: 16px;
   width: 16px;
 }
 
 /* line 60, ../../../../../../../usr/lib/ruby/gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/sprites/_base.scss */
 .basics-facebook {
-  background-position: 0 -108px;
+  background-position: 0 -107px;
   height: 16px;
   width: 16px;
 }
 
 /* line 60, ../../../../../../../usr/lib/ruby/gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/sprites/_base.scss */
 .basics-mastercard {
-  background-position: 0 -83px;
+  background-position: 0 -82px;
   height: 25px;
   width: 42px;
 }
 
 /* line 60, ../../../../../../../usr/lib/ruby/gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/sprites/_base.scss */
 .basics-postfinance {
-  background-position: 0 -58px;
+  background-position: 0 -57px;
   height: 25px;
   width: 70px;
 }
@@ -49,20 +49,20 @@
 /* line 60, ../../../../../../../usr/lib/ruby/gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/sprites/_base.scss */
 .basics-proclima {
   background-position: 0 0;
-  height: 38px;
-  width: 53px;
+  height: 37px;
+  width: 51px;
 }
 
 /* line 60, ../../../../../../../usr/lib/ruby/gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/sprites/_base.scss */
 .basics-twitter {
-  background-position: 0 -156px;
+  background-position: 0 -155px;
   height: 15px;
   width: 16px;
 }
 
 /* line 60, ../../../../../../../usr/lib/ruby/gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/sprites/_base.scss */
 .basics-visa {
-  background-position: 0 -38px;
+  background-position: 0 -37px;
   height: 20px;
   width: 66px;
 }
