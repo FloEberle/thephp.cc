@@ -1,0 +1,126 @@
+.mainNavigation {
+  list-style-type: none;
+  position: relative;
+  height: 46px;
+  margin: 0;
+  > li {
+    float: left;
+    vertical-align: top;
+    margin: 15px 0 0 0;
+    > a {
+      text-align: center;
+      display: block;
+      height: 30px;
+      width: 134px;
+      margin-left: 3px;
+      padding: 16px 0 0 0;
+      color: #ffffff;
+      font-size: 13px;
+      font-weight: bold;
+      background: #292929;
+      border-radius: 0 3px 0 0;
+      &:hover, &:focus {
+        color: #222;
+        text-decoration: none;
+        background: #d0ecfa;
+      }
+    }
+  }
+  > li:first-child {
+    > a {
+      margin-left: 0;
+      width: 136px;
+    }
+  }
+  li {
+    list-style-type: none;
+    > ul {
+      display: none;
+      position: absolute;
+      left: 0;
+      width: 100%;
+      height: 298px;
+      z-index: 999;
+      border: 1px solid #BFE3F4;
+      box-shadow: 0 5px 15px -10px #333;
+      background: url("../images/bg_horizontal.jpg") repeat-y scroll 0 0 transparent;
+      margin: 0 0 10px 0;
+      > li {
+        padding: 2px 0 0 0;
+        margin: 15px 0 0 15px;
+      }
+      li {
+        float: none;
+        div {
+          float: left;
+          width: 192px;
+          h2 {
+            font-size: 16px;
+          }
+          ul {
+            display: block;
+            width: 160px;
+            height: auto;
+            border: 0;
+            background: none;
+            box-shadow: none;
+            margin: 5px 0 10px 0;
+            li {
+              position: relative;
+              margin: 0;
+              a {
+                line-height: 1.4em;
+                display: block;
+                &:hover, &:active {
+                  text-decoration: underline;
+                }
+              }
+            }
+            li.bottom {
+              bottom: 10px;
+            }
+          }
+        }
+      }
+      > li.right {
+        top: 0;
+        display: inline-block;
+        position: absolute;
+        right: 0;
+        a, h2 {
+          color: #ffffff;
+        }
+        &.bottom {
+          bottom: 0;
+        }
+        > ul {
+          background: none;
+          border: 0;
+          box-shadow: none;
+          position: static;
+          overflow: hidden;
+          width: 160px;
+          li {
+            float: left;
+            margin: 0;
+            a {
+              display: block;
+              width: 75px;
+            }
+          }
+        }
+        a.allBrands {
+          margin-top: 10px;
+          padding: 0 0 0 10px;
+          background: url("../img/template_images.png") no-repeat scroll 0 -364px transparent;
+          opacity: 0.7;
+        }
+      }
+    }
+  }
+}
+
+/* CSS Animation */
+body.noJS ul#topnav li:hover ul {
+  display: block !important;
+}

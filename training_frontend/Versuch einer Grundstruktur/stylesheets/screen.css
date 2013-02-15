@@ -1,245 +1,55 @@
 /*
-	SMACSS-Reihenfolge
-	Base
-	Layout
-	Module
-	State
-	Theme
+Syntax error: Invalid CSS after "...als/tabWrapper"": expected selector or at-rule, was ""partials/botto..."
+        on line 25 of /var/www/thephp.cc/training_frontend/Versuch einer Grundstruktur/sass/screen.scss
+
+Backtrace:
+/var/www/thephp.cc/training_frontend/Versuch einer Grundstruktur/sass/screen.scss:25
+/usr/lib/ruby/gems/1.8/gems/sass-3.2.5/lib/sass/../sass/scss/parser.rb:1136:in `expected'
+/usr/lib/ruby/gems/1.8/gems/sass-3.2.5/lib/sass/../sass/scss/parser.rb:1072:in `expected'
+/usr/lib/ruby/gems/1.8/gems/sass-3.2.5/lib/sass/../sass/scss/parser.rb:28:in `parse'
+/usr/lib/ruby/gems/1.8/gems/sass-3.2.5/lib/sass/../sass/engine.rb:342:in `_to_tree'
+/usr/lib/ruby/gems/1.8/gems/sass-3.2.5/lib/sass/../sass/engine.rb:315:in `_render'
+/usr/lib/ruby/gems/1.8/gems/sass-3.2.5/lib/sass/../sass/engine.rb:262:in `render'
+/usr/lib/ruby/gems/1.8/gems/compass-0.12.2/lib/compass/compiler.rb:140:in `compile'
+/usr/lib/ruby/gems/1.8/gems/compass-0.12.2/lib/compass/compiler.rb:126:in `timed'
+/usr/lib/ruby/gems/1.8/gems/compass-0.12.2/lib/compass/compiler.rb:139:in `compile'
+/usr/lib/ruby/gems/1.8/gems/compass-0.12.2/lib/compass/logger.rb:45:in `red'
+/usr/lib/ruby/gems/1.8/gems/compass-0.12.2/lib/compass/compiler.rb:138:in `compile'
+/usr/lib/ruby/gems/1.8/gems/compass-0.12.2/lib/compass/compiler.rb:118:in `compile_if_required'
+/usr/lib/ruby/gems/1.8/gems/compass-0.12.2/lib/compass/compiler.rb:103:in `run'
+/usr/lib/ruby/gems/1.8/gems/compass-0.12.2/lib/compass/compiler.rb:101:in `each'
+/usr/lib/ruby/gems/1.8/gems/compass-0.12.2/lib/compass/compiler.rb:101:in `run'
+/usr/lib/ruby/gems/1.8/gems/compass-0.12.2/lib/compass/compiler.rb:126:in `timed'
+/usr/lib/ruby/gems/1.8/gems/compass-0.12.2/lib/compass/compiler.rb:100:in `run'
+/usr/lib/ruby/gems/1.8/gems/compass-0.12.2/lib/compass/commands/watch_project.rb:147:in `recompile'
+/usr/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:31:in `to_proc'
+/usr/lib/ruby/gems/1.8/gems/fssm-0.2.10/lib/fssm/path.rb:73:in `call'
+/usr/lib/ruby/gems/1.8/gems/fssm-0.2.10/lib/fssm/path.rb:73:in `run_callback'
+/usr/lib/ruby/gems/1.8/gems/fssm-0.2.10/lib/fssm/path.rb:55:in `callback_action'
+/usr/lib/ruby/gems/1.8/gems/fssm-0.2.10/lib/fssm/path.rb:35:in `update'
+/usr/lib/ruby/gems/1.8/gems/fssm-0.2.10/lib/fssm/state/directory.rb:39:in `modified'
+/usr/lib/ruby/gems/1.8/gems/fssm-0.2.10/lib/fssm/state/directory.rb:37:in `each'
+/usr/lib/ruby/gems/1.8/gems/fssm-0.2.10/lib/fssm/state/directory.rb:37:in `modified'
+/usr/lib/ruby/gems/1.8/gems/fssm-0.2.10/lib/fssm/state/directory.rb:18:in `refresh'
+/usr/lib/ruby/gems/1.8/gems/fssm-0.2.10/lib/fssm/backends/polling.rb:17:in `run'
+/usr/lib/ruby/gems/1.8/gems/fssm-0.2.10/lib/fssm/backends/polling.rb:17:in `each'
+/usr/lib/ruby/gems/1.8/gems/fssm-0.2.10/lib/fssm/backends/polling.rb:17:in `run'
+/usr/lib/ruby/gems/1.8/gems/fssm-0.2.10/lib/fssm/backends/polling.rb:15:in `loop'
+/usr/lib/ruby/gems/1.8/gems/fssm-0.2.10/lib/fssm/backends/polling.rb:15:in `run'
+/usr/lib/ruby/gems/1.8/gems/fssm-0.2.10/lib/fssm/monitor.rb:26:in `run'
+/usr/lib/ruby/gems/1.8/gems/fssm-0.2.10/lib/fssm.rb:70:in `monitor'
+/usr/lib/ruby/gems/1.8/gems/compass-0.12.2/lib/compass/commands/watch_project.rb:87:in `perform'
+/usr/lib/ruby/gems/1.8/gems/compass-0.12.2/lib/compass/commands/base.rb:18:in `execute'
+/usr/lib/ruby/gems/1.8/gems/compass-0.12.2/lib/compass/commands/project_base.rb:19:in `execute'
+/usr/lib/ruby/gems/1.8/gems/compass-0.12.2/lib/compass/exec/sub_command_ui.rb:43:in `perform!'
+/usr/lib/ruby/gems/1.8/gems/compass-0.12.2/lib/compass/exec/sub_command_ui.rb:15:in `run!'
+/usr/lib/ruby/gems/1.8/gems/compass-0.12.2/bin/compass:30
+/usr/lib/ruby/gems/1.8/gems/compass-0.12.2/bin/compass:44:in `call'
+/usr/lib/ruby/gems/1.8/gems/compass-0.12.2/bin/compass:44
+/usr/bin/compass:19:in `load'
+/usr/bin/compass:19
 */
-/* line 2, ../sass/partials/_basics.scss */
-.ym-wrapper {
-  width: 100%;
-}
-
-/* line 3, ../sass/partials/_basics.scss */
-.ym-wbox {
-  width: 958px;
-  margin: 0 auto;
-}
-
-/* line 6, ../sass/partials/_basics.scss */
-.ym-g1-7 {
-  width: 14.2857%;
-}
-
-/* line 7, ../sass/partials/_basics.scss */
-.ym-g2-7 {
-  width: 28.5714%;
-}
-
-/* line 11, ../sass/partials/_basics.scss */
-.tabContent h2, .tabContent h3, .tabContent h4 {
-  line-height: 1;
-  color: #222222;
-}
-/* line 16, ../sass/partials/_basics.scss */
-.tabContent h2 {
-  margin-top: 20px;
-  font-size: 23px;
-}
-/* line 21, ../sass/partials/_basics.scss */
-.tabContent h3 {
-  margin-top: 15px;
-  margin-bottom: 8px;
-  font-size: 15px;
-}
-/* line 27, ../sass/partials/_basics.scss */
-.tabContent h4 {
-  margin-top: 10px;
-  font-size: 12px;
-  line-height: 1.3;
-}
-/* line 33, ../sass/partials/_basics.scss */
-.tabContent p {
-  font-size: 12px;
-  line-height: 1.3;
-}
-/* line 38, ../sass/partials/_basics.scss */
-.tabContent ul {
-  list-style-type: disc;
-  margin-top: 5px;
-  margin-bottom: 10px;
-  line-height: 1.3;
-}
-/* line 44, ../sass/partials/_basics.scss */
-.tabContent ul li {
-  margin-left: 14px;
-}
-
-/* line 50, ../sass/partials/_basics.scss */
-body {
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 12px;
-}
-
-/* line 55, ../sass/partials/_basics.scss */
-a {
-  color: #347d9f;
-  text-decoration: none;
-}
-
-/* line 1, ../sass/partials/_infowrapper.scss */
-#infowrapper {
-  background: #E1F2F9;
-  padding: 10px 0;
-  background: #e1f2f9;
-  /* Old browsers */
-  background: -moz-linear-gradient(top, #e1f2f9 0%, #f3fafd 42%, #f3fafd 58%, #e1f2f9 100%);
-  /* FF3.6+ */
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #e1f2f9), color-stop(42%, #f3fafd), color-stop(58%, #f3fafd), color-stop(100%, #e1f2f9));
-  /* Chrome,Safari4+ */
-  background: -webkit-linear-gradient(top, #e1f2f9 0%, #f3fafd 42%, #f3fafd 58%, #e1f2f9 100%);
-  /* Chrome10+,Safari5.1+ */
-  background: -o-linear-gradient(top, #e1f2f9 0%, #f3fafd 42%, #f3fafd 58%, #e1f2f9 100%);
-  /* Opera 11.10+ */
-  background: -ms-linear-gradient(top, #e1f2f9 0%, #f3fafd 42%, #f3fafd 58%, #e1f2f9 100%);
-  /* IE10+ */
-  background: linear-gradient(to bottom, #e1f2f9 0%, #f3fafd 42%, #f3fafd 58%, #e1f2f9 100%);
-  /* W3C */
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#e1f2f9', endColorstr='#e1f2f9',GradientType=0 );
-  /* IE6-9 */
-}
-
-/* line 1, ../sass/partials/_horizontalList.scss */
-.horizontalList {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-}
-/* line 5, ../sass/partials/_horizontalList.scss */
-.horizontalList li, .horizontalList a {
-  list-style-type: none;
-  display: inline-block;
-  *display: inline;
-  *zoom: 1;
-}
-/* line 12, ../sass/partials/_horizontalList.scss */
-.horizontalList a {
-  text-decoration: none;
-}
-/* line 14, ../sass/partials/_horizontalList.scss */
-.horizontalList a:focus, .horizontalList a:hover {
-  text-decoration: underline;
-}
-
-/* line 5, ../sass/partials/_breadCrumb.scss */
-.breadcrumb li a {
-  color: #347d9f;
-  position: relative;
-  padding-left: 10px;
-}
-/* line 9, ../sass/partials/_breadCrumb.scss */
-.breadcrumb li a:before, .breadcrumb li a .before {
-  content: "";
-  display: block;
-  width: 0;
-  height: 0;
-  border: 5px solid transparent;
-  border-left-color: red;
-  position: absolute;
-  left: 0;
-  top: 3px;
-}
-
-/* line 3, ../sass/partials/_media.scss */
-.media {
-  border: 1px solid #cccccc;
-  margin: 0 0 10px 0;
-}
-
-/* line 9, ../sass/partials/_media.scss */
-.mediaImage {
-  float: left;
-  margin: 0 10px 10px 0;
-}
-
-/* line 14, ../sass/partials/_media.scss */
-.right-image .media-img {
-  float: right;
-  margin: 0 10px 0 10px;
-}
-
-/* line 18, ../sass/partials/_media.scss */
-.media-imagecnt .media-img {
-  float: none;
-  display: block;
-}
-
-/* line 23, ../sass/partials/_media.scss */
-.media-headline {
-  background: #ccc;
-  padding: 10px;
-  margin: 0;
-}
-
-/* line 28, ../sass/partials/_media.scss */
-.media-content {
-  margin: 10px;
-}
-
-/* line 32, ../sass/partials/_media.scss */
-.media-imagecnt {
-  float: left;
-}
-
-/* line 35, ../sass/partials/_media.scss */
-.right-image .media-imagecnt {
-  float: right;
-}
-
-/* line 38, ../sass/partials/_media.scss */
-.media-imagecnt img {
-  margin: 0 10px 10px 0;
-}
-
-/* line 41, ../sass/partials/_media.scss */
-.right-image .media-imagecnt img {
-  margin: 0 0 10px 10px;
-}
-
-/* line 1, ../sass/partials/_tabWrapper.scss */
-.tabWrapper {
-  width: 80%;
-}
-/* line 3, ../sass/partials/_tabWrapper.scss */
-.tabWrapper .tabNavigation {
-  background-color: #eef8fc;
-  height: 32px;
-  width: 100%;
-}
-/* line 9, ../sass/partials/_tabWrapper.scss */
-.tabWrapper .tabNavigation ul li {
-  display: inline-block;
-  margin: 0 13px 9px 13px;
-}
-/* line 12, ../sass/partials/_tabWrapper.scss */
-.tabWrapper .tabNavigation ul li a {
-  display: block;
-  font-size: 13px;
-  padding: 8px 15px 8px 15px;
-}
-/* line 16, ../sass/partials/_tabWrapper.scss */
-.tabWrapper .tabNavigation ul li a:hover, .tabWrapper .tabNavigation ul li a:focus {
-  background: white;
-  border-top: 2px solid #dff1f9;
-  border-right: 2px solid #dff1f9;
-  border-left: 2px solid #dff1f9;
-  color: #222222;
-  padding-top: 6px;
-  padding-left: 13px;
-  padding-right: 13px;
-}
-/* line 28, ../sass/partials/_tabWrapper.scss */
-.tabWrapper .tabNavigation ul:first-child {
-  margin-left: -13px;
-}
-/* line 33, ../sass/partials/_tabWrapper.scss */
-.tabWrapper .tabContent {
-  border: 2px solid #dff1f9;
-  padding: 10px;
-}
-/* line 37, ../sass/partials/_tabWrapper.scss */
-.tabWrapper img {
-  margin-top: 5px;
-  max-width: 684px;
-}
+body:before {
+  white-space: pre;
+  font-family: monospace;
+  content: "Syntax error: Invalid CSS after \"...als/tabWrapper\"\": expected selector or at-rule, was \"\"partials/botto...\"\A         on line 25 of /var/www/thephp.cc/training_frontend/Versuch einer Grundstruktur/sass/screen.scss"; }

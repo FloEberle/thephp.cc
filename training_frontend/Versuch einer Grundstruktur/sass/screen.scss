@@ -11,11 +11,18 @@
 
 @import "variables";
 
+$basics-sprite-dimensions: true;
+@import "sprites/basics/*.png";
+@include all-basics-sprites;
+
 @import "partials/basics",
 		"partials/infowrapper",
 		"partials/horizontalList", 
+		"partials/mainNavigation",
 		"partials/breadCrumb",
 		"partials/media",
-                "partials/tabWrapper";
-
+                "partials/tabWrapper"
+		"partials/bottomNav",
+		"partials/footer",
+		"partials/media";
 
