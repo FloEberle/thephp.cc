@@ -108,52 +108,48 @@ a {
   margin: 0 0 10px 0;
 }
 
-/* line 9, ../sass/partials/_media.scss */
+/* line 7, ../sass/partials/_media.scss */
 .mediaImage {
   float: left;
   margin: 0 10px 10px 0;
 }
 
-/* line 14, ../sass/partials/_media.scss */
-.right-image .media-img {
+/* line 13, ../sass/partials/_media.scss */
+.rightImage .mediaImagecnt {
+  float: right;
+}
+/* line 15, ../sass/partials/_media.scss */
+.rightImage .mediaImagecnt img {
+  margin: 0 0 10px 10px;
+}
+/* line 19, ../sass/partials/_media.scss */
+.rightImage .mediaImage {
   float: right;
   margin: 0 10px 0 10px;
 }
 
-/* line 18, ../sass/partials/_media.scss */
-.media-imagecnt .media-img {
+/* line 26, ../sass/partials/_media.scss */
+.mediaImagecnt {
+  float: left;
+}
+/* line 28, ../sass/partials/_media.scss */
+.mediaImagecnt .mediaImage {
   float: none;
   display: block;
 }
+/* line 32, ../sass/partials/_media.scss */
+.mediaImagecnt img {
+  margin: 0 10px 10px 0;
+}
 
-/* line 23, ../sass/partials/_media.scss */
-.media-headline {
+/* line 39, ../sass/partials/_media.scss */
+.mediaHeadline {
   background: #ccc;
   padding: 10px;
   margin: 0;
 }
 
-/* line 28, ../sass/partials/_media.scss */
-.media-content {
+/* line 46, ../sass/partials/_media.scss */
+.mediaContent {
   margin: 10px;
-}
-
-/* line 32, ../sass/partials/_media.scss */
-.media-imagecnt {
-  float: left;
-}
-
-/* line 35, ../sass/partials/_media.scss */
-.right-image .media-imagecnt {
-  float: right;
-}
-
-/* line 38, ../sass/partials/_media.scss */
-.media-imagecnt img {
-  margin: 0 10px 10px 0;
-}
-
-/* line 41, ../sass/partials/_media.scss */
-.right-image .media-imagecnt img {
-  margin: 0 0 10px 10px;
 }
