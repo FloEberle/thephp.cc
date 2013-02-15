@@ -83,6 +83,135 @@ a {
   text-decoration: underline;
 }
 
+/* line 1, ../sass/partials/_mainNavigation.scss */
+.mainNavigation {
+  list-style-type: none;
+  position: relative;
+  height: 46px;
+  margin: 0;
+}
+/* line 6, ../sass/partials/_mainNavigation.scss */
+.mainNavigation > li {
+  float: left;
+  vertical-align: top;
+  margin: 15px 0 0 0;
+}
+/* line 10, ../sass/partials/_mainNavigation.scss */
+.mainNavigation > li > a {
+  text-align: center;
+  display: block;
+  height: 30px;
+  width: 134px;
+  margin-left: 3px;
+  padding: 16px 0 0 0;
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: bold;
+  background: #292929;
+  border-radius: 0 3px 0 0;
+}
+/* line 22, ../sass/partials/_mainNavigation.scss */
+.mainNavigation > li > a:hover, .mainNavigation > li > a:focus {
+  color: #222;
+  text-decoration: none;
+  background: #d0ecfa;
+}
+/* line 29, ../sass/partials/_mainNavigation.scss */
+.mainNavigation > li.right {
+  margin-top: 0;
+  display: inline-block;
+}
+/* line 34, ../sass/partials/_mainNavigation.scss */
+.mainNavigation > li:first-child > a {
+  margin-left: 0;
+  width: 136px;
+}
+/* line 39, ../sass/partials/_mainNavigation.scss */
+.mainNavigation li {
+  list-style-type: none;
+}
+/* line 41, ../sass/partials/_mainNavigation.scss */
+.mainNavigation li > ul {
+  display: none;
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 298px;
+  z-index: 999;
+  border: 1px solid #bfe3f4;
+  box-shadow: 0 5px 15px -10px #333333;
+  background: url("http://dev.brack.ch/img/bg_horizontal.jpg") repeat-y scroll 0 0 transparent;
+  margin: 0 0 10px 0;
+}
+/* line 52, ../sass/partials/_mainNavigation.scss */
+.mainNavigation li > ul > li {
+  padding: 2px 0 0 0;
+  margin: 15px 0 0 15px;
+}
+/* line 56, ../sass/partials/_mainNavigation.scss */
+.mainNavigation li > ul li {
+  float: none;
+}
+/* line 58, ../sass/partials/_mainNavigation.scss */
+.mainNavigation li > ul li div {
+  float: left;
+  width: 192px;
+}
+/* line 61, ../sass/partials/_mainNavigation.scss */
+.mainNavigation li > ul li div h2 {
+  font-size: 16px;
+}
+/* line 64, ../sass/partials/_mainNavigation.scss */
+.mainNavigation li > ul li div ul {
+  display: block;
+  width: 160px;
+  height: auto;
+  border: 0;
+  background: none;
+  box-shadow: none;
+  margin: 5px 0 10px 0;
+}
+/* line 72, ../sass/partials/_mainNavigation.scss */
+.mainNavigation li > ul li div ul li {
+  position: relative;
+  margin: 0;
+}
+/* line 75, ../sass/partials/_mainNavigation.scss */
+.mainNavigation li > ul li div ul li a {
+  line-height: 1.4em;
+  display: block;
+}
+/* line 78, ../sass/partials/_mainNavigation.scss */
+.mainNavigation li > ul li div ul li a:hover, .mainNavigation li > ul li div ul li a:active {
+  text-decoration: underline;
+}
+/* line 83, ../sass/partials/_mainNavigation.scss */
+.mainNavigation li > ul li div ul li.bottom {
+  bottom: 10px;
+}
+/* line 89, ../sass/partials/_mainNavigation.scss */
+.mainNavigation li > ul li.right {
+  position: absolute;
+  right: 0;
+}
+/* line 92, ../sass/partials/_mainNavigation.scss */
+.mainNavigation li > ul li.right a, .mainNavigation li > ul li.right h2 {
+  color: #ffffff;
+}
+/* line 95, ../sass/partials/_mainNavigation.scss */
+.mainNavigation li > ul li.right a.allBrands {
+  margin-top: 10px;
+  padding: 0 0 0 10px;
+  background: url("../img/template_images.png") no-repeat scroll 0 -364px transparent;
+  opacity: 0.7;
+}
+
+/* CSS Animation */
+/* line 107, ../sass/partials/_mainNavigation.scss */
+body.noJS ul#topnav li:hover ul {
+  display: block !important;
+}
+
 /* line 5, ../sass/partials/_breadCrumb.scss */
 .breadcrumb li a {
   color: #347d9f;
