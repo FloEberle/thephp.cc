@@ -6,6 +6,47 @@
 .ym-g1-7 { width: 14.2857%;}
 .ym-g2-7 { width: 28.5714%;}
 
+//Typografie tabContent Produktdetailseite
+.tabContent{
+    h2, h3, h4{
+        line-height: $hTagTabContentLineHeight;
+        color: $hTagTabContentColor;
+    }
+
+    h2 {
+        margin-top: $h2TabContentMarginTop;
+        font-size: $h2TabContentFontSize;
+    }
+
+    h3{        
+        margin-top: $h3TabContentMarginTop;
+        margin-bottom: $h3TabContentMarginBottom;
+        font-size: $h3TabContentFontSize;
+    }
+
+    h4{
+        margin-top: $h4TabContentMarginTop;
+        font-size: $h4TabContentFontSize;
+        line-height: $h4TabContentLineHeight;
+    }
+
+    p {
+        font-size: $pTabContentFontSize;
+        line-height: $pTabContentLineHeight; 
+    } 
+
+    ul {
+        list-style-type: $ulTabContentListStyleType;
+        margin-top: $ulTabContentMarginTop;
+        margin-bottom: $ulTabContentMarginBottom;
+        line-height: $ulTabContentLineHeight;
+
+        li{
+            margin-left: $liTabContentMarginLeft;            
+        }
+    }
+}
+
 body {
 	font-family: $baseFontFamily;
 	font-size: $baseFontSize;

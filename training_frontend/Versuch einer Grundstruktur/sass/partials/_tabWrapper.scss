@@ -1,0 +1,48 @@
+.tabWrapper {
+    width: $tabWrapperWidth;
+    .tabNavigation {
+        background-color: $tabNavigationBackgroundColor;
+        height: $tabNavigationHeight;
+        width: $tabNavigationWidth;
+        ul{
+           
+            li{
+                 display: inline-block;
+                 margin: 0 $tabNavigationLiMarginRight $tabNavigationLiMarginBottom $tabNavigationLiMarginLeft;
+                 a {
+                    display: block; 
+                    font-size: $tabNavigationAFontSize;
+                    padding: $tabNavigationLiMarginTop $tabNavigationAPaddingRight $tabNavigationAPaddingBottom $tabNavigationAPaddingLeft;
+                    &:hover, &:focus{
+                        background: $tabNavigationAHoverBackgroundColor;
+                        border-top: $tabNavigationABorderDimension $tabNavigationABorderType $tabNavigationABorderColor;
+                        border-right: $tabNavigationABorderDimension $tabNavigationABorderType $tabNavigationABorderColor;
+                        border-left: $tabNavigationABorderDimension $tabNavigationABorderType $tabNavigationABorderColor;
+                        color: $tabNavigationAHoverFontColor;
+                        padding-top: $tabNavigationLiMarginTop - $tabNavigationABorderDimension;
+                        padding-left: $tabNavigationAPaddingLeft - $tabNavigationABorderDimension;
+                        padding-right: $tabNavigationAPaddingRight - $tabNavigationABorderDimension;
+                    }
+                 }
+            }
+            &:first-child {
+                   margin-left: $tabNavigationUlfirstChildMarginLeft;
+            }
+        }
+    }
+    .tabContent {
+        border: $tabContentBorder;
+        padding: $tabContentPadding;
+    }
+   img {
+    margin-top: $tabContentImgMarginTop;
+    max-width: $tabContentImgMaxWidth;
+    }
+}
+
+
+
+
+
+                  
+

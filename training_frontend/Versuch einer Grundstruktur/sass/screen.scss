@@ -20,8 +20,11 @@ $basics-sprite-dimensions: true;
 		"partials/horizontalList", 
 		"partials/mainNavigation",
 		"partials/breadCrumb",
+		"partials/media",
+                "partials/tabWrapper",
 		"partials/bottomNav",
 		"partials/footer",
+		"partials/header",
 		"partials/media",
 		"partials/sidebarContainers";
 
@@ -30,4 +33,3 @@ $basics-sprite-dimensions: true;
 // nur für meine Tests
 .ym-col1 {width: 30%;}
 .ym-col3 {margin: 0 0 0 35%;}
-
