@@ -102,6 +102,28 @@ a {
   top: 3px;
 }
 
+/* line 1, ../sass/partials/_footer.scss */
+#footer {
+  background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #eef8fc), color-stop(100%, #ffffff));
+  background: -webkit-linear-gradient(#eef8fc, #ffffff);
+  background: -moz-linear-gradient(#eef8fc, #ffffff);
+  background: -o-linear-gradient(#eef8fc, #ffffff);
+  background: linear-gradient(#eef8fc, #ffffff);
+}
+/* line 5, ../sass/partials/_footer.scss */
+#footer h3, #footer h3 a {
+  color: #222;
+}
+/* line 10, ../sass/partials/_footer.scss */
+#footer ul, #footer li {
+  list-style-type: none;
+  margin: 0 0 0 0;
+}
+/* line 13, ../sass/partials/_footer.scss */
+#footer ul .extern, #footer li .extern {
+  background: #fbfcfe;
+}
+
 /* line 3, ../sass/partials/_media.scss */
 .media {
   border: 1px solid #cccccc;
