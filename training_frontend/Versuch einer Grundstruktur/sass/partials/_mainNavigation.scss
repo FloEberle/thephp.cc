@@ -26,10 +26,6 @@
       }
     }
   }
-  > li.right {
-    margin-top: 0;
-    display: inline-block;
-  }
   > li:first-child {
     > a {
       margin-left: 0;
@@ -47,7 +43,7 @@
       z-index: 999;
       border: 1px solid #BFE3F4;
       box-shadow: 0 5px 15px -10px #333;
-      background: url("http://dev.brack.ch/img/bg_horizontal.jpg") repeat-y scroll 0 0 transparent;
+      background: url("../images/bg_horizontal.jpg") repeat-y scroll 0 0 transparent;
       margin: 0 0 10px 0;
       > li {
         padding: 2px 0 0 0;
@@ -86,11 +82,32 @@
           }
         }
       }
-      li.right {
+      > li.right {
+        top: 0;
+        display: inline-block;
         position: absolute;
         right: 0;
         a, h2 {
           color: #ffffff;
+        }
+        &.bottom {
+          bottom: 0;
+        }
+        > ul {
+          background: none;
+          border: 0;
+          box-shadow: none;
+          position: static;
+          overflow: hidden;
+          width: 160px;
+          li {
+            float: left;
+            margin: 0;
+            a {
+              display: block;
+              width: 75px;
+            }
+          }
         }
         a.allBrands {
           margin-top: 10px;

@@ -49,9 +49,6 @@ class Game
                   break;
                }
             }
-            // foreach(players as player)
-            // Player.play()
-            // Player.hasCards() == false -> stopGame() und break
         }
     }
            
