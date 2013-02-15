@@ -11,10 +11,16 @@
 
 @import "variables";
 
+$basics-sprite-dimensions: true;
+@import "sprites/basics/*.png";
+@include all-basics-sprites;
+
 @import "partials/basics",
 		"partials/infowrapper",
 		"partials/horizontalList", 
+		"partials/mainNavigation",
 		"partials/breadCrumb",
+		"partials/bottomNav",
 		"partials/footer",
 		"partials/media",
 		"partials/sidebarContainers";
@@ -24,3 +30,4 @@
 // nur für meine Tests
 .ym-col1 {width: 30%;}
 .ym-col3 {margin: 0 0 0 35%;}
+

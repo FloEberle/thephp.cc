@@ -6,6 +6,67 @@
 	State
 	Theme
 */
+/* line 98, sprites/basics/*.png */
+.basics-sprite, .basics-brack, .basics-daydeal, .basics-facebook, .basics-mastercard, .basics-postfinance, .basics-proclima, .basics-twitter, .basics-visa {
+  background: url('/images/sprites/basics-s392fa84c59.png') no-repeat;
+}
+
+/* line 60, ../../../../../../usr/lib/ruby/gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/sprites/_base.scss */
+.basics-brack {
+  background-position: 0 -139px;
+  height: 16px;
+  width: 16px;
+}
+
+/* line 60, ../../../../../../usr/lib/ruby/gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/sprites/_base.scss */
+.basics-daydeal {
+  background-position: 0 -123px;
+  height: 16px;
+  width: 16px;
+}
+
+/* line 60, ../../../../../../usr/lib/ruby/gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/sprites/_base.scss */
+.basics-facebook {
+  background-position: 0 -107px;
+  height: 16px;
+  width: 16px;
+}
+
+/* line 60, ../../../../../../usr/lib/ruby/gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/sprites/_base.scss */
+.basics-mastercard {
+  background-position: 0 -82px;
+  height: 25px;
+  width: 42px;
+}
+
+/* line 60, ../../../../../../usr/lib/ruby/gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/sprites/_base.scss */
+.basics-postfinance {
+  background-position: 0 -57px;
+  height: 25px;
+  width: 70px;
+}
+
+/* line 60, ../../../../../../usr/lib/ruby/gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/sprites/_base.scss */
+.basics-proclima {
+  background-position: 0 0;
+  height: 37px;
+  width: 51px;
+}
+
+/* line 60, ../../../../../../usr/lib/ruby/gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/sprites/_base.scss */
+.basics-twitter {
+  background-position: 0 -155px;
+  height: 15px;
+  width: 16px;
+}
+
+/* line 60, ../../../../../../usr/lib/ruby/gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/sprites/_base.scss */
+.basics-visa {
+  background-position: 0 -37px;
+  height: 20px;
+  width: 66px;
+}
+
 /* line 2, ../sass/partials/_basics.scss */
 .ym-wrapper {
   width: 100%;
@@ -83,6 +144,155 @@ a {
   text-decoration: underline;
 }
 
+/* line 1, ../sass/partials/_mainNavigation.scss */
+.mainNavigation {
+  list-style-type: none;
+  position: relative;
+  height: 46px;
+  margin: 0;
+}
+/* line 6, ../sass/partials/_mainNavigation.scss */
+.mainNavigation > li {
+  float: left;
+  vertical-align: top;
+  margin: 15px 0 0 0;
+}
+/* line 10, ../sass/partials/_mainNavigation.scss */
+.mainNavigation > li > a {
+  text-align: center;
+  display: block;
+  height: 30px;
+  width: 134px;
+  margin-left: 3px;
+  padding: 16px 0 0 0;
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: bold;
+  background: #292929;
+  border-radius: 0 3px 0 0;
+}
+/* line 22, ../sass/partials/_mainNavigation.scss */
+.mainNavigation > li > a:hover, .mainNavigation > li > a:focus {
+  color: #222;
+  text-decoration: none;
+  background: #d0ecfa;
+}
+/* line 30, ../sass/partials/_mainNavigation.scss */
+.mainNavigation > li:first-child > a {
+  margin-left: 0;
+  width: 136px;
+}
+/* line 35, ../sass/partials/_mainNavigation.scss */
+.mainNavigation li {
+  list-style-type: none;
+}
+/* line 37, ../sass/partials/_mainNavigation.scss */
+.mainNavigation li > ul {
+  display: none;
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 298px;
+  z-index: 999;
+  border: 1px solid #bfe3f4;
+  box-shadow: 0 5px 15px -10px #333333;
+  background: url("../images/bg_horizontal.jpg") repeat-y scroll 0 0 transparent;
+  margin: 0 0 10px 0;
+}
+/* line 48, ../sass/partials/_mainNavigation.scss */
+.mainNavigation li > ul > li {
+  padding: 2px 0 0 0;
+  margin: 15px 0 0 15px;
+}
+/* line 52, ../sass/partials/_mainNavigation.scss */
+.mainNavigation li > ul li {
+  float: none;
+}
+/* line 54, ../sass/partials/_mainNavigation.scss */
+.mainNavigation li > ul li div {
+  float: left;
+  width: 192px;
+}
+/* line 57, ../sass/partials/_mainNavigation.scss */
+.mainNavigation li > ul li div h2 {
+  font-size: 16px;
+}
+/* line 60, ../sass/partials/_mainNavigation.scss */
+.mainNavigation li > ul li div ul {
+  display: block;
+  width: 160px;
+  height: auto;
+  border: 0;
+  background: none;
+  box-shadow: none;
+  margin: 5px 0 10px 0;
+}
+/* line 68, ../sass/partials/_mainNavigation.scss */
+.mainNavigation li > ul li div ul li {
+  position: relative;
+  margin: 0;
+}
+/* line 71, ../sass/partials/_mainNavigation.scss */
+.mainNavigation li > ul li div ul li a {
+  line-height: 1.4em;
+  display: block;
+}
+/* line 74, ../sass/partials/_mainNavigation.scss */
+.mainNavigation li > ul li div ul li a:hover, .mainNavigation li > ul li div ul li a:active {
+  text-decoration: underline;
+}
+/* line 79, ../sass/partials/_mainNavigation.scss */
+.mainNavigation li > ul li div ul li.bottom {
+  bottom: 10px;
+}
+/* line 85, ../sass/partials/_mainNavigation.scss */
+.mainNavigation li > ul > li.right {
+  top: 0;
+  display: inline-block;
+  position: absolute;
+  right: 0;
+}
+/* line 90, ../sass/partials/_mainNavigation.scss */
+.mainNavigation li > ul > li.right a, .mainNavigation li > ul > li.right h2 {
+  color: #ffffff;
+}
+/* line 93, ../sass/partials/_mainNavigation.scss */
+.mainNavigation li > ul > li.right.bottom {
+  bottom: 0;
+}
+/* line 96, ../sass/partials/_mainNavigation.scss */
+.mainNavigation li > ul > li.right > ul {
+  background: none;
+  border: 0;
+  box-shadow: none;
+  position: static;
+  overflow: hidden;
+  width: 160px;
+}
+/* line 103, ../sass/partials/_mainNavigation.scss */
+.mainNavigation li > ul > li.right > ul li {
+  float: left;
+  margin: 0;
+}
+/* line 106, ../sass/partials/_mainNavigation.scss */
+.mainNavigation li > ul > li.right > ul li a {
+  display: block;
+  width: 75px;
+}
+/* line 112, ../sass/partials/_mainNavigation.scss */
+.mainNavigation li > ul > li.right a.allBrands {
+  margin-top: 10px;
+  padding: 0 0 0 10px;
+  background: url("../img/template_images.png") no-repeat scroll 0 -364px transparent;
+  opacity: 0.7;
+}
+
+/* CSS Animation */
+/* line 124, ../sass/partials/_mainNavigation.scss */
+body.noJS ul#topnav li:hover ul {
+  display: block !important;
+}
+
 /* line 5, ../sass/partials/_breadCrumb.scss */
 .breadcrumb li a {
   color: #347d9f;
@@ -102,26 +312,44 @@ a {
   top: 3px;
 }
 
-/* line 1, ../sass/partials/_footer.scss */
-#footer {
+/* line 3, ../sass/partials/_bottomNav.scss */
+#bottomnav .ym-wbox {
+  border-top: 1px solid #bfdfee;
+  padding: 10px;
   background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #eef8fc), color-stop(100%, #ffffff));
   background: -webkit-linear-gradient(#eef8fc, #ffffff);
   background: -moz-linear-gradient(#eef8fc, #ffffff);
   background: -o-linear-gradient(#eef8fc, #ffffff);
   background: linear-gradient(#eef8fc, #ffffff);
 }
-/* line 5, ../sass/partials/_footer.scss */
-#footer h3, #footer h3 a {
+/* line 11, ../sass/partials/_bottomNav.scss */
+#bottomnav h3, #bottomnav h3 a {
   color: #222;
 }
-/* line 10, ../sass/partials/_footer.scss */
-#footer ul, #footer li {
+/* line 16, ../sass/partials/_bottomNav.scss */
+#bottomnav ul, #bottomnav li {
   list-style-type: none;
   margin: 0 0 0 0;
 }
-/* line 13, ../sass/partials/_footer.scss */
-#footer ul .extern, #footer li .extern {
+/* line 22, ../sass/partials/_bottomNav.scss */
+#bottomnav .ym-g2-7 a {
   background: #fbfcfe;
+  display: block;
+  padding: 5px;
+}
+/* line 28, ../sass/partials/_bottomNav.scss */
+#bottomnav .ym-g2-7 li {
+  padding: 0px 20px 5px 0px;
+}
+/* line 30, ../sass/partials/_bottomNav.scss */
+#bottomnav .ym-g2-7 li span {
+  display: inline-block;
+}
+
+/* line 2, ../sass/partials/_footer.scss */
+#footer .ym-wbox {
+  border-top: 1px solid #bfdfee;
+  padding: 10px;
 }
 
 /* line 3, ../sass/partials/_media.scss */
