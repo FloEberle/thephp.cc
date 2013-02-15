@@ -1,0 +1,47 @@
+// Basisklassen für die Sidebar-Container
+.sideContainer {
+	padding: $sidebarContainersPaddingSize;
+	margin-bottom: $sidebarContainersMarginSize;
+}
+
+dl.tableView {
+    padding: 0;	
+	overflow: hidden;
+	dt {
+	    float: left;
+	    width: 50%;
+	    margin-bottom: 12px;
+	    clear: both;
+	}
+	dd {
+	    float: right;
+	    width: 49%;
+	    text-align: right;
+	    margin-bottom: 12px;
+	}
+}
+
+
+// Modifyer-Klassen für die Container
+// ----------------------------------
+
+// Container hat keine Rahmenlinien
+.noBorder {
+	border: none;
+}
+
+// Container hat an allen 4 Seiten eine Linie
+.border4Sides {
+	border: $sidebarContainersBorderWidth solid $sidebarContainersBorderColor;
+}           
+
+// Container hat nur oben eine Linie
+.borderTop {
+	border-top: $sidebarContainersBorderWidth solid $sidebarContainersBorderColor;
+}
+
+// Container hat eine Hintergrundfarbe
+.coloredBackground {
+	background-color: $sidebarContainersBackgroundColor;
+}
+
