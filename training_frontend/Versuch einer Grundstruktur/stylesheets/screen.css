@@ -1,0 +1,27 @@
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+/* line 1, ../sass/partials/_horizontalList.scss */
+.horizontalList {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+/* line 5, ../sass/partials/_horizontalList.scss */
+.horizontalList li, .horizontalList a {
+  list-style-type: none;
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+}
+/* line 12, ../sass/partials/_horizontalList.scss */
+.horizontalList a {
+  text-decoration: none;
+}
+/* line 14, ../sass/partials/_horizontalList.scss */
+.horizontalList a:focus, .horizontalList a:hover {
+  text-decoration: underline;
+}
+
+/* Hier kommt die Breadcrumb hin! */

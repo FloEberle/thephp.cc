@@ -1,0 +1,18 @@
+.horizontalList {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	li, a {
+		list-style-type: none;
+		display: inline-block;
+		// display:inline-block auch für den IE7 und IE6
+		*display: inline;
+		*zoom: 1;
+	}
+	a {
+		text-decoration: none;
+		&:focus, &:hover {
+			text-decoration: underline;
+		}
+	}
+}

@@ -5,3 +5,7 @@
 /nbproject
 autoload.php
 build/
+
+.DS_Store
+.sass-cache
+/training_frontend/Versuch einer Grundstruktur/.DS_Store
