@@ -25,3 +25,7 @@
 }
 
 /* Hier kommt die Breadcrumb hin! */
+/* line 2, ../sass/partials/_footer.scss */
+#footer h3, #footer h3 a {
+  color: #222;
+}
