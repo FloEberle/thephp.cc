@@ -1,1 +1,22 @@
-/* Hier kommt die Breadcrumb hin! */
+// Ist eine Erweiterung von horizontalList
+
+.breadcrumb {
+	li {
+		a {
+			color: $breadcrumbLinkColor;
+			position: relative;
+			padding-left: $breadcrumbArrowSize*2;
+			&:before, .before{
+				content: "";
+				display: block;
+				width: 0;
+				height: 0;
+				border: $breadcrumbArrowSize solid transparent;
+				border-left-color: $breadcrumbArrowColor;
+				position: absolute;
+				left: 0;
+				top: $breadcrumbPositionTop;
+			}
+		}
+	}
+}

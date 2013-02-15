@@ -1,7 +1,66 @@
-/* Welcome to Compass.
- * In this file you should write your main styles. (or centralize your imports)
- * Import this file using the following HTML or equivalent:
- * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+/*
+	SMACSS-Reihenfolge
+	Base
+	Layout
+	Module
+	State
+	Theme
+*/
+/* line 2, ../sass/partials/_basics.scss */
+.ym-wrapper {
+  width: 100%;
+}
+
+/* line 3, ../sass/partials/_basics.scss */
+.ym-wbox {
+  width: 958px;
+  margin: 0 auto;
+}
+
+/* line 6, ../sass/partials/_basics.scss */
+.ym-g1-7 {
+  width: 14.2857%;
+}
+
+/* line 7, ../sass/partials/_basics.scss */
+.ym-g2-7 {
+  width: 28.5714%;
+}
+
+/* line 9, ../sass/partials/_basics.scss */
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
+}
+
+/* line 14, ../sass/partials/_basics.scss */
+a {
+  color: #347d9f;
+  text-decoration: none;
+}
+
+/* line 1, ../sass/partials/_infowrapper.scss */
+#infowrapper {
+  background: #E1F2F9;
+  padding: 10px 0;
+  background: #e1f2f9;
+  /* Old browsers */
+  background: -moz-linear-gradient(top, #e1f2f9 0%, #f3fafd 42%, #f3fafd 58%, #e1f2f9 100%);
+  /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #e1f2f9), color-stop(42%, #f3fafd), color-stop(58%, #f3fafd), color-stop(100%, #e1f2f9));
+  /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top, #e1f2f9 0%, #f3fafd 42%, #f3fafd 58%, #e1f2f9 100%);
+  /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top, #e1f2f9 0%, #f3fafd 42%, #f3fafd 58%, #e1f2f9 100%);
+  /* Opera 11.10+ */
+  background: -ms-linear-gradient(top, #e1f2f9 0%, #f3fafd 42%, #f3fafd 58%, #e1f2f9 100%);
+  /* IE10+ */
+  background: linear-gradient(to bottom, #e1f2f9 0%, #f3fafd 42%, #f3fafd 58%, #e1f2f9 100%);
+  /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#e1f2f9', endColorstr='#e1f2f9',GradientType=0 );
+  /* IE6-9 */
+}
+
 /* line 1, ../sass/partials/_horizontalList.scss */
 .horizontalList {
   list-style-type: none;
@@ -24,4 +83,77 @@
   text-decoration: underline;
 }
 
-/* Hier kommt die Breadcrumb hin! */
+/* line 5, ../sass/partials/_breadCrumb.scss */
+.breadcrumb li a {
+  color: #347d9f;
+  position: relative;
+  padding-left: 10px;
+}
+/* line 9, ../sass/partials/_breadCrumb.scss */
+.breadcrumb li a:before, .breadcrumb li a .before {
+  content: "";
+  display: block;
+  width: 0;
+  height: 0;
+  border: 5px solid transparent;
+  border-left-color: red;
+  position: absolute;
+  left: 0;
+  top: 3px;
+}
+
+/* line 3, ../sass/partials/_media.scss */
+.media {
+  border: 1px solid #cccccc;
+  margin: 0 0 10px 0;
+}
+
+/* line 9, ../sass/partials/_media.scss */
+.mediaImage {
+  float: left;
+  margin: 0 10px 10px 0;
+}
+
+/* line 14, ../sass/partials/_media.scss */
+.right-image .media-img {
+  float: right;
+  margin: 0 10px 0 10px;
+}
+
+/* line 18, ../sass/partials/_media.scss */
+.media-imagecnt .media-img {
+  float: none;
+  display: block;
+}
+
+/* line 23, ../sass/partials/_media.scss */
+.media-headline {
+  background: #ccc;
+  padding: 10px;
+  margin: 0;
+}
+
+/* line 28, ../sass/partials/_media.scss */
+.media-content {
+  margin: 10px;
+}
+
+/* line 32, ../sass/partials/_media.scss */
+.media-imagecnt {
+  float: left;
+}
+
+/* line 35, ../sass/partials/_media.scss */
+.right-image .media-imagecnt {
+  float: right;
+}
+
+/* line 38, ../sass/partials/_media.scss */
+.media-imagecnt img {
+  margin: 0 10px 10px 0;
+}
+
+/* line 41, ../sass/partials/_media.scss */
+.right-image .media-imagecnt img {
+  margin: 0 0 10px 10px;
+}

@@ -1,0 +1,43 @@
+// Media-Element
+
+.media {
+  border: 1px solid #ccc;
+  margin: 0 0 10px 0;
+
+
+}
+.mediaImage {
+  float: left;
+  margin: 0 10px 10px 0;
+}
+
+.right-image  .media-img {
+  float: right;
+  margin: 0 10px 0 10px;
+}
+.media-imagecnt .media-img {
+  float: none;
+  display: block;
+}
+
+.media-headline {
+  background: #ccc;
+  padding: 10px;
+  margin: 0;
+}
+.media-content {
+  margin: 10px;
+}
+
+.media-imagecnt {
+  float: left;
+}
+.right-image  .media-imagecnt {
+  float: right;
+}
+.media-imagecnt img {
+  margin: 0 10px 10px 0;
+}
+.right-image  .media-imagecnt img {
+  margin: 0 0 10px 10px;
+}

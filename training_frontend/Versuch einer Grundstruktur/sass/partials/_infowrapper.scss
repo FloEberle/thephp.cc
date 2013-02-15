@@ -1,0 +1,12 @@
+#infowrapper  {
+  	background: #E1F2F9;
+  	padding: 10px 0;
+	background: #e1f2f9; /* Old browsers */
+	background: -moz-linear-gradient(top,  #e1f2f9 0%, #f3fafd 42%, #f3fafd 58%, #e1f2f9 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#e1f2f9), color-stop(42%,#f3fafd), color-stop(58%,#f3fafd), color-stop(100%,#e1f2f9)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #e1f2f9 0%,#f3fafd 42%,#f3fafd 58%,#e1f2f9 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #e1f2f9 0%,#f3fafd 42%,#f3fafd 58%,#e1f2f9 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #e1f2f9 0%,#f3fafd 42%,#f3fafd 58%,#e1f2f9 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  #e1f2f9 0%,#f3fafd 42%,#f3fafd 58%,#e1f2f9 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e1f2f9', endColorstr='#e1f2f9',GradientType=0 ); /* IE6-9 */
+}

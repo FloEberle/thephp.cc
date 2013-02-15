@@ -1,0 +1,17 @@
+// Grundlayout
+.ym-wrapper {width: 100%; }
+.ym-wbox {width: 958px; margin: 0 auto; }
+
+// eigenes Grid für den Footer
+.ym-g1-7 { width: 14.2857%;}
+.ym-g2-7 { width: 28.5714%;}
+
+body {
+	font-family: $baseFontFamily;
+	font-size: $baseFontSize;
+}
+
+a {
+	color: $basicLinkColor;
+	text-decoration: none;
+}
