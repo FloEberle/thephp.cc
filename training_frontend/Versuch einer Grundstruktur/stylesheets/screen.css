@@ -116,23 +116,17 @@ a {
   text-decoration: none;
   background: #d0ecfa;
 }
-/* line 29, ../sass/partials/_mainNavigation.scss */
-.mainNavigation > li.right {
-  margin-top: 0;
-  display: inline-block;
-}
-/* line 34, ../sass/partials/_mainNavigation.scss */
+/* line 30, ../sass/partials/_mainNavigation.scss */
 .mainNavigation > li:first-child > a {
   margin-left: 0;
   width: 136px;
 }
-/* line 39, ../sass/partials/_mainNavigation.scss */
+/* line 35, ../sass/partials/_mainNavigation.scss */
 .mainNavigation li {
   list-style-type: none;
 }
-/* line 41, ../sass/partials/_mainNavigation.scss */
+/* line 37, ../sass/partials/_mainNavigation.scss */
 .mainNavigation li > ul {
-  display: none;
   position: absolute;
   left: 0;
   width: 100%;
@@ -140,28 +134,28 @@ a {
   z-index: 999;
   border: 1px solid #bfe3f4;
   box-shadow: 0 5px 15px -10px #333333;
-  background: url("http://dev.brack.ch/img/bg_horizontal.jpg") repeat-y scroll 0 0 transparent;
+  background: url("../images/bg_horizontal.jpg") repeat-y scroll 0 0 transparent;
   margin: 0 0 10px 0;
 }
-/* line 52, ../sass/partials/_mainNavigation.scss */
+/* line 48, ../sass/partials/_mainNavigation.scss */
 .mainNavigation li > ul > li {
   padding: 2px 0 0 0;
   margin: 15px 0 0 15px;
 }
-/* line 56, ../sass/partials/_mainNavigation.scss */
+/* line 52, ../sass/partials/_mainNavigation.scss */
 .mainNavigation li > ul li {
   float: none;
 }
-/* line 58, ../sass/partials/_mainNavigation.scss */
+/* line 54, ../sass/partials/_mainNavigation.scss */
 .mainNavigation li > ul li div {
   float: left;
   width: 192px;
 }
-/* line 61, ../sass/partials/_mainNavigation.scss */
+/* line 57, ../sass/partials/_mainNavigation.scss */
 .mainNavigation li > ul li div h2 {
   font-size: 16px;
 }
-/* line 64, ../sass/partials/_mainNavigation.scss */
+/* line 60, ../sass/partials/_mainNavigation.scss */
 .mainNavigation li > ul li div ul {
   display: block;
   width: 160px;
@@ -171,35 +165,60 @@ a {
   box-shadow: none;
   margin: 5px 0 10px 0;
 }
-/* line 72, ../sass/partials/_mainNavigation.scss */
+/* line 68, ../sass/partials/_mainNavigation.scss */
 .mainNavigation li > ul li div ul li {
   position: relative;
   margin: 0;
 }
-/* line 75, ../sass/partials/_mainNavigation.scss */
+/* line 71, ../sass/partials/_mainNavigation.scss */
 .mainNavigation li > ul li div ul li a {
   line-height: 1.4em;
   display: block;
 }
-/* line 78, ../sass/partials/_mainNavigation.scss */
+/* line 74, ../sass/partials/_mainNavigation.scss */
 .mainNavigation li > ul li div ul li a:hover, .mainNavigation li > ul li div ul li a:active {
   text-decoration: underline;
 }
-/* line 83, ../sass/partials/_mainNavigation.scss */
+/* line 79, ../sass/partials/_mainNavigation.scss */
 .mainNavigation li > ul li div ul li.bottom {
   bottom: 10px;
 }
-/* line 89, ../sass/partials/_mainNavigation.scss */
-.mainNavigation li > ul li.right {
+/* line 85, ../sass/partials/_mainNavigation.scss */
+.mainNavigation li > ul > li.right {
+  top: 0;
+  display: inline-block;
   position: absolute;
   right: 0;
 }
-/* line 92, ../sass/partials/_mainNavigation.scss */
-.mainNavigation li > ul li.right a, .mainNavigation li > ul li.right h2 {
+/* line 90, ../sass/partials/_mainNavigation.scss */
+.mainNavigation li > ul > li.right a, .mainNavigation li > ul > li.right h2 {
   color: #ffffff;
 }
-/* line 95, ../sass/partials/_mainNavigation.scss */
-.mainNavigation li > ul li.right a.allBrands {
+/* line 93, ../sass/partials/_mainNavigation.scss */
+.mainNavigation li > ul > li.right.bottom {
+  bottom: 0;
+}
+/* line 96, ../sass/partials/_mainNavigation.scss */
+.mainNavigation li > ul > li.right > ul {
+  background: none;
+  border: 0;
+  box-shadow: none;
+  position: static;
+  overflow: hidden;
+  width: 160px;
+}
+/* line 103, ../sass/partials/_mainNavigation.scss */
+.mainNavigation li > ul > li.right > ul li {
+  float: left;
+  margin: 0;
+}
+/* line 106, ../sass/partials/_mainNavigation.scss */
+.mainNavigation li > ul > li.right > ul li a {
+  display: block;
+  width: 75px;
+}
+/* line 112, ../sass/partials/_mainNavigation.scss */
+.mainNavigation li > ul > li.right a.allBrands {
   margin-top: 10px;
   padding: 0 0 0 10px;
   background: url("../img/template_images.png") no-repeat scroll 0 -364px transparent;
@@ -207,7 +226,7 @@ a {
 }
 
 /* CSS Animation */
-/* line 107, ../sass/partials/_mainNavigation.scss */
+/* line 124, ../sass/partials/_mainNavigation.scss */
 body.noJS ul#topnav li:hover ul {
   display: block !important;
 }
