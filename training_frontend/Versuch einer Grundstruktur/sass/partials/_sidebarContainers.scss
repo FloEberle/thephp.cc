@@ -7,17 +7,42 @@
 dl.tableView {
     padding: 0;	
 	overflow: hidden;
+	margin: 0;
 	dt {
 	    float: left;
 	    width: 50%;
-	    margin-bottom: 12px;
+	    margin: 0 0 $sidebarContainersMarginSize 0;
 	    clear: both;
 	}
 	dd {
 	    float: right;
-	    width: 49%;
+	    width: 50%;
 	    text-align: right;
-	    margin-bottom: 12px;
+	    margin: 0 0 $sidebarContainersMarginSize 0;
+	}
+}
+
+// Liste mit Häkchen
+
+.checkList {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	li {
+		position: relative;
+		padding-left: 20px;
+		color: $checklistItemColor;
+		&:before {
+			content: "\2714";
+			color: green;
+			font-weight: bold;
+			display: block;
+			width: 10px;
+			height: 10px;
+			position: absolute;
+			left: 0;
+			top: 0;
+		}
 	}
 }
 
