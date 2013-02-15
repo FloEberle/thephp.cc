@@ -9,8 +9,14 @@
 		*display: inline;
 		*zoom: 1;
 	}
+    li:first-child a {
+      padding: 0 10px 0 10px;
+      border-left: 0;
+    }
 	a {
 		text-decoration: none;
+        padding: 0 10px 0 11px;
+        border-left: 1px solid #DFF2F9;
 		&:focus, &:hover {
 			text-decoration: underline;
 		}
